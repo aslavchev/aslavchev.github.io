@@ -7,5 +7,5 @@ alt: image-alt
 project-date: April 2014
 client: Start Bootstrap
 category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+description: This project is a simple web application built with Python using the Flask framework. It demonstrates modern DevOps best practices by containerizing the application with Docker, orchestrating services using Docker Compose, implementing a health check endpoint, and setting up a CI pipeline using GitHub Actions. The entire project is maintained with Git for version control and hosted on GitHub.
 ---
