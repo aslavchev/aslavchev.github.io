@@ -1,0 +1,13 @@
+---
+layout: default
+modal-id: 2
+date: 2014-07-17
+img: cake.png
+alt: image-alt
+project-date: April 2014
+client: Start Bootstrap
+category: Web Development
+description: Welcome to the git challenge, A series of challenges designed to help you learn git and improve your git skills.
+link: https://github.com/aslavchev/git-challenge
+alt: View on GitHub
+---
