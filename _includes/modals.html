@@ -3,8 +3,9 @@
 <!-- Portfolio Modals -->
 {% for post in site.posts %}
 <!-- htmlhint id-class-value:false -->
-<div class="portfolio-modal modal fade" id="portfolio-modal-{{ post.modal-id | downcase | replace: ' ', '-' }}"
-  tabindex="-1" role="dialog" aria-hidden="true">
+<div class="portfolio-modal modal fade"
+  id="portfolio-modal-{{ post.modal-id | downcase | replace: ' ', '-' | replace: '_', '-' }}" tabindex="-1"
+  role="dialog" aria-hidden="true">
   <div class="modal-content">
     <div class="close-modal" data-dismiss="modal">
       <div class="lr">
