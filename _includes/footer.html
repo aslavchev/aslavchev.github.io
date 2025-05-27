@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <!-- Footer -->
 <footer class="text-center">
   <div class="footer-above">
@@ -19,7 +18,7 @@
             {% for network in site.social %}
             <li>
               <a href="{{ network.url }}" class="btn-social btn-outline"><i
-                  class="fa-brands fa-fw fa-{{ network.title | downcase }}"></i></a>
+                  class="fa-brands fa-fw fa-{{ network.title | downcase | replace: ' ', '-' }}"></i></a>
             </li>
             {% endfor %}
           </ul>
