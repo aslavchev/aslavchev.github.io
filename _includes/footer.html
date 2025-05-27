@@ -19,8 +19,8 @@
             <li>
               <a href="{{ network.url }}" class="btn-social btn-outline">
                 <!-- htmlhint id-class-value:false -->
-                <i class="fa-brands fa-fw fa-{{ network.title | downcase | replace: ' ', '-' }}"></i>
-                <!-- <i class="fa-brands fa-fw fa-{{ network.icon | downcase | replace: ' ', '-'}}"></i> -->
+                <!-- <i class="fa-brands fa-fw fa-{{ network.title | downcase | replace: ' ', '-' }}"></i> -->
+                <i class="fa-brands fa-fw fa-{{ network.icon | downcase | replace: ' ', '-'}}"></i>
               </a>
             </li>
             {% endfor %}
