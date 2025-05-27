@@ -34,15 +34,17 @@ color:
 footer:
   copyright: Alex Slavchev | El Camino de DevOps
   location: location
-  social: Social Networks links
+  social: Social Network links
   credits: Credits
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
-  - title: linkedin
+  - title: LinkedIn
     url: https://www.linkedin.com/in/aleksandar-slavchev-187313213/
-  - title: github
-    url: http://github.com/jekyll
+    icon: linkedin 
+  - title: GitHub
+    url: https://github.com/aslavchev
+    icon: github
 
 # Postal address (add as many lines as necessary)
 address:
