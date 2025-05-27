@@ -39,10 +39,10 @@ footer:
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
-  - title: LinkedIn
+  - title: linkedin
     url: https://www.linkedin.com/in/aleksandar-slavchev-187313213/
     icon: linkedin 
-  - title: GitHub
+  - title: github
     url: https://github.com/aslavchev
     icon: github
 

@@ -19,3 +19,4 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_HTML: true
+          HTMLHINT_CONFIG_FILE: .htmlhintrc
