@@ -1,5 +1,5 @@
 # Site settings
-title: Alex DevOps path
+title: Alex DevOps Path
 email: aslavchev.android@gmail.com
 url: https://github.com/aslavchev/aslavchev.github.io
 description: "Personal site of Aleksandar Slavchev – Senior QA Engineer with 17+ years of experience in test automation, DevOps-aligned quality processes, and cross-platform software testing. Explore my projects, professional journey, and insights at the intersection of technology, sports, and performance."
@@ -49,8 +49,8 @@ social:
 # Postal address (add as many lines as necessary)
 address:
   - line: Smilyan | Bulgaria 
-  - line: Malaga | Spain
-  - line: Buenos Aires | Argentina
+  - line: Malaga  | Spain
+  - line: Buenos Aires  | Argentina
 
 # Credits content
 credits: 'Freelancer is a free to use theme, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
