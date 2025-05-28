@@ -1,10 +1,10 @@
 ---
 layout: default
 modal-id: 2
-date: 2014-07-17
+date: 2025-05-17
 img: safe.png
 alt: image-alt
-project-date: April 2014
+project-date: May 2025
 client: Start Bootstrap
 category: Web Development
 description: Welcome to the git challenge, A series of challenges designed to help you learn git and improve your git skills.

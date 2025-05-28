@@ -9,5 +9,5 @@ client: Start Bootstrap
 category: Web Development
 description: A simple Flask-based web application demonstrating core DevOps practices including containerization with Docker, orchestration with Docker Compose, persistent storage with Redis, automated testing with GitHub Actions, and modular development with Git branches and pull requests.
 link: https://github.com/aslavchev/web-app-challenge
-alt: View on GitHu
+alt: View on GitHub
 ---
