@@ -18,7 +18,7 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # VALIDATE_HTML: true
-          VALIDATE_CSS: false    # This disables CSS validation
+          VALIDATE_HTML: true
+          # VALIDATE_CSS: false    # This disables CSS validation
           HTMLHINT_CONFIG_FILE: .htmlhintrc
           # Super-Linter will auto-detect HTML, CSS, JS, Markdown, etc.
