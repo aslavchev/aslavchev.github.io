@@ -2,9 +2,9 @@
 title: Alex DevOps path
 email: aslavchev.android@gmail.com
 url: https://github.com/aslavchev/aslavchev.github.io
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-keywords: "your keywords, separated by commas"
-skills: "Web and Movile QA - DevOps enthusiast - FX Trader - Football Coach"
+description: "Personal site of Aleksandar Slavchev – Senior QA Engineer with 17+ years of experience in test automation, DevOps-aligned quality processes, and cross-platform software testing. Explore my projects, professional journey, and insights at the intersection of technology, sports, and performance."
+keywords: "QA, Mobile , Web , DevOps, Forex, Finance, Futbol, Baseball, MLB, Wattbike, Sport Performance"
+skills: "Web and Mobile QA - DevOps enthusiast - FX Trader - Football Coach"
 meta_author: Alex Slavchev
 
 # Google webmaster tools
@@ -41,18 +41,19 @@ footer:
 social:
   - title: linkedin
     url: https://www.linkedin.com/in/aleksandar-slavchev-187313213/
-    icon: linkedin 
+    icon: linkedin
   - title: github
     url: https://github.com/aslavchev
     icon: github
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: Palermo
-  - line: Buenos Aires
+  - line: Smilyan | Bulgaria 
+  - line: Malaga | Spain
+  - line: Buenos Aires | Argentina
 
 # Credits content
-credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: 'Freelancer is a free to use theme, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
 
 # Build settings
 markdown: kramdown
