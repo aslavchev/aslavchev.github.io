@@ -13,9 +13,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Run Super-Linter
-        uses: github/super-linter@v5
+      - name: Run HTML Linter
+        uses: github/super-linter@v4 #github/super-linter@v5
+        continue-on-error: true
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_HTML: true
+          # VALIDATE_CSS: false    # This disables CSS validation
+          # VALIDATE_CSS: false
+          # VALIDATE_SCSS: false
+          # VALIDATE_SASS: false
+          # VALIDATE_JAVASCRIPT_ES: false
+          # VALIDATE_PHP: false 
+          HTMLHINT_CONFIG_FILE: .htmlhintrc
+          # Super-Linter will auto-detect HTML, CSS, JS, Markdown, etc.

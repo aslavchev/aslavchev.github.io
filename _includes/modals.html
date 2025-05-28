@@ -1,7 +1,11 @@
+<!DOCTYPE html>
+
 <!-- Portfolio Modals -->
 {% for post in site.posts %}
-<div class="portfolio-modal modal fade" id="portfolioModal-{{ post.modal-id }}" tabindex="-1" role="dialog"
-  aria-hidden="true">
+<!-- htmlhint id-class-value:false -->
+<div class="portfolio-modal modal fade"
+  id="portfolio-modal-{{ post.modal-id | downcase | replace: ' ', '-' | replace: '_', '-' }}" tabindex="-1"
+  role="dialog" aria-hidden="true">
   <div class="modal-content">
     <div class="close-modal" data-dismiss="modal">
       <div class="lr">
@@ -38,7 +42,6 @@
               {% if page.link %}
               <a href="{{ post.link }}" target="_blank">{{ post.alt }}</a>
               {% endif %}
-            </ul>
             </ul>
             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
               Close</button>

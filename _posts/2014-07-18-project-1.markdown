@@ -1,10 +1,10 @@
 ---
 layout: default
 modal-id: 1
-date: 2014-07-18
-img: cabin.png
+date: 2025-05-26
+img: game.png
 alt: image-alt
-project-date: April 2014
+project-date: May 2025
 client: Start Bootstrap
 category: Web Development
 description: A simple Flask-based web application demonstrating core DevOps practices including containerization with Docker, orchestration with Docker Compose, persistent storage with Redis, automated testing with GitHub Actions, and modular development with Git branches and pull requests.
