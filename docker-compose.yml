@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  jekyll:
+    build: .
+    ports:
+      - "4000:4000"         # Jekyll site
+      - "35729:35729"       # LiveReload port
+    volumes:
+      - .:/usr/src/app      # Mount local files for live updates
+    command: bundle exec jekyll serve --host 0.0.0.0 --livereload

@@ -119,16 +119,29 @@ Visit: http://localhost:4000
 If you prefer Docker, here's how to containerize the Jekyll site.
 ### Dockerfile
 ```
-FROM jekyll/jekyll:4.2.0
+FROM ruby:3.2
 
-WORKDIR /srv/jekyll
-COPY . .
+# Install dependencies
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy Gemfile and lockfile
+COPY Gemfile Gemfile.lock ./
+
+# Install Ruby gems
 RUN bundle install
 
+# Copy the rest of the application
+COPY . .
+
+# Expose port used by Jekyll
 EXPOSE 4000
 
-CMD ["jekyll", "serve", "--host", "0.0.0.0", "--watch", "--force_polling"]
+# Start the Jekyll server
+CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--livereload"]
+
 ```
 
 ### Build and Run Docker Container
@@ -146,28 +159,29 @@ Visit: http://localhost:4000
 ## 🐳 Run with Docker Compose
 ### docker-compose.yml
 ```
-version: '3.8'
+version: "3.8"
 
 services:
   jekyll:
     build: .
     ports:
-      - "4000:4000"
+      - "4000:4000"         # Jekyll site
+      - "35729:35729"       # LiveReload port
     volumes:
-      - .:/srv/jekyll
-    command: jekyll serve --host 0.0.0.0 --watch --force_polling
+      - .:/usr/src/app      # Mount local files for live updates
+    command: bundle exec jekyll serve --host 0.0.0.0 --livereload
 
 ```
 ### Run via Compose
 ```
-docker-compose up --build
+docker compose up --build
 
 ```
 Visit: http://localhost:4000
 
 ### Stop Services
 ```
-docker-compose down
+docker compose down
 ```
 ---
 
