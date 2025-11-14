@@ -41,9 +41,9 @@ jobs:
           # Linter settings
           LINTER_RULES_PATH: /
 
-          # Exclude vendor code, minified files, and build artifacts from linting
-          # These are third-party libraries that don't need to meet our quality standards
-          FILTER_REGEX_EXCLUDE: .*/_site/.*|.*\.min\..*|.*/font-awesome/.*|.*bootstrap.*|.*jquery.*
+          # Exclude vendor code, minified files, theme files, and build artifacts from linting
+          # These are third-party libraries/themes that don't need to meet our quality standards
+          FILTER_REGEX_EXCLUDE: .*/_site/.*|.*\.min\..*|.*/font-awesome/.*|.*bootstrap.*|.*jquery.*|.*_includes/css/main\.css.*|.*_includes/css/bootstrap.*|.*freelancer.*|.*cbp.*|.*classie.*|.*jqBootstrap.*|.*easing.*
 
           # Strict mode - fail on errors for OUR code only
           # (continue-on-error removed for quality enforcement)

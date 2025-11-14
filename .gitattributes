@@ -18,6 +18,11 @@ js/cbpAnimatedHeader.js linguist-vendored
 js/cbpAnimatedHeader.min.js linguist-vendored
 js/jqBootstrapValidation.js linguist-vendored
 js/jquery.easing.min.js linguist-vendored
+js/freelancer.js linguist-vendored
+js/contact_me.js linguist-vendored
+
+# Freelancer theme files (third-party theme)
+_includes/css/main.css linguist-vendored
 
 # Minified files (all)
 *.min.css linguist-vendored
