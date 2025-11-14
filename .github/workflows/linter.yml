@@ -1,4 +1,4 @@
-name: Super-Linter
+name: Code Quality Checks
 
 on:
   push:
@@ -6,25 +6,41 @@ on:
   pull_request:
     branches: [ main ]
 
+# Cancel outdated workflow runs when new commits are pushed
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
+    name: Lint Code Base
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Run HTML Linter
-        uses: github/super-linter@v4 #github/super-linter@v5
-        continue-on-error: true
+      - name: Run Super-Linter
+        uses: github/super-linter/slim@v6
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          # Enable validations
           VALIDATE_HTML: true
-          # VALIDATE_CSS: false    # This disables CSS validation
-          # VALIDATE_CSS: false
-          # VALIDATE_SCSS: false
-          # VALIDATE_SASS: false
-          # VALIDATE_JAVASCRIPT_ES: false
-          # VALIDATE_PHP: false 
+          VALIDATE_CSS: true
+          VALIDATE_JAVASCRIPT_STANDARD: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_YAML: true
+
+          # Configuration files
           HTMLHINT_CONFIG_FILE: .htmlhintrc
-          # Super-Linter will auto-detect HTML, CSS, JS, Markdown, etc.
+
+          # Linter settings
+          LINTER_RULES_PATH: /
+          FILTER_REGEX_EXCLUDE: .*/_site/.*
+
+          # Strict mode - fail on errors
+          # (continue-on-error removed for quality enforcement)
