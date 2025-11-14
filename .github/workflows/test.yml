@@ -1,0 +1,36 @@
+name: Automated Testing
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Cancel outdated workflow runs when new commits are pushed
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build & Test Site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true  # Automatically runs 'bundle install' and caches gems
+
+      - name: Build Jekyll Site
+        run: bundle exec rake build
+
+      - name: Run HTML Proofer Tests
+        run: bundle exec rake test
+
+      - name: Run Security Audit
+        run: bundle exec rake audit
