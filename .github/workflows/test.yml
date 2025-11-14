@@ -24,7 +24,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true  # Automatically runs 'bundle install' and caches gems
+          bundler-cache: false  # Disabled temporarily to fix dependency resolution
+
+      - name: Install Dependencies
+        run: bundle install
 
       - name: Build Jekyll Site
         run: bundle exec rake build
