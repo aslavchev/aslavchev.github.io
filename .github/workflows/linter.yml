@@ -1,4 +1,4 @@
-name: Code Quality (YAML/Markdown)
+name: Workflow Validation (YAML)
 
 on:
   push:
@@ -28,12 +28,11 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          # Enable only compatible validations
-          # Note: Only setting validators we want (Super-Linter v6 requirement)
-          # HTML/CSS/JS omitted due to Jekyll Liquid templating incompatibility
-          # Standard linters cannot parse {{ variables }}, {% tags %}, and Jekyll front matter
-          # This is normal for Jekyll sites - use html-proofer for output validation instead
-          VALIDATE_MARKDOWN: true
+          # Enable YAML validation only
+          # YAML: Protects workflow files from syntax errors (high value)
+          # HTML/CSS/JS: Disabled - Jekyll Liquid templating incompatible with standard linters
+          # Markdown: Disabled - Style nitpicks with low value (html-proofer in Epic 1.3 provides real checks)
+          # This is pragmatic for Jekyll sites - use html-proofer for content validation
           VALIDATE_YAML: true
 
           # Configuration files
