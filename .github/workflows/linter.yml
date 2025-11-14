@@ -40,7 +40,10 @@ jobs:
 
           # Linter settings
           LINTER_RULES_PATH: /
-          FILTER_REGEX_EXCLUDE: .*/_site/.*
 
-          # Strict mode - fail on errors
+          # Exclude vendor code, minified files, and build artifacts from linting
+          # These are third-party libraries that don't need to meet our quality standards
+          FILTER_REGEX_EXCLUDE: .*/_site/.*|.*\.min\..*|.*/font-awesome/.*|.*bootstrap.*|.*jquery.*
+
+          # Strict mode - fail on errors for OUR code only
           # (continue-on-error removed for quality enforcement)

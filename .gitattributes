@@ -1,0 +1,24 @@
+# Mark third-party vendor code as vendored (excludes from GitHub language stats)
+# This tells GitHub (and other tools) that these files are not our code
+
+# Font Awesome (icon library)
+css/font-awesome/** linguist-vendored
+
+# Bootstrap framework
+_includes/css/bootstrap.min.css linguist-vendored
+js/bootstrap.js linguist-vendored
+js/bootstrap.min.js linguist-vendored
+
+# jQuery library
+js/jquery*.js linguist-vendored
+
+# Other vendor libraries
+js/classie.js linguist-vendored
+js/cbpAnimatedHeader.js linguist-vendored
+js/cbpAnimatedHeader.min.js linguist-vendored
+js/jqBootstrapValidation.js linguist-vendored
+js/jquery.easing.min.js linguist-vendored
+
+# Minified files (all)
+*.min.css linguist-vendored
+*.min.js linguist-vendored
