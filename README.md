@@ -1,5 +1,7 @@
 # [aslavchev.github.io](https://aslavchev.github.io/)
 
+[![Workflow Validation](https://github.com/aslavchev/aslavchev.github.io/actions/workflows/linter.yml/badge.svg)](https://github.com/aslavchev/aslavchev.github.io/actions/workflows/linter.yml)
+
 Welcome to my personal portfolio website repository! This site is hosted at aslavchev.github.io and serves as a showcase of my work, skills, and professional experience.
 
 
