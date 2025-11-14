@@ -1,6 +1,7 @@
 # [aslavchev.github.io](https://aslavchev.github.io/)
 
 [![Workflow Validation](https://github.com/aslavchev/aslavchev.github.io/actions/workflows/linter.yml/badge.svg)](https://github.com/aslavchev/aslavchev.github.io/actions/workflows/linter.yml)
+[![Automated Testing](https://github.com/aslavchev/aslavchev.github.io/actions/workflows/test.yml/badge.svg)](https://github.com/aslavchev/aslavchev.github.io/actions/workflows/test.yml)
 
 Welcome to my personal portfolio website repository! This site is hosted at aslavchev.github.io and serves as a showcase of my work, skills, and professional experience.
 
@@ -185,6 +186,37 @@ Visit: http://localhost:4000
 ```
 docker compose down
 ```
+---
+
+## 🧪 Testing
+
+This project uses automated testing to ensure quality and prevent broken links/images.
+
+### Running Tests Locally
+
+```bash
+# Run all tests (build + html-proofer + security audit)
+bundle exec rake test
+
+# Run individual tasks
+bundle exec rake build          # Build Jekyll site
+bundle exec rake test          # Run html-proofer validation
+bundle exec rake audit         # Run security audit
+```
+
+### What Gets Tested
+
+- **HTML Structure**: Validates proper HTML syntax
+- **Link Validation**: Checks all internal and external links
+- **Image Validation**: Ensures all images exist and load
+- **Security Audit**: Scans dependencies for known vulnerabilities
+
+### CI/CD Integration
+
+Tests run automatically on every push and pull request via GitHub Actions:
+- **Workflow Validation**: YAML linting for workflow files
+- **Automated Testing**: Full test suite (build, html-proofer, security audit)
+
 ---
 
 ### 📄 License
