@@ -53,7 +53,7 @@ address:
   - line: Buenos Aires  | Argentina
 
 # Credits content
-credits: 'Freelancer is a free to use theme, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: 'Freelancer is a free to use theme, open source Bootstrap theme created by <a href="https://startbootstrap.com">Start Bootstrap</a>.'
 
 # Build settings
 markdown: kramdown
