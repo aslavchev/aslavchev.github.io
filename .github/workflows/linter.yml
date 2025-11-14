@@ -28,13 +28,11 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          # Enable validations
-          # Note: HTML/CSS/JS disabled due to Jekyll Liquid templating incompatibility
+          # Enable only compatible validations
+          # Note: Only setting validators we want (Super-Linter v6 requirement)
+          # HTML/CSS/JS omitted due to Jekyll Liquid templating incompatibility
           # Standard linters cannot parse {{ variables }}, {% tags %}, and Jekyll front matter
           # This is normal for Jekyll sites - use html-proofer for output validation instead
-          VALIDATE_HTML: false
-          VALIDATE_CSS: false
-          VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_MARKDOWN: true
           VALIDATE_YAML: true
 
