@@ -3,11 +3,10 @@ layout: default
 modal-id: 2
 date: 2025-05-17
 img: safe.png
-alt: image-alt
+alt: Git branching and version control workflow diagram
 project-date: May 2025
-client: Start Bootstrap
-category: Web Development
-description: Welcome to the git challenge, A series of challenges designed to help you learn git and improve your git skills.
+client: Personal Project
+category: DevOps & Education
+description: A series of hands-on challenges designed to help developers learn Git and improve their version control skills. Covers branching strategies, merge conflicts, rebasing, collaboration workflows, and Git best practices through practical exercises.
 link: https://github.com/aslavchev/git-challenge
-alt: View on GitHub
 ---

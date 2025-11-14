@@ -3,11 +3,10 @@ layout: default
 modal-id: 1
 date: 2025-05-26
 img: game.png
-alt: image-alt
+alt: Flask DevOps web application architecture diagram
 project-date: May 2025
-client: Start Bootstrap
-category: Web Development
-description: A simple Flask-based web application demonstrating core DevOps practices including containerization with Docker, orchestration with Docker Compose, persistent storage with Redis, automated testing with GitHub Actions, and modular development with Git branches and pull requests.
+client: Personal Project
+category: DevOps & Web Development
+description: A Flask-based web application demonstrating core DevOps practices including containerization with Docker, orchestration with Docker Compose, persistent storage with Redis, automated testing with GitHub Actions, and modular development with Git branches and pull requests. Showcases infrastructure-as-code and CI/CD pipeline implementation.
 link: https://github.com/aslavchev/web-app-challenge
-alt: View on GitHub
 ---

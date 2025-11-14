@@ -1,8 +1,29 @@
+# macOS
 .DS_Store
 
+# Jekyll build output
 _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 
-Gemfile.lock
+# Bundler
+.bundle/
+vendor/
+
+# Don't ignore Gemfile.lock - needed for Docker reproducibility
+# Gemfile.lock (REMOVED - this is an application, not a library)
+
+# Node modules (if added later)
+node_modules/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment files (if added later)
+.env
+.env.local

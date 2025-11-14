@@ -3,11 +3,10 @@ layout: default
 modal-id: 3
 date: 2025-05-16
 img: submarine.png
-alt: image-alt
-project-date: May 2014
-client: Start Bootstrap
-category: Web Development
-description: Getting started github actions project.
+alt: GitHub Actions CI/CD pipeline workflow
+project-date: May 2025
+client: Personal Project
+category: DevOps & CI/CD
+description: Getting started with GitHub Actions - a practical guide to implementing continuous integration and continuous deployment pipelines. Demonstrates automated testing, build workflows, deployment strategies, and best practices for modern DevOps automation.
 link: https://github.com/aslavchev/getting-started-github-actions
-alt: View on GitHub
 ---

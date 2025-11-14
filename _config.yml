@@ -1,7 +1,7 @@
 # Site settings
-title: Alex DevOps Path
+title: Alex Slavchev | DevOps & QA Engineer
 email: aslavchev.android@gmail.com
-url: https://github.com/aslavchev/aslavchev.github.io
+url: https://aslavchev.github.io
 description: "Personal site of Aleksandar Slavchev – Senior QA Engineer with 17+ years of experience in test automation, DevOps-aligned quality processes, and cross-platform software testing. Explore my projects, professional journey, and insights at the intersection of technology, sports, and performance."
 keywords: "QA, Mobile , Web , DevOps, Forex, Finance, Futbol, Baseball, MLB, Wattbike, Sport Performance"
 skills: "Web and Mobile QA - DevOps enthusiast - FX Trader - Football Coach"
@@ -32,10 +32,10 @@ color:
 
 # Footer settings
 footer:
-  copyright: Alex Slavchev | El Camino de DevOps
-  location: location
-  social: Social Network links
-  credits: Credits
+  copyright: Alex Slavchev | DevOps & QA Engineer
+  location: Location
+  social: Around the Web
+  credits: About the Theme
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
