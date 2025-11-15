@@ -27,3 +27,4 @@ node_modules/
 # Environment files (if added later)
 .env
 .env.local
+Gemfile.lock
