@@ -1,10 +1,10 @@
 # Site settings
-title: Alex Slavchev | DevOps & QA Engineer
+title: Alex Slavchev | Senior QA Engineer | 18+ Years Experience
 email: aslavchev.android@gmail.com
 url: https://aslavchev.github.io
-description: "Personal site of Aleksandar Slavchev – Senior QA Engineer with 17+ years of experience in test automation, DevOps-aligned quality processes, and cross-platform software testing. Explore my projects, professional journey, and insights at the intersection of technology, sports, and performance."
+description: "Senior QA Engineer with 18+ years experience across IT, sports, and media industries. 8 years at VMware. Specializing in test automation with Selenium and Java. Currently expanding into DevOps and CI/CD practices."
 keywords: "QA, Mobile , Web , DevOps, Forex, Finance, Futbol, Baseball, MLB, Wattbike, Sport Performance"
-skills: "Web and Mobile QA - DevOps enthusiast - FX Trader - Football Coach"
+skills: "18+ Years QA Experience | Test Automation (Selenium/Java) | Learning DevOps & CI/CD"
 meta_author: Alex Slavchev
 
 # Google webmaster tools
@@ -32,7 +32,7 @@ color:
 
 # Footer settings
 footer:
-  copyright: Alex Slavchev | DevOps & QA Engineer
+  copyright: Alex Slavchev | Senior QA Engineer | 18+ Years
   location: Location
   social: Around the Web
   credits: About the Theme
