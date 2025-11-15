@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 5
+date: 2025-11-03
+img: circus.png
+alt: E-commerce test automation framework architecture
+project-date: November 2025
+client: Enterprise E-Commerce
+category: Test Automation & QA
+description: Strategic test automation framework for comprehensive e-commerce testing. Built with 18 years of QA expertise using Java 21, Selenium 4, TestNG, and REST Assured. Features Docker containerization, CI/CD integration, page object model architecture, data-driven testing, API validation, and scalable test execution. Demonstrates enterprise-grade automation practices and design patterns.
+link: https://github.com/aslavchev/ecommerce-automation-framework
+---

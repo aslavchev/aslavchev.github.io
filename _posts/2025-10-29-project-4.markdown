@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 4
+date: 2025-10-29
+img: cabin.png
+alt: QA fundamentals training program
+project-date: October 2025
+client: Mentorship Program
+category: QA Mentoring & Education
+description: 11-week QA mentoring program focused on fundamentals and process mastery. Structured mentorship curriculum covering core QA principles, test design techniques, defect management, documentation standards, and systematic quality assurance methodologies. Hands-on guidance to build solid foundational skills for aspiring quality engineering professionals.
+link: https://github.com/aslavchev/qa-fundamentals-11weeks
+---
