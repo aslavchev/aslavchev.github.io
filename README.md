@@ -36,31 +36,31 @@ A modern, production-ready portfolio website showcasing quality engineering expe
 ### Installation
 
 1. Clone the repository
-```bash
+\`\`\`bash
 git clone https://github.com/alexrivera/portfolio.git
 cd portfolio
-```
+\`\`\`
 
 2. Install dependencies
-```bash
+\`\`\`bash
 npm install
-```
+\`\`\`
 
 3. Create environment variables (optional)
-```bash
+\`\`\`bash
 cp .env.example .env.local
-```
+\`\`\`
 
 4. Run the development server
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 5. Open [http://localhost:3000](http://localhost:3000)
 
 ## Project Structure
 
-```
+\`\`\`
 ├── app/                      # Next.js app directory
 │   ├── api/                 # API routes
 │   │   └── chat/           # AI chatbot endpoint
@@ -77,7 +77,7 @@ npm run dev
 │   ├── rate-limit.ts       # API rate limiting
 │   └── utils.ts           # Helper functions
 └── public/                 # Static assets
-```
+\`\`\`
 
 ## Key Sections
 
