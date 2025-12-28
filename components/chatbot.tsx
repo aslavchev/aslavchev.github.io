@@ -20,7 +20,7 @@ export function Chatbot() {
     transport: new DefaultChatTransport({ api: "/api/chat" }),
   })
 
-  const scrollToBottom = () => {
+  const scrollToBottom = (): void => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
@@ -28,7 +28,7 @@ export function Chatbot() {
     scrollToBottom()
   }, [messages])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault()
     if (!input.trim() || status !== "ready") return
     sendMessage({ text: input })

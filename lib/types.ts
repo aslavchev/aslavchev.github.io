@@ -1,5 +1,7 @@
+import type React from "react"
+
 export interface NavigationItem {
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
   label: string
   href: string
   external?: boolean
@@ -18,7 +20,7 @@ export interface TestingTool {
 
 export interface TestingCategory {
   category: string
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
   description: string
   tools: TestingTool[]
 }
@@ -26,7 +28,7 @@ export interface TestingCategory {
 export interface QualityMetric {
   title: string
   score: number
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
   color: string
   description: string
   details: string[]

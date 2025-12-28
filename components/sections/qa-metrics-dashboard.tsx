@@ -15,8 +15,35 @@ import {
   Legend,
 } from "recharts"
 import { TrendingUp, Bug, CheckCircle2, Clock } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
-const coverageData = [
+interface CoverageDataPoint {
+  month: string
+  coverage: number
+  defects: number
+}
+
+interface PerformanceDataPoint {
+  test: string
+  baseline: number
+  current: number
+}
+
+interface ReleaseQualityDataPoint {
+  version: string
+  preReleaseBugs: number
+  postReleaseBugs: number
+}
+
+interface KeyMetric {
+  title: string
+  value: string
+  change: string
+  icon: LucideIcon
+  color: string
+}
+
+const coverageData: CoverageDataPoint[] = [
   { month: "Jan", coverage: 65, defects: 45 },
   { month: "Feb", coverage: 72, defects: 38 },
   { month: "Mar", coverage: 78, defects: 32 },
@@ -25,21 +52,21 @@ const coverageData = [
   { month: "Jun", coverage: 92, defects: 12 },
 ]
 
-const performanceData = [
+const performanceData: PerformanceDataPoint[] = [
   { test: "Login", baseline: 1200, current: 450 },
   { test: "Search", baseline: 800, current: 320 },
   { test: "Checkout", baseline: 2500, current: 980 },
   { test: "API Load", baseline: 500, current: 180 },
 ]
 
-const releaseQualityData = [
+const releaseQualityData: ReleaseQualityDataPoint[] = [
   { version: "v1.0", preReleaseBugs: 85, postReleaseBugs: 12 },
   { version: "v1.5", preReleaseBugs: 92, postReleaseBugs: 8 },
   { version: "v2.0", preReleaseBugs: 105, postReleaseBugs: 5 },
   { version: "v2.5", preReleaseBugs: 118, postReleaseBugs: 3 },
 ]
 
-const keyMetrics = [
+const keyMetrics: KeyMetric[] = [
   {
     title: "Test Coverage",
     value: "92%",

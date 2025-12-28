@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable proper TypeScript checking
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Enable Next.js image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
     unoptimized: true,

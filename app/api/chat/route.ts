@@ -3,7 +3,7 @@ import { rateLimit } from "@/lib/rate-limit"
 
 export const maxDuration = 30
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<Response> {
   const ip = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown"
 
   if (!rateLimit(ip, 10, 60000)) {
