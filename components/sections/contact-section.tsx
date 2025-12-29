@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Mail, Linkedin, Github, Twitter, Clock } from "lucide-react"
 import { useState, useEffect } from "react"
+import { personalInfo, socialLinks } from "@/lib/data"
 
 export function ContactSection() {
   const [time, setTime] = useState("")
@@ -13,6 +14,7 @@ export function ContactSection() {
       const now = new Date()
       setTime(
         now.toLocaleTimeString("en-US", {
+          timeZone: "Europe/Sofia",
           hour: "2-digit",
           minute: "2-digit",
           hour12: true,
@@ -25,6 +27,10 @@ export function ContactSection() {
 
     return () => clearInterval(interval)
   }, [])
+
+  const githubUrl = socialLinks.find((link) => link.name === "GitHub")?.url || "https://github.com/aslavchev"
+  const linkedinUrl =
+    socialLinks.find((link) => link.name === "LinkedIn")?.url || "https://www.linkedin.com/in/aslavchev/"
 
   return (
     <section id="contact" className="space-y-8 pb-16">
@@ -45,7 +51,7 @@ export function ContactSection() {
           <CardContent className="space-y-4">
             <div>
               <p className="text-4xl font-bold text-primary mb-2">{time}</p>
-              <p className="text-sm text-muted-foreground">Pacific Time (PT)</p>
+              <p className="text-sm text-muted-foreground">Sofia, Bulgaria (EET/EEST)</p>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-3 w-3 bg-green-500 rounded-full animate-pulse" />
@@ -62,27 +68,21 @@ export function ContactSection() {
           </CardHeader>
           <CardContent className="space-y-3">
             <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-              <a href="mailto:alex.rivera@example.com">
+              <a href={`mailto:${personalInfo.email}`}>
                 <Mail className="h-4 w-4 mr-3" />
-                alex.rivera@example.com
+                {personalInfo.email}
               </a>
             </Button>
             <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-4 w-4 mr-3" />
                 LinkedIn Profile
               </a>
             </Button>
             <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-3" />
                 GitHub Profile
-              </a>
-            </Button>
-            <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <Twitter className="h-4 w-4 mr-3" />
-                Twitter / X
               </a>
             </Button>
           </CardContent>
@@ -142,12 +142,12 @@ export function ContactSection() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com" className="hover:text-primary transition-colors">
+                  <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                     LinkedIn
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com" className="hover:text-primary transition-colors">
+                  <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                     GitHub
                   </a>
                 </li>
@@ -155,7 +155,7 @@ export function ContactSection() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-            <p>© 2025 Alex Rivera. Built with Next.js and shadcn/ui.</p>
+            <p>© 2025 {personalInfo.name}. Built with Next.js and shadcn/ui.</p>
           </div>
         </CardContent>
       </Card>

@@ -95,19 +95,19 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-80 overflow-y-auto">
-        <SheetHeader>
-          <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+        <SheetHeader className="mb-6">
+          <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
 
         {/* Profile Section */}
-        <div className="mb-6 mt-2">
+        <div className="mb-6">
           <div className="flex items-center gap-4 mb-4">
             <Avatar className="h-16 w-16">
-              <AvatarImage src={getAssetPath("/professional-headshot.png")} alt="Alex Rivera" />
-              <AvatarFallback>AR</AvatarFallback>
+              <AvatarImage src={getAssetPath("/professional-headshot.png")} alt="Alex Slavchev" />
+              <AvatarFallback>AS</AvatarFallback>
             </Avatar>
             <div>
-              <h2 className="font-semibold text-lg">Alex Rivera</h2>
+              <h2 className="font-semibold text-lg">Alex Slavchev</h2>
               <p className="text-sm text-muted-foreground">Senior QA Engineer</p>
             </div>
           </div>

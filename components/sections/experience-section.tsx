@@ -18,19 +18,17 @@ export function ExperienceSection() {
             className="hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300"
           >
             <CardHeader>
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Briefcase className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl">{exp.title}</CardTitle>
-                      <CardDescription className="text-base mt-1">{exp.company}</CardDescription>
-                    </div>
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
+                <div className="flex items-start gap-3 flex-1 min-w-0">
+                  <div className="p-2 bg-primary/10 rounded-lg shrink-0">
+                    <Briefcase className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <CardTitle className="text-xl break-words">{exp.title}</CardTitle>
+                    <CardDescription className="text-base mt-1 break-words">{exp.company}</CardDescription>
                   </div>
                 </div>
-                <Badge variant="outline" className="shrink-0">
+                <Badge variant="outline" className="shrink-0 self-start">
                   {exp.period}
                 </Badge>
               </div>
