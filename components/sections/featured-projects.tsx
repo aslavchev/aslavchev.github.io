@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 import { featuredProjects } from "@/lib/portfolio-data"
+import { getAssetPath } from "@/lib/asset-path"
 
 export function FeaturedProjects() {
   return (
@@ -23,7 +24,7 @@ export function FeaturedProjects() {
           >
             <div className="aspect-video overflow-hidden bg-muted/50 relative">
               <Image
-                src={project.image || "/placeholder.svg?height=400&width=600"}
+                src={getAssetPath(project.image || "/placeholder.svg?height=400&width=600")}
                 alt={`${project.title} - QA testing project dashboard`}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"

@@ -2,6 +2,8 @@
 const nextConfig = {
   output: 'export',
   basePath: '/aslavchev-portfolio-website',
+  assetPrefix: '/aslavchev-portfolio-website/',
+  trailingSlash: true,
   images: {
     unoptimized: true, // Required for static export
   },
