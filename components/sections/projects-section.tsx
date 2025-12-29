@@ -79,23 +79,24 @@ export function ProjectsSection() {
                 <CardFooter className="gap-3">
                   {project.githubUrl && (
                     <Button
-                      variant="outline"
                       size="sm"
                       asChild
-                      aria-label={`View code for ${project.title}`}
+                      aria-label={`View ${project.title} on GitHub`}
+                      className="font-semibold"
                     >
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                         <Github className="h-4 w-4 mr-2" />
-                        View Code
+                        View on GitHub
                       </a>
                     </Button>
                   )}
                   {project.liveUrl && (
                     <Button
-                      variant="outline"
                       size="sm"
+                      variant="secondary"
                       asChild
                       aria-label={`View live demo of ${project.title}`}
+                      className="font-semibold"
                     >
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />

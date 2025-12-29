@@ -42,16 +42,16 @@ export function MobileNav() {
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-80 overflow-y-auto" aria-describedby="mobile-menu-description">
-        <SheetHeader className="mb-6">
-          <SheetTitle>Menu</SheetTitle>
+      <SheetContent side="left" className="w-80 overflow-y-auto p-6" aria-describedby="mobile-menu-description">
+        <SheetHeader className="mb-8">
+          <SheetTitle className="text-left">Menu</SheetTitle>
           <p id="mobile-menu-description" className="sr-only">
             Portfolio navigation menu
           </p>
         </SheetHeader>
 
         {/* Profile Section */}
-        <div className="mb-6">
+        <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
             <Avatar className="h-16 w-16">
               <AvatarImage
@@ -62,7 +62,7 @@ export function MobileNav() {
             </Avatar>
             <div>
               <h2 className="font-semibold text-lg">{personalInfo.name}</h2>
-              <p className="text-sm text-muted-foreground">{personalInfo.title}</p>
+              <p className="text-sm text-foreground/70">{personalInfo.title}</p>
             </div>
           </div>
 
@@ -88,10 +88,12 @@ export function MobileNav() {
         </div>
 
         {/* Navigation Sections */}
-        <nav className="space-y-6">
+        <nav className="space-y-7">
           {navigationConfig.map((section) => (
             <div key={section.category}>
-              <h3 className="text-xs font-semibold text-muted-foreground mb-3 tracking-wider">{section.category}</h3>
+              <h3 className="text-xs font-bold text-foreground/60 mb-3 tracking-wider uppercase px-3">
+                {section.category}
+              </h3>
               <ul className="space-y-1">
                 {section.items.map((item) => (
                   <li key={item.label}>
@@ -100,9 +102,9 @@ export function MobileNav() {
                       onClick={(e) => handleNavClick(e, item.href, item.external)}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                      className="flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium text-foreground/80 hover:bg-muted hover:text-foreground transition-colors min-h-[44px]"
                     >
-                      <item.icon className="h-4 w-4" />
+                      <item.icon className="h-5 w-5" />
                       {item.label}
                     </Link>
                   </li>
