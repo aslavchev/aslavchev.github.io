@@ -28,6 +28,7 @@ export function FeaturedProjects() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={index < 2}
               />
             </div>
             <CardHeader>

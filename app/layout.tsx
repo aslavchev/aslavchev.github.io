@@ -94,9 +94,8 @@ export default function RootLayout({
                 "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale.",
               url: typeof window !== "undefined" ? window.location.origin : "",
               sameAs: [
-                "https://github.com/alexrivera",
-                "https://linkedin.com/in/alexrivera",
-                "https://twitter.com/alexrivera",
+                "https://github.com/aslavchev",
+                "https://linkedin.com/in/aslavchev",
               ],
             }),
           }}

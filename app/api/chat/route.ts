@@ -46,7 +46,7 @@ When answering questions:
 
 Do not make up information beyond what's provided above.`
 
-  const prompt = convertToModelMessages([
+  const prompt = await convertToModelMessages([
     {
       id: "system",
       role: "system",
