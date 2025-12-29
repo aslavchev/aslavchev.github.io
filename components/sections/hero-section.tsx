@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { Button } from "@/components/ui/button"
-import { Mail } from "lucide-react"
+import { Mail, Briefcase } from "lucide-react"
 import { personalInfo } from "@/lib/data"
 import { content } from "@/lib/content"
 
@@ -55,7 +55,7 @@ export function HeroSection() {
             aria-label={content.hero.viewProjects}
             className="font-medium shadow-lg shadow-primary/10 hover:shadow-xl hover:shadow-primary/20 transition-all"
           >
-            <User className="h-4 w-4 mr-2" />
+            <Briefcase className="h-4 w-4 mr-2" />
             {content.hero.viewProjects}
           </Button>
           <Button
@@ -71,25 +71,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
-}
-
-function User(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </svg>
   )
 }
