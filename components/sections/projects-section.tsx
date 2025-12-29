@@ -22,17 +22,18 @@ export function ProjectsSection() {
           >
             <div className="flex flex-col md:grid md:grid-cols-5 gap-0 md:gap-6">
               {/* Image with badge overlay */}
-              <div className="relative md:col-span-2 aspect-video md:aspect-auto overflow-hidden bg-muted md:min-h-[300px]">
+              <div className="relative md:col-span-2 aspect-[16/10] md:aspect-auto overflow-hidden bg-muted md:min-h-[320px]">
                 <Image
                   src={getAssetPath(project.image || "/placeholder.svg?height=400&width=600")}
                   alt={`${project.title} - QA case study dashboard and metrics`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 100vw, 40vw"
+                  priority={index === 0}
                 />
                 {project.badge && (
-                  <div className="absolute top-4 left-4 z-10">
-                    <Badge className="bg-primary/90 text-primary-foreground backdrop-blur-sm">
+                  <div className="absolute top-3 left-3 z-10">
+                    <Badge className="bg-primary text-primary-foreground shadow-lg text-xs sm:text-sm px-2.5 py-1">
                       {project.badge}
                     </Badge>
                   </div>
@@ -41,33 +42,42 @@ export function ProjectsSection() {
 
               {/* Content */}
               <div className="md:col-span-3 flex flex-col">
-                <CardHeader>
-                  <CardTitle className="text-2xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                  <CardDescription className="text-base mt-3">{project.description}</CardDescription>
+                <CardHeader className="space-y-4">
+                  <CardTitle className="text-xl sm:text-2xl group-hover:text-primary transition-colors leading-tight">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="text-sm sm:text-base leading-relaxed">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4 flex-1">
+                <CardContent className="space-y-6 flex-1">
                   {project.metrics && (
-                    <div>
-                      <h4 className="text-sm font-semibold mb-3">Key Achievements</h4>
-                      <ul className="space-y-2">
+                    <div className="space-y-3">
+                      <h4 className="text-base font-semibold text-foreground">Key Achievements</h4>
+                      <ul className="space-y-2.5">
                         {project.metrics.map((metric, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <span className="text-primary mt-1" aria-hidden="true">
+                          <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed">
+                            <span className="text-primary mt-0.5 text-lg" aria-hidden="true">
                               ✓
                             </span>
-                            <span>{metric}</span>
+                            <span className="text-muted-foreground">{metric}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   )}
                   {project.tools && (
-                    <div className="flex flex-wrap gap-2">
-                      {project.tools.map((tool) => (
-                        <Badge key={tool} variant="secondary">
-                          {tool}
-                        </Badge>
-                      ))}
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                        Technologies
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tools.map((tool) => (
+                          <Badge key={tool} variant="secondary" className="text-xs">
+                            {tool}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </CardContent>

@@ -33,53 +33,53 @@ export function FeaturedProjects() {
                 priority={index < 2}
               />
             </div>
-            <CardHeader className="space-y-3">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
-                <div className="flex-1 space-y-2 min-w-0">
-                  <CardTitle className="group-hover:text-primary transition-colors text-xl lg:text-2xl break-words">
+            <CardHeader className="space-y-4">
+              <div className="flex flex-col gap-3">
+                <div className="flex items-start justify-between gap-3">
+                  <CardTitle className="group-hover:text-primary transition-colors text-lg sm:text-xl lg:text-2xl break-words leading-tight flex-1">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-sm lg:text-base text-muted-foreground/80">
-                    {project.description}
-                  </CardDescription>
+                  {project.badge && (
+                    <Badge variant="secondary" className="shrink-0 bg-primary/10 text-primary border-primary/20 text-xs">
+                      {project.badge}
+                    </Badge>
+                  )}
                 </div>
-                {project.badge && (
-                  <Badge variant="secondary" className="shrink-0 self-start bg-primary/10 text-primary border-primary/20">
-                    {project.badge}
-                  </Badge>
-                )}
+                <CardDescription className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed">
+                  {project.description}
+                </CardDescription>
               </div>
             </CardHeader>
-            <CardFooter className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4">
-              <span className="text-sm font-semibold text-primary flex items-center gap-1.5">
+            <CardFooter className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
+              <span className="text-sm font-medium text-primary/80 flex items-center gap-1.5">
                 {project.metric}
               </span>
-              <div className="flex gap-2">
+              <div className="flex gap-2 w-full sm:w-auto">
                 {project.githubUrl && (
                   <Button
-                    variant="ghost"
+                    variant="outline"
                     size="sm"
                     asChild
                     aria-label={`View code for ${project.title}`}
-                    className="text-sm hover:bg-muted/50"
+                    className="text-sm flex-1 sm:flex-initial"
                   >
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-1.5" />
-                      Code
+                      <Github className="h-4 w-4 mr-2" />
+                      View Code
                     </a>
                   </Button>
                 )}
                 {project.liveUrl && (
                   <Button
-                    variant="ghost"
+                    variant="outline"
                     size="sm"
                     asChild
                     aria-label={`View live demo of ${project.title}`}
-                    className="text-sm hover:bg-muted/50"
+                    className="text-sm flex-1 sm:flex-initial"
                   >
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-1.5" />
-                      Live
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Live Demo
                     </a>
                   </Button>
                 )}
