@@ -33,16 +33,15 @@ export const personalInfo = {
   name: "Alex Rivera",
   title: "Senior QA Engineer",
   tagline: "Building Quality at Scale",
-  email: "alex.rivera@example.com",
+  email: "contact@aslavchev-qa.dev",
   location: "San Francisco, CA",
   yearsOfExperience: "8+",
   bio: "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. Passionate about delivering flawless software through comprehensive testing strategies and continuous improvement.",
 }
 
 export const socialLinks: SocialLink[] = [
-  { name: "GitHub", url: "https://github.com/alexrivera", icon: "github" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/alexrivera", icon: "linkedin" },
-  { name: "Twitter", url: "https://twitter.com/alexrivera", icon: "twitter" },
+  { name: "GitHub", url: "https://github.com/aslavchev", icon: "github" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/aslavchev", icon: "linkedin" },
 ]
 
 export const featuredProjects: Project[] = [
