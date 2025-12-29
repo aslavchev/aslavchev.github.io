@@ -151,7 +151,14 @@ export function Sidebar() {
       <div className="p-6 border-t border-border">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Search..." className="pl-9" aria-label="Search portfolio" />
+          <Input
+            id="portfolio-search"
+            name="search"
+            type="search"
+            placeholder="Search..."
+            className="pl-9"
+            aria-label="Search portfolio"
+          />
         </div>
       </div>
     </aside>
