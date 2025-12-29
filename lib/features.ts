@@ -21,7 +21,7 @@ export const features = {
   // QA-SPECIFIC SECTIONS (Enable when data ready)
   // ============================================
   showQAMetrics: false, // 🔜 Enable when you have real metrics data
-  showTestingTools: true, // ✅ Shows QA expertise (update with YOUR tools)
+  showTestingTools: false, // ❌ Disabled - no real tools data yet
   showLiveQualityDemo: false, // 🔜 Enable after Lighthouse audit (Phase 4)
   showTestStrategy: false, // 🔜 Enable when you write testing philosophy
 

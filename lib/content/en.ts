@@ -190,9 +190,9 @@ export const content = {
 
   // Meta / SEO (can be used for dynamic meta tags)
   meta: {
-    defaultTitle: "Alex Rivera – Senior QA Engineer | Quality Engineering at Scale",
-    defaultDescription: "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 8+ years of experience delivering flawless software.",
-    titleTemplate: "%s | Alex Rivera",
+    defaultTitle: "Alex Slavchev – Senior QA Engineer | Quality Engineering at Scale",
+    defaultDescription: "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 18+ years of experience delivering flawless software.",
+    titleTemplate: "%s | Alex Slavchev",
   },
 
   // Common

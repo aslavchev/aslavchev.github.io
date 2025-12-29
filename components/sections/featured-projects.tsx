@@ -5,14 +5,15 @@ import { ArrowUpRight, Github, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import { featuredProjects } from "@/lib/data"
 import { getAssetPath } from "@/lib/asset-path"
+import { content } from "@/lib/content"
 
 export function FeaturedProjects() {
   return (
     <section id="featured" className="space-y-10 lg:space-y-12">
       <div className="flex items-center justify-between">
         <div className="space-y-2">
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight">Featured Projects</h2>
-          <p className="text-base lg:text-lg text-muted-foreground/80">Recent quality engineering achievements</p>
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight">{content.featuredProjects.title}</h2>
+          <p className="text-base lg:text-lg text-muted-foreground/80">{content.featuredProjects.subtitle}</p>
         </div>
       </div>
 
