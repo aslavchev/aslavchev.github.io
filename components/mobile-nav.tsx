@@ -6,64 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { getAssetPath } from "@/lib/asset-path"
-import {
-  Menu,
-  Home,
-  Briefcase,
-  FileText,
-  User,
-  Rss,
-  MessageSquare,
-  Wrench,
-  Mail,
-  Github,
-  Linkedin,
-  Twitter,
-  MoonIcon,
-  SunIcon,
-} from "lucide-react"
+import { Menu, MoonIcon, SunIcon } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
-
-const navigationSections = [
-  {
-    category: "EXPLORE",
-    items: [{ icon: Home, label: "Home", href: "#home" }],
-  },
-  {
-    category: "PROJECTS",
-    items: [
-      { icon: Briefcase, label: "Projects", href: "#projects" },
-      { icon: FileText, label: "Case Studies", href: "#projects" },
-    ],
-  },
-  {
-    category: "SERVICES",
-    items: [{ icon: Briefcase, label: "Experience", href: "#experience" }],
-  },
-  {
-    category: "ABOUT",
-    items: [{ icon: User, label: "About", href: "#home" }],
-  },
-  {
-    category: "RESOURCES",
-    items: [
-      { icon: Rss, label: "Insights", href: "#insights" },
-      { icon: MessageSquare, label: "Thoughts", href: "#insights" },
-      { icon: Wrench, label: "Stack", href: "#stack" },
-    ],
-  },
-  {
-    category: "CONNECT",
-    items: [
-      { icon: Mail, label: "Contact", href: "#contact" },
-      { icon: Twitter, label: "Twitter", href: "https://twitter.com", external: true },
-      { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com", external: true },
-      { icon: Github, label: "GitHub", href: "https://github.com", external: true },
-    ],
-  },
-]
+import { navigationConfig } from "@/lib/navigation"
+import { personalInfo } from "@/lib/data"
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -103,12 +51,15 @@ export function MobileNav() {
         <div className="mb-6">
           <div className="flex items-center gap-4 mb-4">
             <Avatar className="h-16 w-16">
-              <AvatarImage src={getAssetPath("/professional-headshot.png")} alt="Alex Slavchev" />
+              <AvatarImage
+                src={getAssetPath("/professional-headshot.png")}
+                alt={`${personalInfo.name} - ${personalInfo.title}`}
+              />
               <AvatarFallback>AS</AvatarFallback>
             </Avatar>
             <div>
-              <h2 className="font-semibold text-lg">Alex Slavchev</h2>
-              <p className="text-sm text-muted-foreground">Senior QA Engineer</p>
+              <h2 className="font-semibold text-lg">{personalInfo.name}</h2>
+              <p className="text-sm text-muted-foreground">{personalInfo.title}</p>
             </div>
           </div>
 
@@ -135,7 +86,7 @@ export function MobileNav() {
 
         {/* Navigation Sections */}
         <nav className="space-y-6">
-          {navigationSections.map((section) => (
+          {navigationConfig.map((section) => (
             <div key={section.category}>
               <h3 className="text-xs font-semibold text-muted-foreground mb-3 tracking-wider">{section.category}</h3>
               <ul className="space-y-1">
