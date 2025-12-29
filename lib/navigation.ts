@@ -52,8 +52,8 @@ export const navigationConfig: NavigationSection[] = [
     category: "CONNECT",
     items: [
       { icon: Mail, label: "Contact", href: "#contact" },
-      { icon: Github, label: "GitHub", href: githubUrl, external: true },
       { icon: Linkedin, label: "LinkedIn", href: linkedinUrl, external: true },
+      { icon: Github, label: "GitHub", href: githubUrl, external: true },
     ],
   },
 ]
