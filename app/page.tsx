@@ -42,7 +42,6 @@ const ExperienceSection = lazy(() =>
 const ContactSection = lazy(() =>
   import("@/components/sections/contact-section").then((mod) => ({ default: mod.ContactSection })),
 )
-const Chatbot = lazy(() => import("@/components/chatbot").then((mod) => ({ default: mod.Chatbot })))
 
 export default function Home() {
   return (
@@ -157,14 +156,6 @@ export default function Home() {
             )}
           </div>
         </main>
-
-        {features.showChatbot && (
-          <ErrorBoundary>
-            <Suspense fallback={null}>
-              <Chatbot />
-            </Suspense>
-          </ErrorBoundary>
-        )}
       </div>
     </ErrorBoundary>
   )
