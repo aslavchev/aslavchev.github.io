@@ -6,6 +6,8 @@ export interface Project {
   metric?: string
   badge?: string
   tools?: string[]
+  githubUrl?: string
+  liveUrl?: string
 }
 
 export interface Experience {

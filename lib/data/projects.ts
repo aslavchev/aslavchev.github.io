@@ -47,6 +47,8 @@ export const projects: Project[] = [
     ],
     tools: ["Java", "Selenium 4", "TestNG", "REST Assured", "Docker"],
     image: "/ecommerce-testing.jpg",
+    badge: "Automation",
+    githubUrl: "https://github.com/aslavchev/ecommerce-automation-framework",
   },
   {
     title: "Soma Holistic Studio Website",
@@ -59,6 +61,9 @@ export const projects: Project[] = [
     ],
     tools: ["TypeScript", "Next.js", "React", "GitHub Pages"],
     image: "/api-testing-dashboard.jpg",
+    badge: "Web Development",
+    githubUrl: "https://github.com/aslavchev/somaholistic.studio",
+    liveUrl: "https://aslavchev.com/somaholistic.studio/",
   },
   {
     title: "QA Fundamentals 11-Week Program",
@@ -71,6 +76,8 @@ export const projects: Project[] = [
     ],
     tools: ["QA Process", "Testing Fundamentals", "Best Practices"],
     image: "/mobile-app-testing.jpg",
+    badge: "Education",
+    githubUrl: "https://github.com/aslavchev/qa-fundamentals-11weeks",
   },
   {
     title: "Git CLI Challenge",
@@ -83,6 +90,8 @@ export const projects: Project[] = [
     ],
     tools: ["Git", "Python", "CLI", "GitHub Pages"],
     image: "/cicd-pipeline-dashboard.jpg",
+    badge: "DevOps",
+    githubUrl: "https://github.com/aslavchev/git-challenge",
   },
   {
     title: "Web App Challenge",
@@ -95,5 +104,7 @@ export const projects: Project[] = [
     ],
     tools: ["Python", "Web Development", "GitHub Pages"],
     image: "/automation-dashboard.jpg",
+    badge: "Python",
+    githubUrl: "https://github.com/aslavchev/web-app-challenge",
   },
 ]

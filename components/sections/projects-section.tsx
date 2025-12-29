@@ -20,8 +20,9 @@ export function ProjectsSection() {
             key={index}
             className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden"
           >
-            <div className="grid md:grid-cols-5 gap-6">
-              <div className="md:col-span-2 aspect-video md:aspect-auto overflow-hidden bg-muted relative min-h-[250px]">
+            <div className="flex flex-col md:grid md:grid-cols-5 gap-0 md:gap-6">
+              {/* Image with badge overlay */}
+              <div className="relative md:col-span-2 aspect-video md:aspect-auto overflow-hidden bg-muted md:min-h-[300px]">
                 <Image
                   src={getAssetPath(project.image || "/placeholder.svg?height=400&width=600")}
                   alt={`${project.title} - QA case study dashboard and metrics`}
@@ -29,13 +30,22 @@ export function ProjectsSection() {
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 100vw, 40vw"
                 />
+                {project.badge && (
+                  <div className="absolute top-4 left-4 z-10">
+                    <Badge className="bg-primary/90 text-primary-foreground backdrop-blur-sm">
+                      {project.badge}
+                    </Badge>
+                  </div>
+                )}
               </div>
-              <div className="md:col-span-3">
+
+              {/* Content */}
+              <div className="md:col-span-3 flex flex-col">
                 <CardHeader>
                   <CardTitle className="text-2xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
                   <CardDescription className="text-base mt-3">{project.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 flex-1">
                   {project.metrics && (
                     <div>
                       <h4 className="text-sm font-semibold mb-3">Key Achievements</h4>
@@ -62,14 +72,32 @@ export function ProjectsSection() {
                   )}
                 </CardContent>
                 <CardFooter className="gap-3">
-                  <Button variant="outline" size="sm" aria-label={`View code for ${project.title}`}>
-                    <Github className="h-4 w-4 mr-2" />
-                    View Code
-                  </Button>
-                  <Button variant="outline" size="sm" aria-label={`View live demo of ${project.title}`}>
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Live Demo
-                  </Button>
+                  {project.githubUrl && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      aria-label={`View code for ${project.title}`}
+                    >
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-4 w-4 mr-2" />
+                        View Code
+                      </a>
+                    </Button>
+                  )}
+                  {project.liveUrl && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      aria-label={`View live demo of ${project.title}`}
+                    >
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
                 </CardFooter>
               </div>
             </div>
