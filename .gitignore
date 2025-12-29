@@ -64,9 +64,3 @@ next-env.d.ts
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Docker (we'll add)
-.dockerignore
-
-# CI/CD (GitHub Actions cache)
-.github/workflows/*.cache
