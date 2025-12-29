@@ -52,9 +52,9 @@ export default function Home() {
         {/* Fixed Left Sidebar - Hidden on mobile */}
         {features.showSidebar && <Sidebar />}
 
-        {/* Main Content Area */}
+        {/* Main Content Area - Dashfolio NEO spacing */}
         <main id="main-content" className="flex-1 ml-0 lg:ml-80 overflow-y-auto">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 space-y-16 sm:space-y-24">
+          <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-16 py-12 sm:py-16 lg:py-20 space-y-20 sm:space-y-28 lg:space-y-32">
             {features.showHero && (
               <ErrorBoundary>
                 <HeroSection />
