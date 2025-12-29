@@ -5,6 +5,7 @@ import type React from "react"
 import { Button } from "@/components/ui/button"
 import { Mail } from "lucide-react"
 import { personalInfo } from "@/lib/portfolio-data"
+import { content } from "@/lib/content"
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -18,11 +19,11 @@ export function HeroSection() {
     <section id="home" className="pt-8">
       <div className="space-y-6">
         <div className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">
-          Available for Opportunities
+          {content.hero.availability}
         </div>
 
         <h1 className="text-5xl lg:text-7xl font-bold text-balance">
-          Hey, I'm <span className="text-primary">{personalInfo.name}</span>.
+          {content.hero.greeting} <span className="text-primary">{personalInfo.name}</span>.
         </h1>
 
         <p className="text-2xl lg:text-3xl text-muted-foreground text-balance">{personalInfo.tagline}</p>
@@ -30,13 +31,13 @@ export function HeroSection() {
         <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">{personalInfo.bio}</p>
 
         <div className="flex flex-wrap gap-4 pt-4">
-          <Button size="lg" onClick={() => scrollToSection("#projects")} aria-label="View my projects">
+          <Button size="lg" onClick={() => scrollToSection("#projects")} aria-label={content.hero.viewProjects}>
             <User className="h-4 w-4 mr-2" />
-            View Projects
+            {content.hero.viewProjects}
           </Button>
-          <Button size="lg" variant="outline" onClick={() => scrollToSection("#contact")} aria-label="Contact me">
+          <Button size="lg" variant="outline" onClick={() => scrollToSection("#contact")} aria-label={content.hero.getInTouch}>
             <Mail className="h-4 w-4 mr-2" />
-            Get in Touch
+            {content.hero.getInTouch}
           </Button>
         </div>
       </div>

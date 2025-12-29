@@ -7,6 +7,7 @@ import { Sidebar } from "@/components/sidebar"
 import { MobileNav } from "@/components/mobile-nav"
 import { HeroSection } from "@/components/sections/hero-section"
 import { FeaturedProjects } from "@/components/sections/featured-projects"
+import { features } from "@/lib/features"
 
 const QAMetricsDashboard = lazy(() =>
   import("@/components/sections/qa-metrics-dashboard").then((mod) => ({ default: mod.QAMetricsDashboard })),
@@ -47,95 +48,123 @@ export default function Home() {
   return (
     <ErrorBoundary>
       <div className="flex min-h-screen bg-background">
-        <MobileNav />
+        {features.showMobileNav && <MobileNav />}
 
         {/* Fixed Left Sidebar - Hidden on mobile */}
-        <Sidebar />
+        {features.showSidebar && <Sidebar />}
 
         {/* Main Content Area */}
         <main id="main-content" className="flex-1 ml-0 lg:ml-80 overflow-y-auto">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 space-y-16 sm:space-y-24">
-            <ErrorBoundary>
-              <HeroSection />
-            </ErrorBoundary>
+            {features.showHero && (
+              <ErrorBoundary>
+                <HeroSection />
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <FeaturedProjects />
-            </ErrorBoundary>
+            {features.showFeaturedProjects && (
+              <ErrorBoundary>
+                <FeaturedProjects />
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<ChartLoadingSkeleton />}>
-                <QAMetricsDashboard />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showQAMetrics && (
+              <ErrorBoundary>
+                <Suspense fallback={<ChartLoadingSkeleton />}>
+                  <QAMetricsDashboard />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <TestingToolsSection />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showTestingTools && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <TestingToolsSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <LiveQualityDemo />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showLiveQualityDemo && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <LiveQualityDemo />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <TestStrategyShowcase />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showTestStrategy && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <TestStrategyShowcase />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <ThoughtsSection />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showThoughts && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <ThoughtsSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <NewsletterSection />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showNewsletter && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <NewsletterSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <FeedAndServices />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showFeedAndServices && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <FeedAndServices />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <StackSection />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showStack && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <StackSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <ProjectsSection />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showProjects && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <ProjectsSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <ExperienceSection />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showExperience && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <ExperienceSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
 
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoadingSkeleton />}>
-                <ContactSection />
-              </Suspense>
-            </ErrorBoundary>
+            {features.showContact && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <ContactSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
           </div>
         </main>
 
-        <ErrorBoundary>
-          <Suspense fallback={null}>
-            <Chatbot />
-          </Suspense>
-        </ErrorBoundary>
+        {features.showChatbot && (
+          <ErrorBoundary>
+            <Suspense fallback={null}>
+              <Chatbot />
+            </Suspense>
+          </ErrorBoundary>
+        )}
       </div>
     </ErrorBoundary>
   )
