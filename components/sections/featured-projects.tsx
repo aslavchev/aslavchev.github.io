@@ -1,7 +1,7 @@
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Github, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import { featuredProjects } from "@/lib/data"
 import { getAssetPath } from "@/lib/asset-path"
@@ -33,9 +33,9 @@ export function FeaturedProjects() {
               />
             </div>
             <CardHeader className="space-y-3">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1 space-y-2">
-                  <CardTitle className="group-hover:text-primary transition-colors text-xl lg:text-2xl">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
+                <div className="flex-1 space-y-2 min-w-0">
+                  <CardTitle className="group-hover:text-primary transition-colors text-xl lg:text-2xl break-words">
                     {project.title}
                   </CardTitle>
                   <CardDescription className="text-sm lg:text-base text-muted-foreground/80">
@@ -43,25 +43,46 @@ export function FeaturedProjects() {
                   </CardDescription>
                 </div>
                 {project.badge && (
-                  <Badge variant="secondary" className="shrink-0 bg-primary/10 text-primary border-primary/20">
+                  <Badge variant="secondary" className="shrink-0 self-start bg-primary/10 text-primary border-primary/20">
                     {project.badge}
                   </Badge>
                 )}
               </div>
             </CardHeader>
-            <CardFooter className="flex items-center justify-between pt-4">
+            <CardFooter className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4">
               <span className="text-sm font-semibold text-primary flex items-center gap-1.5">
                 {project.metric}
               </span>
-              <Button
-                variant="ghost"
-                size="sm"
-                aria-label={`View details for ${project.title}`}
-                className="text-sm hover:bg-muted/50"
-              >
-                View Details
-                <ArrowUpRight className="h-4 w-4 ml-1.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Button>
+              <div className="flex gap-2">
+                {project.githubUrl && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    asChild
+                    aria-label={`View code for ${project.title}`}
+                    className="text-sm hover:bg-muted/50"
+                  >
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="h-4 w-4 mr-1.5" />
+                      Code
+                    </a>
+                  </Button>
+                )}
+                {project.liveUrl && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    asChild
+                    aria-label={`View live demo of ${project.title}`}
+                    className="text-sm hover:bg-muted/50"
+                  >
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-4 w-4 mr-1.5" />
+                      Live
+                    </a>
+                  </Button>
+                )}
+              </div>
             </CardFooter>
           </Card>
         ))}

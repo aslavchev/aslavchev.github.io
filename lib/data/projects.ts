@@ -8,6 +8,7 @@ export const featuredProjects: Project[] = [
     metric: "18+ years QA expertise",
     badge: "Automation",
     tools: ["Java", "Selenium", "TestNG", "REST Assured", "Docker"],
+    githubUrl: "https://github.com/aslavchev/ecommerce-automation-framework",
   },
   {
     title: "Soma Holistic Studio",
@@ -16,6 +17,8 @@ export const featuredProjects: Project[] = [
     metric: "Live on GitHub Pages",
     badge: "Web Development",
     tools: ["TypeScript", "Next.js", "React"],
+    githubUrl: "https://github.com/aslavchev/somaholistic.studio",
+    liveUrl: "https://aslavchev.com/somaholistic.studio/",
   },
   {
     title: "QA Fundamentals Training",
@@ -24,6 +27,7 @@ export const featuredProjects: Project[] = [
     metric: "11-week curriculum",
     badge: "Education",
     tools: ["QA Process", "Testing Fundamentals", "Best Practices"],
+    githubUrl: "https://github.com/aslavchev/qa-fundamentals-11weeks",
   },
   {
     title: "Git CLI Mastery",
@@ -32,6 +36,7 @@ export const featuredProjects: Project[] = [
     metric: "Practical exercises",
     badge: "DevOps",
     tools: ["Git", "Python", "CLI"],
+    githubUrl: "https://github.com/aslavchev/git-challenge",
   },
 ]
 
