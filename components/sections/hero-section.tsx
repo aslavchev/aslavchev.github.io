@@ -29,7 +29,7 @@ export function HeroSection() {
 
         {/* Main heading - refined hierarchy */}
         <div className="space-y-6">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-balance">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-balance leading-tight">
             {content.hero.greeting}{" "}
             <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
               {personalInfo.name}
@@ -37,13 +37,13 @@ export function HeroSection() {
             .
           </h1>
 
-          <p className="text-2xl sm:text-3xl lg:text-4xl text-muted-foreground/90 text-balance font-medium tracking-tight">
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/80 text-balance font-medium tracking-tight leading-snug">
             {personalInfo.tagline}
           </p>
         </div>
 
         {/* Bio text - better readability */}
-        <p className="text-base lg:text-lg text-foreground/70 max-w-2xl leading-relaxed">
+        <p className="text-base sm:text-lg text-foreground/75 max-w-2xl leading-relaxed">
           {personalInfo.bio}
         </p>
 

@@ -42,9 +42,12 @@ export function MobileNav() {
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-80 overflow-y-auto">
+      <SheetContent side="left" className="w-80 overflow-y-auto" aria-describedby="mobile-menu-description">
         <SheetHeader className="mb-6">
           <SheetTitle>Menu</SheetTitle>
+          <p id="mobile-menu-description" className="sr-only">
+            Portfolio navigation menu
+          </p>
         </SheetHeader>
 
         {/* Profile Section */}

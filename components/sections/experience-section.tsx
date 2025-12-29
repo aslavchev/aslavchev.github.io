@@ -17,31 +17,33 @@ export function ExperienceSection() {
             key={index}
             className="hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300"
           >
-            <CardHeader>
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
-                <div className="flex items-start gap-3 flex-1 min-w-0">
-                  <div className="p-2 bg-primary/10 rounded-lg shrink-0">
-                    <Briefcase className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <CardTitle className="text-xl break-words">{exp.title}</CardTitle>
-                    <CardDescription className="text-base mt-1 break-words">{exp.company}</CardDescription>
-                  </div>
+            <CardHeader className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg shrink-0">
+                  <Briefcase className="h-5 w-5 text-primary" />
                 </div>
-                <Badge variant="outline" className="shrink-0 self-start">
-                  {exp.period}
-                </Badge>
+                <div className="flex-1 min-w-0">
+                  <CardTitle className="text-lg sm:text-xl md:text-2xl font-bold break-words leading-tight">
+                    {exp.title}
+                  </CardTitle>
+                  <CardDescription className="text-base sm:text-lg mt-1.5 break-words text-foreground/70">
+                    {exp.company}
+                  </CardDescription>
+                </div>
               </div>
+              <Badge variant="outline" className="w-full sm:w-auto justify-center sm:justify-start text-sm font-medium">
+                {exp.period}
+              </Badge>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm text-muted-foreground">{exp.description}</p>
-              <ul className="space-y-2">
+            <CardContent className="space-y-5">
+              <p className="text-sm sm:text-base leading-relaxed text-foreground/75">{exp.description}</p>
+              <ul className="space-y-3.5">
                 {exp.achievements.map((achievement, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className="text-primary mt-1" aria-hidden="true">
+                  <li key={i} className="flex items-start gap-3 text-sm sm:text-base leading-relaxed">
+                    <span className="text-primary mt-1 text-lg font-bold shrink-0" aria-hidden="true">
                       •
                     </span>
-                    <span className="text-muted-foreground">{achievement}</span>
+                    <span className="text-foreground/75">{achievement}</span>
                   </li>
                 ))}
               </ul>
