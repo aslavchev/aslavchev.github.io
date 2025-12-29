@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
-import { featuredProjects } from "@/lib/portfolio-data"
+import { featuredProjects } from "@/lib/data"
 import { getAssetPath } from "@/lib/asset-path"
 
 export function FeaturedProjects() {

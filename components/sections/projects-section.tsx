@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
-import { projects } from "@/lib/portfolio-data"
+import { projects } from "@/lib/data"
 
 export function ProjectsSection() {
   return (

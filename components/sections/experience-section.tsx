@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Briefcase } from "lucide-react"
-import { experience } from "@/lib/portfolio-data"
+import { experience } from "@/lib/data"
 
 export function ExperienceSection() {
   return (

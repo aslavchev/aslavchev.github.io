@@ -12,9 +12,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Alex Rivera – Senior QA Engineer | Quality Engineering at Scale",
+  title: "Alex Slavchev – Senior QA Engineer | Quality Engineering at Scale",
   description:
-    "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 8+ years of experience delivering flawless software with 95% test coverage and 70% faster release cycles.",
+    "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 18+ years of experience delivering flawless software through comprehensive testing strategies.",
   keywords: [
     "QA Engineer",
     "Quality Assurance",
@@ -27,26 +27,25 @@ export const metadata: Metadata = {
     "Senior QA Engineer",
     "SDET",
   ],
-  authors: [{ name: "Alex Rivera" }],
-  creator: "Alex Rivera",
+  authors: [{ name: "Alex Slavchev" }],
+  creator: "Alex Slavchev",
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Alex Rivera – Senior QA Engineer Portfolio",
+    title: "Alex Slavchev – Senior QA Engineer Portfolio",
     description:
-      "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale.",
-    siteName: "Alex Rivera Portfolio",
+      "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 18+ years of experience.",
+    siteName: "Alex Slavchev Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Rivera – Senior QA Engineer",
-    description: "Senior Quality Assurance Engineer specializing in test automation and quality at scale.",
+    title: "Alex Slavchev – Senior QA Engineer",
+    description: "Senior Quality Assurance Engineer specializing in test automation and quality at scale. 18+ years of experience.",
   },
   robots: {
     index: true,
     follow: true,
   },
-  generator: "v0.app",
   icons: {
     icon: [
       {
@@ -91,14 +90,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Alex Rivera",
+              name: "Alex Slavchev",
               jobTitle: "Senior QA Engineer",
               description:
-                "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale.",
+                "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 18+ years of experience.",
               url: typeof window !== "undefined" ? window.location.origin : "",
               sameAs: [
                 "https://github.com/aslavchev",
-                "https://linkedin.com/in/aslavchev",
+                "https://www.linkedin.com/in/aslavchev/",
               ],
             }),
           }}

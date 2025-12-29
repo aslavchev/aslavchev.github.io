@@ -4,7 +4,7 @@ import type React from "react"
 
 import { Button } from "@/components/ui/button"
 import { Mail } from "lucide-react"
-import { personalInfo } from "@/lib/portfolio-data"
+import { personalInfo } from "@/lib/data"
 import { content } from "@/lib/content"
 
 export function HeroSection() {
