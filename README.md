@@ -139,16 +139,58 @@ The chatbot uses Vercel AI Gateway by default (no API key needed). To customize:
 
 ## Deployment
 
-### Deploy to Vercel (Recommended)
+### GitHub Pages (Current Setup)
 
-1. Push code to GitHub
-2. Import project in Vercel
-3. Configure environment variables (if needed)
-4. Deploy
+**Automatic deployment on every push to `main`:**
+
+1. Push to main branch
+2. GitHub Actions builds and deploys automatically
+3. Site available at: `https://aslavchev.github.io/aslavchev-portfolio-website/`
+
+**Manual Deployment:**
+```bash
+npm run build  # Creates static export in ./out
+```
+
+### Docker
+
+**Build and run locally:**
+```bash
+docker build -t portfolio .
+docker run -p 8080:80 portfolio
+# Visit http://localhost:8080
+```
+
+**Pull from GitHub Container Registry:**
+```bash
+docker pull ghcr.io/aslavchev/aslavchev-portfolio-website:main
+docker run -p 8080:80 ghcr.io/aslavchev/aslavchev-portfolio-website:main
+```
+
+### CI/CD Workflows
+
+**Three automated workflows:**
+
+1. **CI** (`.github/workflows/ci.yml`)
+   - Runs on all PRs and pushes to main
+   - TypeScript checks
+   - Build verification
+   - Artifact upload
+
+2. **Deploy** (`.github/workflows/deploy.yml`)
+   - Deploys to GitHub Pages on main push
+   - Automatic static export
+   - No manual intervention
+
+3. **Docker** (`.github/workflows/docker.yml`)
+   - Builds Docker image on main push
+   - Pushes to GitHub Container Registry
+   - Tagged with commit SHA and version
 
 ### Other Platforms
 
 The portfolio can be deployed to any platform supporting Next.js:
+- Vercel (zero-config)
 - Netlify
 - AWS Amplify
 - Railway
