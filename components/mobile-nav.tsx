@@ -5,6 +5,7 @@ import type React from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { getAssetPath } from "@/lib/asset-path"
 import {
   Menu,
   Home,
@@ -102,7 +103,7 @@ export function MobileNav() {
         <div className="mb-6 mt-2">
           <div className="flex items-center gap-4 mb-4">
             <Avatar className="h-16 w-16">
-              <AvatarImage src="/placeholder.svg?height=64&width=64" alt="Alex Rivera" />
+              <AvatarImage src={getAssetPath("/professional-headshot.png")} alt="Alex Rivera" />
               <AvatarFallback>AR</AvatarFallback>
             </Avatar>
             <div>

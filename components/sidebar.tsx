@@ -5,6 +5,7 @@ import type React from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { getAssetPath } from "@/lib/asset-path"
 import {
   MoonIcon,
   SunIcon,
@@ -88,7 +89,7 @@ export function Sidebar() {
       <div className="p-6 border-b border-border">
         <div className="flex items-center gap-4 mb-4">
           <Avatar className="h-16 w-16">
-            <AvatarImage src="/placeholder.svg?height=64&width=64" alt="Alex Rivera - Senior QA Engineer" />
+            <AvatarImage src={getAssetPath("/professional-headshot.png")} alt="Alex Rivera - Senior QA Engineer" />
             <AvatarFallback>AR</AvatarFallback>
           </Avatar>
           <div>
