@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
 import { projects } from "@/lib/data"
+import { getAssetPath } from "@/lib/asset-path"
 
 export function ProjectsSection() {
   return (
@@ -22,7 +23,7 @@ export function ProjectsSection() {
             <div className="grid md:grid-cols-5 gap-6">
               <div className="md:col-span-2 aspect-video md:aspect-auto overflow-hidden bg-muted relative min-h-[250px]">
                 <Image
-                  src={project.image || "/placeholder.svg?height=400&width=600"}
+                  src={getAssetPath(project.image || "/placeholder.svg?height=400&width=600")}
                   alt={`${project.title} - QA case study dashboard and metrics`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
