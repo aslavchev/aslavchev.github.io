@@ -4,66 +4,13 @@ import type React from "react"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { getAssetPath } from "@/lib/asset-path"
-import {
-  MoonIcon,
-  SunIcon,
-  Search,
-  Home,
-  Briefcase,
-  FileText,
-  User,
-  Rss,
-  MessageSquare,
-  Wrench,
-  Mail,
-  Github,
-  Linkedin,
-  Twitter,
-} from "lucide-react"
+import { MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-
-const navigationSections = [
-  {
-    category: "EXPLORE",
-    items: [{ icon: Home, label: "Home", href: "#home" }],
-  },
-  {
-    category: "PROJECTS",
-    items: [
-      { icon: Briefcase, label: "Projects", href: "#projects" },
-      { icon: FileText, label: "Case Studies", href: "#projects" },
-    ],
-  },
-  {
-    category: "SERVICES",
-    items: [{ icon: Briefcase, label: "Experience", href: "#experience" }],
-  },
-  {
-    category: "ABOUT",
-    items: [{ icon: User, label: "About", href: "#home" }],
-  },
-  {
-    category: "RESOURCES",
-    items: [
-      { icon: Rss, label: "Insights", href: "#insights" },
-      { icon: MessageSquare, label: "Thoughts", href: "#insights" },
-      { icon: Wrench, label: "Stack", href: "#stack" },
-    ],
-  },
-  {
-    category: "CONNECT",
-    items: [
-      { icon: Mail, label: "Contact", href: "#contact" },
-      { icon: Twitter, label: "Twitter", href: "https://twitter.com", external: true },
-      { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com", external: true },
-      { icon: Github, label: "GitHub", href: "https://github.com", external: true },
-    ],
-  },
-]
+import { navigationConfig } from "@/lib/navigation"
+import { personalInfo } from "@/lib/data"
 
 export function Sidebar() {
   const { theme, setTheme } = useTheme()
@@ -89,12 +36,15 @@ export function Sidebar() {
       <div className="p-6 border-b border-border">
         <div className="flex items-center gap-4 mb-4">
           <Avatar className="h-16 w-16">
-            <AvatarImage src={getAssetPath("/professional-headshot.png")} alt="Alex Rivera - Senior QA Engineer" />
-            <AvatarFallback>AR</AvatarFallback>
+            <AvatarImage
+              src={getAssetPath("/professional-headshot.png")}
+              alt={`${personalInfo.name} - ${personalInfo.title}`}
+            />
+            <AvatarFallback>AS</AvatarFallback>
           </Avatar>
           <div>
-            <h2 className="font-semibold text-lg">Alex Rivera</h2>
-            <p className="text-sm text-muted-foreground">Senior QA Engineer</p>
+            <h2 className="font-semibold text-lg">{personalInfo.name}</h2>
+            <p className="text-sm text-muted-foreground">{personalInfo.title}</p>
           </div>
         </div>
 
@@ -124,7 +74,7 @@ export function Sidebar() {
 
       {/* Navigation Sections */}
       <nav className="flex-1 p-6 space-y-6" aria-label="Main navigation">
-        {navigationSections.map((section) => (
+        {navigationConfig.map((section) => (
           <div key={section.category}>
             <h3 className="text-xs font-semibold text-muted-foreground mb-3 tracking-wider">{section.category}</h3>
             <ul className="space-y-1">
@@ -146,21 +96,6 @@ export function Sidebar() {
           </div>
         ))}
       </nav>
-
-      {/* Search Bar */}
-      <div className="p-6 border-t border-border">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input
-            id="portfolio-search"
-            name="search"
-            type="search"
-            placeholder="Search..."
-            className="pl-9"
-            aria-label="Search portfolio"
-          />
-        </div>
-      </div>
     </aside>
   )
 }
