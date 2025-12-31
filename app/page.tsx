@@ -34,6 +34,9 @@ const FeedAndServices = lazy(() =>
 const StackSection = lazy(() =>
   import("@/components/sections/stack-section").then((mod) => ({ default: mod.StackSection })),
 )
+const TestimonialsSection = lazy(() =>
+  import("@/components/sections/testimonials-section").then((mod) => ({ default: mod.TestimonialsSection })),
+)
 const ProjectsSection = lazy(() =>
   import("@/components/sections/projects-section").then((mod) => ({ default: mod.ProjectsSection })),
 )
@@ -100,6 +103,14 @@ export default function Home() {
               <ErrorBoundary>
                 <Suspense fallback={<SectionLoadingSkeleton />}>
                   <StackSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
+
+            {features.showTestimonials && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <TestimonialsSection />
                 </Suspense>
               </ErrorBoundary>
             )}

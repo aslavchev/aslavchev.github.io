@@ -11,9 +11,14 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+  preload: true,
+  fallback: ["system-ui", "arial"],
 })
 
+const baseUrl = "https://aslavchev.github.io/aslavchev-portfolio-website"
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: "Alex Slavchev – Senior QA Engineer | Quality Engineering at Scale",
   description:
     "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 18+ years of experience delivering flawless software through comprehensive testing strategies.",
