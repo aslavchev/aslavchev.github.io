@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { getAssetPath } from "@/lib/asset-path"
+import { getAllStructuredData } from "@/lib/structured-data"
 import "./globals.css"
 
 const inter = Inter({
@@ -91,25 +92,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const baseUrl = "https://aslavchev.github.io/aslavchev-portfolio-website"
+  const structuredData = getAllStructuredData(baseUrl)
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Alex Slavchev",
-              jobTitle: "Senior QA Engineer",
-              description:
-                "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 18+ years of experience.",
-              url: typeof window !== "undefined" ? window.location.origin : "",
-              sameAs: [
-                "https://github.com/aslavchev",
-                "https://www.linkedin.com/in/aslavchev/",
-              ],
-            }),
+            __html: JSON.stringify(structuredData),
           }}
         />
       </head>

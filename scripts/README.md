@@ -47,6 +47,36 @@ npm run update:sitemap
 
 ---
 
+### 🔍 Schema Validator
+
+Validates the structured data (JSON-LD) against Schema.org specifications.
+
+```bash
+npm run validate:schema
+```
+
+**What it does:**
+- Extracts JSON-LD from the built HTML
+- Validates structure and completeness
+- Counts and categorizes schema types
+- Outputs detailed summary of structured data
+- Saves formatted JSON to `out/structured-data.json`
+
+**When to run:**
+- After updating personal information
+- After modifying experience or education data
+- Before submitting sitemap to search engines
+- To verify structured data is correctly embedded
+
+**Validated schemas:**
+- Person (with skills, languages, occupation)
+- OrganizationRole (work experience)
+- EducationalOccupationalCredential (education)
+- ProfilePage (website metadata)
+- BreadcrumbList (navigation structure)
+
+---
+
 ## File Structure
 
 ```

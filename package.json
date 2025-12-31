@@ -9,7 +9,8 @@
     "start": "next start",
     "preview": "node preview-server.js",
     "generate:og": "node scripts/generate-og.js",
-    "update:sitemap": "node scripts/update-sitemap.js"
+    "update:sitemap": "node scripts/update-sitemap.js",
+    "validate:schema": "node scripts/validate-schema.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

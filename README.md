@@ -91,8 +91,14 @@ npm run update:sitemap
 - Comprehensive sitemap with all sections and resume
 - robots.txt for proper crawler guidance
 - OpenGraph and Twitter Card metadata
-- Structured data (Schema.org) for rich search results
+- Rich structured data (Schema.org JSON-LD):
+  - Person schema with 15+ skills and 3 languages
+  - 4 detailed work experience entries
+  - 8 education credentials
+  - Breadcrumb navigation
+  - ProfilePage metadata
 - Automated lastmod date updates
+- Schema validation tools included
 
 ### User Experience First
 - Scroll progress indicator for orientation
@@ -194,6 +200,7 @@ npm run dev              # Start development server
 npm run build            # Create production build
 npm run generate:og      # Generate social sharing image
 npm run update:sitemap   # Update sitemap dates to today
+npm run validate:schema  # Validate structured data (JSON-LD)
 ```
 
 ### Performance
