@@ -10,8 +10,8 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="space-y-8">
       <div>
-        <h2 className="text-3xl font-bold">Case Studies</h2>
-        <p className="text-muted-foreground mt-2">Detailed project breakdowns and achievements</p>
+        <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Case Studies</h2>
+        <p className="text-base lg:text-lg text-muted-foreground/80">Detailed project breakdowns and achievements</p>
       </div>
 
       <div className="grid grid-cols-1 gap-8">

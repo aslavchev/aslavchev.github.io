@@ -35,8 +35,8 @@ export function ContactSection() {
   return (
     <section id="contact" className="space-y-8 pb-16">
       <div>
-        <h2 className="text-3xl font-bold">Let's Connect</h2>
-        <p className="text-muted-foreground mt-2">Available for consulting and full-time opportunities</p>
+        <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Let's Connect</h2>
+        <p className="text-base lg:text-lg text-muted-foreground/80">Available for consulting and full-time opportunities</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -68,8 +68,8 @@ export function StackSection() {
   return (
     <section id="stack" className="space-y-8">
       <div>
-        <h2 className="text-3xl font-bold">Skills & Expertise</h2>
-        <p className="text-muted-foreground mt-2">Comprehensive testing skills across multiple domains</p>
+        <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Skills & Expertise</h2>
+        <p className="text-base lg:text-lg text-muted-foreground/80">Comprehensive testing skills across multiple domains</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

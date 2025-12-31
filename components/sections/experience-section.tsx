@@ -7,8 +7,8 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="space-y-8">
       <div>
-        <h2 className="text-3xl font-bold">Experience</h2>
-        <p className="text-muted-foreground mt-2">Professional journey and achievements</p>
+        <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Experience</h2>
+        <p className="text-base lg:text-lg text-muted-foreground/80">Professional journey and achievements</p>
       </div>
 
       <div className="space-y-6">
