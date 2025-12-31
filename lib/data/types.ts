@@ -13,6 +13,7 @@ export interface Project {
 export interface Experience {
   title: string
   company: string
+  companyLogo?: string
   period: string
   description: string
   achievements: string[]

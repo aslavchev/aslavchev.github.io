@@ -23,7 +23,7 @@ export function Sidebar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["#home", "#featured", "#projects", "#experience", "#education", "#stack", "#contact"]
+      const sections = ["#home", "#featured", "#experience", "#education", "#stack", "#contact"]
       const scrollPosition = window.scrollY + 150 // Offset for better detection
 
       for (let i = sections.length - 1; i >= 0; i--) {

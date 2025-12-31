@@ -4,6 +4,7 @@ export const experience: Experience[] = [
   {
     title: "Sr. Quality Assurance Engineer",
     company: "Tumba Solutions",
+    companyLogo: "/company-logos/tumba-logo.png",
     period: "January 2016 - April 2025",
     description: "Leading quality assurance for Baseball, Financial Media, Cycling Performance, Self-driving cars and Health applications",
     achievements: [
@@ -16,6 +17,7 @@ export const experience: Experience[] = [
   {
     title: "Co-founder",
     company: "Inozona Ltd.",
+    companyLogo: "/company-logos/inozona-logo.png",
     period: "February 2012 - December 2015",
     description: "Sport Performance Analysis start-up from concept to market",
     achievements: [
@@ -28,6 +30,7 @@ export const experience: Experience[] = [
   {
     title: "Quality Assurance Engineer",
     company: "VMware",
+    companyLogo: "/company-logos/vmware-logo.png",
     period: "November 2007 - February 2015",
     description: "Cloud Computing and Virtualization Software and Services testing",
     achievements: [
@@ -40,6 +43,7 @@ export const experience: Experience[] = [
   {
     title: "Jr. Quality Assurance Engineer",
     company: "Sciant",
+    companyLogo: "/company-logos/sciant-logo.png",
     period: "May 2007 - October 2007",
     description: "VM Kernel QA for enterprise virtualization platform",
     achievements: [

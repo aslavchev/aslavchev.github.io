@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, Linkedin, Github, Twitter, Clock } from "lucide-react"
+import { Mail, Linkedin, Github, MessageCircle, Clock } from "lucide-react"
 import { useState, useEffect } from "react"
 import { personalInfo, socialLinks } from "@/lib/data"
 
@@ -82,6 +82,16 @@ export function ContactSection() {
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-3" />
                 View GitHub Profile
+              </a>
+            </Button>
+            <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
+              <a
+                href="https://wa.me/359886449904?text=Hi%20Alex%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20QA%20opportunity."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="h-4 w-4 mr-3" />
+                WhatsApp Message
               </a>
             </Button>
             <Button variant="outline" className="w-full justify-start bg-transparent" asChild>

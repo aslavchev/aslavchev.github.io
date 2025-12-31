@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { Button } from "@/components/ui/button"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Mail, Briefcase, Download } from "lucide-react"
 import { personalInfo } from "@/lib/data"
 import { content } from "@/lib/content"
@@ -18,41 +19,55 @@ export function HeroSection() {
 
   return (
     <section id="home" className="pt-4 lg:pt-8">
-      <div className="space-y-8 lg:space-y-10">
-        {/* Availability badge - refined */}
-        <div className="inline-flex items-center px-4 py-2 bg-primary/8 text-primary rounded-full text-sm font-medium border border-primary/10">
-          <span className="relative flex h-2 w-2 mr-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-          </span>
-          {content.hero.availability}
+      <div className="grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-8 lg:gap-12 items-start">
+        {/* Headshot - Left Column on Desktop */}
+        <div className="flex justify-center lg:justify-start">
+          <Avatar className="h-48 w-48 lg:h-64 lg:w-64 ring-4 ring-primary/10 ring-offset-4 ring-offset-background">
+            <AvatarImage
+              src={getAssetPath("/professional-headshot.png")}
+              alt={`${personalInfo.name} - ${personalInfo.title}`}
+              className="object-cover"
+            />
+            <AvatarFallback className="text-4xl lg:text-5xl">AS</AvatarFallback>
+          </Avatar>
         </div>
 
-        {/* Main heading - refined hierarchy */}
-        <div className="space-y-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-balance leading-tight">
-            {content.hero.greeting}{" "}
-            <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-              {personalInfo.name}
+        {/* Content - Right Column on Desktop */}
+        <div className="space-y-8 lg:space-y-10">
+          {/* Availability badge - refined */}
+          <div className="inline-flex items-center px-4 py-2 bg-primary/8 text-primary rounded-full text-sm font-medium border border-primary/10">
+            <span className="relative flex h-2 w-2 mr-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            .
-          </h1>
+            {content.hero.availability}
+          </div>
 
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/80 text-balance font-medium tracking-tight leading-snug">
-            {personalInfo.tagline}
+          {/* Main heading - refined hierarchy */}
+          <div className="space-y-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight">
+              {content.hero.greeting}{" "}
+              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+                {personalInfo.name}
+              </span>
+              .
+            </h1>
+
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/80 text-balance font-medium tracking-tight leading-snug">
+              {personalInfo.tagline}
+            </p>
+          </div>
+
+          {/* Bio text - better readability */}
+          <p className="text-base sm:text-lg text-foreground/75 max-w-2xl leading-relaxed">
+            {personalInfo.bio}
           </p>
-        </div>
 
-        {/* Bio text - better readability */}
-        <p className="text-base sm:text-lg text-foreground/75 max-w-2xl leading-relaxed">
-          {personalInfo.bio}
-        </p>
-
-        {/* CTAs - refined styling */}
-        <div className="flex flex-wrap gap-3 pt-6">
+          {/* CTAs - refined styling */}
+          <div className="flex flex-wrap gap-3 pt-6">
           <Button
             size="lg"
-            onClick={() => scrollToSection("#projects")}
+            onClick={() => scrollToSection("#featured")}
             aria-label={content.hero.viewProjects}
             className="font-medium shadow-lg shadow-primary/10 hover:shadow-xl hover:shadow-primary/20 transition-all"
           >
@@ -81,6 +96,7 @@ export function HeroSection() {
             <Mail className="h-4 w-4 mr-2" />
             {content.hero.getInTouch}
           </Button>
+        </div>
         </div>
       </div>
     </section>

@@ -40,7 +40,7 @@ export const navigationConfig: NavigationSection[] = [
   },
   {
     category: "PROJECTS",
-    items: [{ icon: Briefcase, label: "Projects", href: "#projects" }],
+    items: [{ icon: Briefcase, label: "Projects", href: "#featured" }],
   },
   {
     category: "ABOUT",
