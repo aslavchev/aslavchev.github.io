@@ -15,9 +15,32 @@ import { personalInfo } from "@/lib/data"
 export function Sidebar() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [activeSection, setActiveSection] = useState("#home")
 
   useEffect(() => {
     setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["#home", "#featured", "#projects", "#experience", "#education", "#stack", "#contact"]
+      const scrollPosition = window.scrollY + 150 // Offset for better detection
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.querySelector(sections[i])
+        if (section) {
+          const sectionTop = (section as HTMLElement).offsetTop
+          if (scrollPosition >= sectionTop) {
+            setActiveSection(sections[i])
+            break
+          }
+        }
+      }
+    }
+
+    handleScroll() // Initial check
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -78,20 +101,27 @@ export function Sidebar() {
           <div key={section.category}>
             <h3 className="text-xs font-semibold text-muted-foreground mb-3 tracking-wider">{section.category}</h3>
             <ul className="space-y-1">
-              {section.items.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    onClick={(e) => !item.external && handleNavClick(e, item.href)}
-                    target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-foreground/80 hover:bg-muted hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {section.items.map((item) => {
+                const isActive = !item.external && item.href === activeSection
+                return (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      onClick={(e) => !item.external && handleNavClick(e, item.href)}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                        isActive
+                          ? "bg-primary/10 text-primary font-semibold"
+                          : "text-foreground/80 hover:bg-muted hover:text-foreground"
+                      }`}
+                    >
+                      <item.icon className="h-4 w-4" />
+                      {item.label}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         ))}

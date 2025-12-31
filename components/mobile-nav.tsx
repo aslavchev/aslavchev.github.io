@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { getAssetPath } from "@/lib/asset-path"
 import { Menu, MoonIcon, SunIcon } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import { navigationConfig } from "@/lib/navigation"
@@ -16,6 +16,29 @@ import { personalInfo } from "@/lib/data"
 export function MobileNav() {
   const [open, setOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const [activeSection, setActiveSection] = useState("#home")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["#home", "#featured", "#projects", "#experience", "#education", "#stack", "#contact"]
+      const scrollPosition = window.scrollY + 150 // Offset for better detection
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.querySelector(sections[i])
+        if (section) {
+          const sectionTop = (section as HTMLElement).offsetTop
+          if (scrollPosition >= sectionTop) {
+            setActiveSection(sections[i])
+            break
+          }
+        }
+      }
+    }
+
+    handleScroll() // Initial check
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal?: boolean) => {
     if (!isExternal && href.startsWith("#")) {
@@ -95,20 +118,27 @@ export function MobileNav() {
                 {section.category}
               </h3>
               <ul className="space-y-1">
-                {section.items.map((item) => (
-                  <li key={item.label}>
-                    <Link
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href, item.external)}
-                      target={item.external ? "_blank" : undefined}
-                      rel={item.external ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium text-foreground/80 hover:bg-muted hover:text-foreground transition-colors min-h-[44px]"
-                    >
-                      <item.icon className="h-5 w-5" />
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+                {section.items.map((item) => {
+                  const isActive = !item.external && item.href === activeSection
+                  return (
+                    <li key={item.label}>
+                      <Link
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item.href, item.external)}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
+                        className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-[44px] ${
+                          isActive
+                            ? "bg-primary/10 text-primary font-bold"
+                            : "text-foreground/80 hover:bg-muted hover:text-foreground"
+                        }`}
+                      >
+                        <item.icon className="h-5 w-5" />
+                        {item.label}
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ))}
