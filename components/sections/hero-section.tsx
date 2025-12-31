@@ -18,7 +18,7 @@ export function HeroSection() {
   }
 
   return (
-    <section id="home" className="pt-4 lg:pt-8">
+    <section id="home" className="pt-4 lg:pt-8" aria-label="Introduction">
       <div className="grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-8 lg:gap-12 items-start">
         {/* Headshot - Left Column on Desktop */}
         <div className="flex justify-center lg:justify-start">
@@ -68,21 +68,24 @@ export function HeroSection() {
           <Button
             size="lg"
             onClick={() => scrollToSection("#featured")}
-            aria-label={content.hero.viewProjects}
+            aria-label="View featured projects"
             className="font-medium shadow-lg shadow-primary/10 hover:shadow-xl hover:shadow-primary/20 transition-all"
           >
-            <Briefcase className="h-4 w-4 mr-2" />
+            <Briefcase className="h-4 w-4 mr-2" aria-hidden="true" />
             {content.hero.viewProjects}
           </Button>
           <Button
             size="lg"
             variant="secondary"
             asChild
-            aria-label="Download Resume PDF"
             className="font-medium shadow-md hover:shadow-lg transition-all"
           >
-            <a href={getAssetPath("/Alex_Slavchev_CV.pdf")} download="Alex_Slavchev_CV.pdf">
-              <Download className="h-4 w-4 mr-2" />
+            <a
+              href={getAssetPath("/Alex_Slavchev_CV.pdf")}
+              download="Alex_Slavchev_CV.pdf"
+              aria-label="Download Alex Slavchev Resume PDF"
+            >
+              <Download className="h-4 w-4 mr-2" aria-hidden="true" />
               Download Resume
             </a>
           </Button>
@@ -90,10 +93,10 @@ export function HeroSection() {
             size="lg"
             variant="outline"
             onClick={() => scrollToSection("#contact")}
-            aria-label={content.hero.getInTouch}
+            aria-label="Scroll to contact section"
             className="font-medium border-border/50 hover:border-border hover:bg-muted/50 transition-all"
           >
-            <Mail className="h-4 w-4 mr-2" />
+            <Mail className="h-4 w-4 mr-2" aria-hidden="true" />
             {content.hero.getInTouch}
           </Button>
         </div>

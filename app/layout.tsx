@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { getAssetPath } from "@/lib/asset-path"
 import { getAllStructuredData } from "@/lib/structured-data"
 import "./globals.css"
+import "./accessibility.css"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -108,13 +109,22 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
+          className="skip-link"
+          aria-label="Skip to main content"
         >
           Skip to main content
         </a>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
+        {/* Accessibility announcements */}
+        <div
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          className="sr-only"
+          id="a11y-announcements"
+        />
       </body>
     </html>
   )

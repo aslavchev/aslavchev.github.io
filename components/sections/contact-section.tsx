@@ -12,14 +12,21 @@ export function ContactSection() {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date()
-      setTime(
-        now.toLocaleTimeString("en-US", {
-          timeZone: "Europe/Sofia",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        }),
-      )
+      const timeString = now.toLocaleTimeString("en-US", {
+        timeZone: "Europe/Sofia",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      })
+      setTime(timeString)
+
+      // Announce time updates to screen readers (only on the hour)
+      if (now.getMinutes() === 0) {
+        const announcements = document.getElementById('a11y-announcements')
+        if (announcements) {
+          announcements.textContent = `Current time in Sofia: ${timeString}`
+        }
+      }
     }
 
     updateTime()
@@ -33,9 +40,9 @@ export function ContactSection() {
     socialLinks.find((link) => link.name === "LinkedIn")?.url || "https://www.linkedin.com/in/aslavchev/"
 
   return (
-    <section id="contact" className="space-y-8 pb-16">
+    <section id="contact" className="space-y-8 pb-16" aria-labelledby="contact-heading">
       <div>
-        <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Let's Connect</h2>
+        <h2 id="contact-heading" className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Let's Connect</h2>
         <p className="text-base lg:text-lg text-muted-foreground/80">
           Open to QA leadership roles, consulting projects, and strategic testing initiatives
         </p>
@@ -52,7 +59,7 @@ export function ContactSection() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <p className="text-4xl font-bold text-primary mb-2">{time}</p>
+              <p className="text-4xl font-bold text-primary mb-2" role="timer" aria-live="off" aria-label={`Current time in Sofia: ${time}`}>{time}</p>
               <p className="text-sm text-muted-foreground">Sofia, Bulgaria (EET/EEST)</p>
             </div>
             <div className="space-y-2">
@@ -73,14 +80,24 @@ export function ContactSection() {
           </CardHeader>
           <CardContent className="space-y-3">
             <Button variant="default" className="w-full justify-start font-semibold" asChild>
-              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-                <Linkedin className="h-4 w-4 mr-3" />
+              <a
+                href={linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Connect with Alex Slavchev on LinkedIn (opens in new tab)"
+              >
+                <Linkedin className="h-4 w-4 mr-3" aria-hidden="true" />
                 Connect on LinkedIn
               </a>
             </Button>
             <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4 mr-3" />
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Alex Slavchev's GitHub profile (opens in new tab)"
+              >
+                <Github className="h-4 w-4 mr-3" aria-hidden="true" />
                 View GitHub Profile
               </a>
             </Button>
@@ -89,14 +106,18 @@ export function ContactSection() {
                 href="https://wa.me/359886449904?text=Hi%20Alex%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20QA%20opportunity."
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Send WhatsApp message to Alex Slavchev (opens in new tab)"
               >
-                <MessageCircle className="h-4 w-4 mr-3" />
+                <MessageCircle className="h-4 w-4 mr-3" aria-hidden="true" />
                 WhatsApp Message
               </a>
             </Button>
             <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-              <a href={`mailto:${personalInfo.email}`}>
-                <Mail className="h-4 w-4 mr-3" />
+              <a
+                href={`mailto:${personalInfo.email}`}
+                aria-label={`Send email to ${personalInfo.email}`}
+              >
+                <Mail className="h-4 w-4 mr-3" aria-hidden="true" />
                 {personalInfo.email}
               </a>
             </Button>

@@ -1,0 +1,275 @@
+/**
+ * Accessibility Enhancements
+ * WCAG 2.1 AA Compliant Styles
+ */
+
+/* ============================================
+   FOCUS INDICATORS
+   ============================================ */
+
+/* Enhanced focus ring for all interactive elements */
+*:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove default focus outline when focus-visible is supported */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Special focus styles for buttons */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid hsl(var(--primary));
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px hsl(var(--background)),
+              0 0 0 4px hsl(var(--primary) / 0.3);
+}
+
+/* Card focus states for keyboard navigation */
+[role="article"]:focus-visible,
+[role="region"]:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.1);
+}
+
+/* ============================================
+   SKIP LINKS
+   ============================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 0.5rem 0;
+  z-index: 9999;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* ============================================
+   SCREEN READER UTILITIES
+   ============================================ */
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Show on focus */
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* ============================================
+   KEYBOARD NAVIGATION INDICATORS
+   ============================================ */
+
+/* Show focus indicator only for keyboard users */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Enhanced link focus in navigation */
+nav a:focus-visible {
+  background: hsl(var(--primary) / 0.1);
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE
+   ============================================ */
+
+/* Enhanced contrast for high contrast mode */
+@media (prefers-contrast: high) {
+  *:focus-visible {
+    outline-width: 3px;
+    outline-offset: 3px;
+  }
+
+  button,
+  a {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ============================================
+   ACCESSIBLE INTERACTIVE STATES
+   ============================================ */
+
+/* Ensure sufficient hover states */
+button:hover:not(:disabled),
+a:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Disabled state with clear visual feedback */
+button:disabled,
+a[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  position: relative;
+}
+
+/* ============================================
+   TOUCH TARGET SIZES
+   ============================================ */
+
+/* Ensure minimum 44x44px touch targets (WCAG 2.5.5) */
+button,
+a,
+input,
+select,
+textarea {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Exceptions for text links in paragraphs */
+p a,
+li a {
+  min-height: auto;
+  min-width: auto;
+  display: inline;
+}
+
+/* ============================================
+   ARIA LIVE REGIONS
+   ============================================ */
+
+/* Visually hidden but accessible to screen readers */
+[aria-live] {
+  position: relative;
+}
+
+/* Ensure live regions are announced */
+[aria-live="polite"],
+[aria-live="assertive"] {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* ============================================
+   COLOR CONTRAST
+   ============================================ */
+
+/* Ensure text has sufficient contrast */
+.text-muted-foreground {
+  /* Already defined in globals.css, ensure it meets 4.5:1 ratio */
+  color: hsl(var(--muted-foreground));
+}
+
+/* Link contrast enhancement */
+a {
+  text-decoration-skip-ink: auto;
+}
+
+/* ============================================
+   FORM ACCESSIBILITY
+   ============================================ */
+
+/* Clear error states */
+input:invalid,
+textarea:invalid,
+select:invalid {
+  border-color: hsl(var(--destructive));
+  outline-color: hsl(var(--destructive));
+}
+
+input:invalid:focus,
+textarea:invalid:focus,
+select:invalid:focus {
+  outline: 2px solid hsl(var(--destructive));
+  outline-offset: 2px;
+}
+
+/* Label association */
+label {
+  cursor: pointer;
+}
+
+/* Required field indicator */
+[required]::after {
+  content: " *";
+  color: hsl(var(--destructive));
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR (Accessibility Friendly)
+   ============================================ */
+
+/* Ensure scrollbars are visible and accessible */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 6px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Note: focus-visible not supported on scrollbar pseudo-elements */

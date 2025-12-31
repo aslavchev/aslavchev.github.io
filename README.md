@@ -107,6 +107,17 @@ npm run update:sitemap
 - WhatsApp quick contact integration
 - Download resume with one click
 
+### Accessibility (WCAG 2.1 AA)
+- Complete keyboard navigation support
+- Enhanced focus indicators (3px outline with box shadow)
+- ARIA labels on all interactive elements
+- Skip link to main content
+- Screen reader optimized
+- Respects reduced motion preferences
+- 44x44px minimum touch targets
+- High contrast mode support
+- See [ACCESSIBILITY.md](./ACCESSIBILITY.md) for full statement
+
 ## The Philosophy
 
 ### On Quality
