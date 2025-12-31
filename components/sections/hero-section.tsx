@@ -3,9 +3,10 @@
 import type React from "react"
 
 import { Button } from "@/components/ui/button"
-import { Mail, Briefcase } from "lucide-react"
+import { Mail, Briefcase, Download } from "lucide-react"
 import { personalInfo } from "@/lib/data"
 import { content } from "@/lib/content"
+import { getAssetPath } from "@/lib/asset-path"
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -57,6 +58,18 @@ export function HeroSection() {
           >
             <Briefcase className="h-4 w-4 mr-2" />
             {content.hero.viewProjects}
+          </Button>
+          <Button
+            size="lg"
+            variant="secondary"
+            asChild
+            aria-label="Download Resume PDF"
+            className="font-medium shadow-md hover:shadow-lg transition-all"
+          >
+            <a href={getAssetPath("/Alex_Slavchev_CV.pdf")} download="Alex_Slavchev_CV.pdf">
+              <Download className="h-4 w-4 mr-2" />
+              Download Resume
+            </a>
           </Button>
           <Button
             size="lg"
