@@ -39,6 +39,9 @@ const ProjectsSection = lazy(() =>
 const ExperienceSection = lazy(() =>
   import("@/components/sections/experience-section").then((mod) => ({ default: mod.ExperienceSection })),
 )
+const EducationSection = lazy(() =>
+  import("@/components/sections/education-section").then((mod) => ({ default: mod.EducationSection })),
+)
 const ContactSection = lazy(() =>
   import("@/components/sections/contact-section").then((mod) => ({ default: mod.ContactSection })),
 )
@@ -64,6 +67,38 @@ export default function Home() {
             {features.showFeaturedProjects && (
               <ErrorBoundary>
                 <FeaturedProjects />
+              </ErrorBoundary>
+            )}
+
+            {features.showProjects && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <ProjectsSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
+
+            {features.showExperience && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <ExperienceSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
+
+            {features.showEducation && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <EducationSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
+
+            {features.showStack && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <StackSection />
+                </Suspense>
               </ErrorBoundary>
             )}
 
@@ -119,30 +154,6 @@ export default function Home() {
               <ErrorBoundary>
                 <Suspense fallback={<SectionLoadingSkeleton />}>
                   <FeedAndServices />
-                </Suspense>
-              </ErrorBoundary>
-            )}
-
-            {features.showStack && (
-              <ErrorBoundary>
-                <Suspense fallback={<SectionLoadingSkeleton />}>
-                  <StackSection />
-                </Suspense>
-              </ErrorBoundary>
-            )}
-
-            {features.showProjects && (
-              <ErrorBoundary>
-                <Suspense fallback={<SectionLoadingSkeleton />}>
-                  <ProjectsSection />
-                </Suspense>
-              </ErrorBoundary>
-            )}
-
-            {features.showExperience && (
-              <ErrorBoundary>
-                <Suspense fallback={<SectionLoadingSkeleton />}>
-                  <ExperienceSection />
                 </Suspense>
               </ErrorBoundary>
             )}
