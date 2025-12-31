@@ -111,13 +111,13 @@ export function MobileNav() {
         </div>
 
         {/* Navigation Sections */}
-        <nav className="space-y-7">
-          {navigationConfig.map((section) => (
-            <div key={section.category}>
-              <h3 className="text-xs font-bold text-foreground/60 mb-3 tracking-wider uppercase px-3">
+        <nav className="space-y-8">
+          {navigationConfig.map((section, idx) => (
+            <div key={section.category} className={idx > 0 ? "pt-2" : ""}>
+              <h3 className="text-[10px] font-bold text-muted-foreground/60 mb-4 tracking-widest uppercase px-3">
                 {section.category}
               </h3>
-              <ul className="space-y-1">
+              <ul className="space-y-0.5">
                 {section.items.map((item) => {
                   const isActive = !item.external && item.href === activeSection
                   return (
