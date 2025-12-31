@@ -164,7 +164,6 @@ a[aria-disabled="true"] {
 
 /* Ensure minimum 44x44px touch targets (WCAG 2.5.5) */
 button,
-a,
 input,
 select,
 textarea {
@@ -175,9 +174,15 @@ textarea {
   justify-content: center;
 }
 
-/* Exceptions for text links in paragraphs */
-p a,
-li a {
+/* Navigation links need flex layout for icon + text */
+nav a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Exceptions for text links in paragraphs and content */
+p a {
   min-height: auto;
   min-width: auto;
   display: inline;

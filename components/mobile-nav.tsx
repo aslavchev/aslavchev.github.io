@@ -110,38 +110,31 @@ export function MobileNav() {
           </Button>
         </div>
 
-        {/* Navigation Sections */}
-        <nav className="space-y-8">
-          {navigationConfig.map((section, idx) => (
-            <div key={section.category} className={idx > 0 ? "pt-2" : ""}>
-              <h3 className="text-[10px] font-bold text-muted-foreground/60 mb-4 tracking-widest uppercase px-3">
-                {section.category}
-              </h3>
-              <ul className="space-y-0.5">
-                {section.items.map((item) => {
-                  const isActive = !item.external && item.href === activeSection
-                  return (
-                    <li key={item.label}>
-                      <Link
-                        href={item.href}
-                        onClick={(e) => handleNavClick(e, item.href, item.external)}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noopener noreferrer" : undefined}
-                        className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-[44px] ${
-                          isActive
-                            ? "bg-primary/10 text-primary font-bold"
-                            : "text-foreground/80 hover:bg-muted hover:text-foreground"
-                        }`}
-                      >
-                        <item.icon className="h-5 w-5" />
-                        {item.label}
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          ))}
+        {/* Navigation */}
+        <nav>
+          <ul className="space-y-1">
+            {navigationConfig.map((item) => {
+              const isActive = !item.external && item.href === activeSection
+              return (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href, item.external)}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-[44px] ${
+                      isActive
+                        ? "bg-primary/10 text-primary font-bold"
+                        : "text-foreground/80 hover:bg-muted hover:text-foreground"
+                    }`}
+                  >
+                    <item.icon className="h-5 w-5" />
+                    {item.label}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
         </nav>
       </SheetContent>
     </Sheet>

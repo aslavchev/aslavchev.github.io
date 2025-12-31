@@ -1,6 +1,7 @@
 /**
  * Shared Navigation Configuration
  * Single source of truth for navigation - used by both Sidebar and MobileNav
+ * Simple, flat structure - no unnecessary hierarchy
  */
 
 import {
@@ -23,39 +24,18 @@ export interface NavigationItem {
   external?: boolean
 }
 
-export interface NavigationSection {
-  category: string
-  items: NavigationItem[]
-}
-
 // Get real social link URLs from data
 const githubUrl = socialLinks.find((link) => link.name === "GitHub")?.url || "https://github.com/aslavchev"
 const linkedinUrl =
   socialLinks.find((link) => link.name === "LinkedIn")?.url || "https://www.linkedin.com/in/aslavchev/"
 
-export const navigationConfig: NavigationSection[] = [
-  {
-    category: "EXPLORE",
-    items: [{ icon: Home, label: "Home", href: "#home" }],
-  },
-  {
-    category: "PROJECTS",
-    items: [{ icon: Briefcase, label: "Projects", href: "#featured" }],
-  },
-  {
-    category: "ABOUT",
-    items: [
-      { icon: User, label: "Experience", href: "#experience" },
-      { icon: GraduationCap, label: "Education", href: "#education" },
-      { icon: Wrench, label: "Stack", href: "#stack" },
-    ],
-  },
-  {
-    category: "CONNECT",
-    items: [
-      { icon: Mail, label: "Contact", href: "#contact" },
-      { icon: Linkedin, label: "LinkedIn", href: linkedinUrl, external: true },
-      { icon: Github, label: "GitHub", href: githubUrl, external: true },
-    ],
-  },
+export const navigationConfig: NavigationItem[] = [
+  { icon: Home, label: "Home", href: "#home" },
+  { icon: Briefcase, label: "Featured Projects", href: "#featured" },
+  { icon: User, label: "Experience", href: "#experience" },
+  { icon: GraduationCap, label: "Education", href: "#education" },
+  { icon: Wrench, label: "Stack", href: "#stack" },
+  { icon: Mail, label: "Contact", href: "#contact" },
+  { icon: Linkedin, label: "LinkedIn", href: linkedinUrl, external: true },
+  { icon: Github, label: "GitHub", href: githubUrl, external: true },
 ]
