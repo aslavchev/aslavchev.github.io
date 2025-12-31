@@ -11,8 +11,8 @@ export const features = {
   // CORE SECTIONS (Job-Optimized)
   // ============================================
   showHero: true, // ✅ Essential - First impression
-  showFeaturedProjects: true, // ✅ Essential - Show best work
-  showProjects: true, // ✅ Essential - Detailed case studies
+  showFeaturedProjects: true, // ✅ Essential - All projects showcased here
+  showProjects: false, // 🔜 Re-enable for deep-dive case studies (template in /local/templates/case-study-template.md)
   showExperience: true, // ✅ Essential - Career progression
   showEducation: true, // ✅ Essential - Academic background
   showStack: true, // ✅ Essential - Technical skills

@@ -1,9 +1,9 @@
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react"
 import Image from "next/image"
-import { featuredProjects } from "@/lib/data"
+import { projects } from "@/lib/data"
 import { getAssetPath } from "@/lib/asset-path"
 import { content } from "@/lib/content"
 
@@ -18,7 +18,7 @@ export function FeaturedProjects() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
-        {featuredProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <Card
             key={index}
             className="group hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 overflow-hidden border-border/50 hover:border-border bg-card/50 backdrop-blur-sm"
@@ -50,6 +50,18 @@ export function FeaturedProjects() {
                 </div>
               )}
             </CardHeader>
+            {project.metrics && (
+              <CardContent className="pt-0 pb-4">
+                <ul className="space-y-2">
+                  {project.metrics.map((metric, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/70">
+                      <span className="text-primary mt-0.5 text-sm font-bold">✓</span>
+                      <span>{metric}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            )}
             <CardFooter className="flex flex-col gap-3 pt-0">
               <div className="flex gap-2 w-full">
                 {project.githubUrl && (
