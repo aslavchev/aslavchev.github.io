@@ -36,7 +36,9 @@ export function ContactSection() {
     <section id="contact" className="space-y-8 pb-16">
       <div>
         <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Let's Connect</h2>
-        <p className="text-base lg:text-lg text-muted-foreground/80">Available for consulting and full-time opportunities</p>
+        <p className="text-base lg:text-lg text-muted-foreground/80">
+          Open to QA leadership roles, consulting projects, and strategic testing initiatives
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -53,9 +55,12 @@ export function ContactSection() {
               <p className="text-4xl font-bold text-primary mb-2">{time}</p>
               <p className="text-sm text-muted-foreground">Sofia, Bulgaria (EET/EEST)</p>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="h-3 w-3 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium">Open to opportunities</span>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <div className="h-3 w-3 bg-green-500 rounded-full animate-pulse" />
+                <span className="text-sm font-medium">Available for new opportunities</span>
+              </div>
+              <p className="text-xs text-foreground/70">Remote • Hybrid • On-site</p>
             </div>
           </CardContent>
         </Card>
@@ -67,22 +72,22 @@ export function ContactSection() {
             <CardDescription>Reach out through your preferred channel</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
-            <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-              <a href={`mailto:${personalInfo.email}`}>
-                <Mail className="h-4 w-4 mr-3" />
-                {personalInfo.email}
-              </a>
-            </Button>
-            <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
+            <Button variant="default" className="w-full justify-start font-semibold" asChild>
               <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-4 w-4 mr-3" />
-                LinkedIn Profile
+                Connect on LinkedIn
               </a>
             </Button>
             <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-3" />
-                GitHub Profile
+                View GitHub Profile
+              </a>
+            </Button>
+            <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
+              <a href={`mailto:${personalInfo.email}`}>
+                <Mail className="h-4 w-4 mr-3" />
+                {personalInfo.email}
               </a>
             </Button>
           </CardContent>
