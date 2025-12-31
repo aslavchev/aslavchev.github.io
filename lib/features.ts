@@ -14,6 +14,7 @@ export const features = {
   showFeaturedProjects: true, // ✅ Essential - Show best work
   showProjects: true, // ✅ Essential - Detailed case studies
   showExperience: true, // ✅ Essential - Career progression
+  showEducation: true, // ✅ Essential - Academic background
   showStack: true, // ✅ Essential - Technical skills
   showContact: true, // ✅ Essential - Easy to reach you
 

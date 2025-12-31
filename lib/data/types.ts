@@ -25,6 +25,13 @@ export interface Skill {
   proficiency: number
 }
 
+export interface Education {
+  degree: string
+  school: string
+  period: string
+  description: string
+}
+
 export interface SocialLink {
   name: string
   url: string
