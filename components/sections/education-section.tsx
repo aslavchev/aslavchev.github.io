@@ -1,7 +1,25 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { GraduationCap } from "lucide-react"
+import { GraduationCap, Award, Briefcase, Globe, Users } from "lucide-react"
 import { education } from "@/lib/data"
+import type { Education } from "@/lib/data/types"
+
+const getEducationIcon = (type?: Education["type"]) => {
+  switch (type) {
+    case "degree":
+      return GraduationCap // University degrees
+    case "certification":
+      return Award // Professional certifications
+    case "training":
+      return Briefcase // Professional training courses
+    case "international":
+      return Globe // International programs (Buenos Aires!)
+    case "professional":
+      return Users // Professional development
+    default:
+      return GraduationCap
+  }
+}
 
 export function EducationSection() {
   return (
@@ -12,16 +30,18 @@ export function EducationSection() {
       </div>
 
       <div className="space-y-4">
-        {education.map((edu, index) => (
-          <Card
-            key={index}
-            className="hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300"
-          >
-            <CardHeader className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="p-2 bg-primary/10 rounded-lg shrink-0">
-                  <GraduationCap className="h-5 w-5 text-primary" />
-                </div>
+        {education.map((edu, index) => {
+          const Icon = getEducationIcon(edu.type)
+          return (
+            <Card
+              key={index}
+              className="hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300"
+            >
+              <CardHeader className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-primary/10 rounded-lg shrink-0">
+                    <Icon className="h-5 w-5 text-primary" />
+                  </div>
                 <div className="flex-1 min-w-0">
                   <CardTitle className="text-lg sm:text-xl md:text-2xl font-bold break-words leading-tight">
                     {edu.degree}
@@ -39,7 +59,8 @@ export function EducationSection() {
               <p className="text-sm sm:text-base leading-relaxed text-foreground/75">{edu.description}</p>
             </CardContent>
           </Card>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

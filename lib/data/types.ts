@@ -30,6 +30,7 @@ export interface Education {
   school: string
   period: string
   description: string
+  type?: "degree" | "certification" | "training" | "international" | "professional"
 }
 
 export interface SocialLink {
