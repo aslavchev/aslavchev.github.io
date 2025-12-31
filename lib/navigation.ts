@@ -7,6 +7,7 @@ import {
   Home,
   Briefcase,
   User,
+  GraduationCap,
   Wrench,
   Mail,
   Github,
@@ -45,6 +46,7 @@ export const navigationConfig: NavigationSection[] = [
     category: "ABOUT",
     items: [
       { icon: User, label: "Experience", href: "#experience" },
+      { icon: GraduationCap, label: "Education", href: "#education" },
       { icon: Wrench, label: "Stack", href: "#stack" },
     ],
   },
