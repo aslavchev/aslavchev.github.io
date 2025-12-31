@@ -1,0 +1,15 @@
+# Robots.txt for Alex Slavchev Portfolio
+# Allow all search engines to crawl the entire site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aslavchev.github.io/aslavchev-portfolio-website/sitemap.xml
+
+# Disallow crawling of build artifacts and system files
+Disallow: /_next/
+Disallow: /api/
+
+# Crawl-delay (optional, helps prevent server overload)
+# Crawl-delay: 1

@@ -1,209 +1,212 @@
-# Alex Rivera - Senior QA Engineer Portfolio
+# Alex Slavchev – Senior QA Engineer
 
-A modern, production-ready portfolio website showcasing quality engineering expertise, built with Next.js 16, TypeScript, and Tailwind CSS.
+> "Quality is not an act, it is a habit." – Aristotle
 
-## Features
+## Why This Matters
 
-- **FAANG-Ready Design**: Professional portfolio demonstrating senior-level QA expertise
-- **Interactive Metrics Dashboard**: Real-time data visualizations using Recharts
-- **AI-Powered Chatbot**: Context-aware assistant to answer portfolio questions
-- **Mobile-First**: Fully responsive with hamburger navigation for mobile devices
-- **Performance Optimized**: 
-  - Lazy loading with React Suspense
-  - Next.js Image optimization
-  - Code splitting for optimal bundle size
-- **Accessibility**: WCAG 2.1 AA compliant with proper semantic HTML and ARIA labels
-- **Error Resilience**: Error boundaries for graceful failure handling
-- **SEO Optimized**: Comprehensive metadata and structured data
+In an industry where a single bug can cost millions and damage trust built over years, quality assurance isn't just a role—it's a responsibility to users, stakeholders, and the future of software itself.
 
-## Tech Stack
+This portfolio represents 18+ years of ensuring that software doesn't just work—it works flawlessly, at scale, under pressure.
 
-- **Framework**: Next.js 16 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v4
-- **UI Components**: shadcn/ui
-- **Charts**: Recharts
-- **AI**: Vercel AI SDK v5
-- **Deployment**: Vercel
+## What I Do
 
-## Getting Started
+I build quality into software from the ground up. Not as an afterthought. Not as a checkbox. As a fundamental principle.
 
-### Prerequisites
+**The numbers tell the story:**
+- 18+ years of quality engineering across sports, finance, health, and autonomous vehicles
+- 100,000+ users relying on applications I've tested
+- Zero-critical-failure track record through rigorous testing protocols
+- Led teams from zero to production-ready in enterprise environments
 
-- Node.js 18+ 
-- npm or yarn
+**But numbers don't capture everything:**
+- I've mentored junior engineers who became senior contributors
+- I've designed testing infrastructure that scales with business growth
+- I've caught critical issues hours before release that would have cost millions
+- I've built quality cultures, not just test suites
 
-### Installation
+## The Approach
 
-1. Clone the repository
-\`\`\`bash
-git clone https://github.com/alexrivera/portfolio.git
-cd portfolio
-\`\`\`
+Quality isn't about finding bugs. It's about preventing them.
 
-2. Install dependencies
-\`\`\`bash
+1. **Think Like a User** – Every test case starts with "How would this fail in the real world?"
+2. **Automate Relentlessly** – Humans make mistakes. Machines don't get tired.
+3. **Measure Everything** – You can't improve what you don't measure
+4. **Fail Fast, Learn Faster** – Find issues early when they're cheap to fix
+
+## The Portfolio
+
+This isn't just a website. It's a demonstration of the same principles I apply to testing:
+
+- **Performance-First**: Built with Next.js 16, optimized for speed
+- **Automated Quality**: Puppeteer-driven OG image generation, automated sitemaps
+- **Accessibility**: WCAG 2.1 AA compliant—quality means accessible to everyone
+- **Resilient Architecture**: Error boundaries, lazy loading, graceful degradation
+- **SEO Optimized**: Because quality work should be discoverable
+
+**Tech Stack:**
+- Next.js 16 (App Router) + React 19
+- TypeScript for type safety
+- Tailwind CSS v4 for maintainable styling
+- shadcn/ui for consistent components
+- Automated tooling with Puppeteer
+
+## Live Site
+
+**[View Portfolio →](https://aslavchev.github.io/aslavchev-portfolio-website/)**
+
+**[Download Resume (PDF) →](https://aslavchev.github.io/aslavchev-portfolio-website/Alex_Slavchev_CV.pdf)**
+
+## Quick Start
+
+```bash
+# Clone this repository
+git clone https://github.com/aslavchev/aslavchev-portfolio-website.git
+cd aslavchev-portfolio-website
+
+# Install dependencies
 npm install
-\`\`\`
 
-3. Create environment variables (optional)
-\`\`\`bash
-cp .env.example .env.local
-\`\`\`
-
-4. Run the development server
-\`\`\`bash
+# Run locally
 npm run dev
-\`\`\`
 
-5. Open [http://localhost:3000](http://localhost:3000)
+# Build for production
+npm run build
 
-## Project Structure
+# Generate social sharing image
+npm run generate:og
 
-\`\`\`
-├── app/                      # Next.js app directory
-│   ├── api/                 # API routes
-│   │   └── chat/           # AI chatbot endpoint
-│   ├── layout.tsx          # Root layout with metadata
-│   └── page.tsx            # Main page with lazy loading
-├── components/              # React components
-│   ├── sections/           # Page sections
-│   ├── ui/                 # shadcn/ui components
-│   ├── error-boundary.tsx  # Error handling
-│   ├── mobile-nav.tsx      # Mobile navigation
-│   └── sidebar.tsx         # Desktop sidebar
-├── lib/                    # Utilities and data
-│   ├── portfolio-data.ts   # Centralized content
-│   ├── rate-limit.ts       # API rate limiting
-│   └── utils.ts           # Helper functions
-└── public/                 # Static assets
-\`\`\`
-
-## Key Sections
-
-1. **Hero**: Introduction with call-to-action buttons
-2. **Featured Projects**: Highlight reel of top achievements
-3. **QA Metrics Dashboard**: Interactive charts showing impact
-4. **Testing Tools**: Comprehensive tool proficiency breakdown
-5. **Live Quality Demo**: Lighthouse scores and Core Web Vitals
-6. **Test Strategy**: Testing pyramid and quality gates
-7. **Case Studies**: Detailed project breakdowns
-8. **Experience**: Professional history timeline
-9. **Contact**: Get in touch form
-
-## Customization
-
-### Update Personal Information
-
-Edit `lib/portfolio-data.ts` to update:
-- Personal info (name, title, bio)
-- Projects and achievements
-- Work experience
-- Skills and tools
-- Social links
-
-### Modify Styling
-
-- Colors: Edit `app/globals.css` design tokens
-- Components: Modify files in `components/`
-- Layout: Adjust `app/page.tsx` section order
-
-### Configure Chatbot
-
-The chatbot uses Vercel AI Gateway by default (no API key needed). To customize:
-1. Edit the system prompt in `app/api/chat/route.ts`
-2. Adjust rate limits in `lib/rate-limit.ts`
-
-## Performance
-
-- Lighthouse Score: 98+ Performance
-- First Contentful Paint: < 1s
-- Time to Interactive: < 1.5s
-- Bundle Size: Optimized with lazy loading
-
-## Accessibility
-
-- WCAG 2.1 AA Compliant
-- Semantic HTML structure
-- Keyboard navigation support
-- Screen reader friendly
-- Proper ARIA labels
-
-## Security
-
-- Security headers configured
-- Rate limiting on API endpoints
-- Input validation
-- XSS protection
-- No exposed credentials
-
-## Deployment
-
-### GitHub Pages (Current Setup)
-
-**Automatic deployment on every push to `main`:**
-
-1. Push to main branch
-2. GitHub Actions builds and deploys automatically
-3. Site available at: `https://aslavchev.github.io/aslavchev-portfolio-website/`
-
-**Manual Deployment:**
-```bash
-npm run build  # Creates static export in ./out
+# Update sitemap dates
+npm run update:sitemap
 ```
 
-### Docker
+## What Sets This Apart
 
-**Build and run locally:**
-```bash
-docker build -t portfolio .
-docker run -p 8080:80 portfolio
-# Visit http://localhost:8080
+### Professional Visual Identity
+- **Automated OG Image Generation**: Professional social sharing cards with Puppeteer
+- **Timeline Visualization**: Experience and education with visual progression
+- **Company Branding**: Integrated company logos with graceful fallbacks
+- **Responsive Design**: Mobile-first approach, works flawlessly on any device
+
+### SEO Excellence
+- Comprehensive sitemap with all sections and resume
+- robots.txt for proper crawler guidance
+- OpenGraph and Twitter Card metadata
+- Structured data (Schema.org) for rich search results
+- Automated lastmod date updates
+
+### User Experience First
+- Scroll progress indicator for orientation
+- Smooth section navigation
+- Dark/light theme support
+- WhatsApp quick contact integration
+- Download resume with one click
+
+## The Philosophy
+
+### On Quality
+Quality isn't expensive. It's priceless. The cost of poor quality—lost users, damaged reputation, emergency fixes—far exceeds the investment in getting it right the first time.
+
+### On Testing
+Every line of code is a promise to users. Testing is how we keep that promise.
+
+### On Automation
+Manual testing doesn't scale. Automated testing frees humans to think about edge cases machines can't imagine.
+
+### On Continuous Improvement
+The best testing strategy is the one that evolves with your product. Static processes create technical debt.
+
+## Experience Highlights
+
+**Tumba Solutions** (2016-2025) – Senior QA Engineer
+Led quality assurance for Baseball, Financial Media, Cycling Performance, and Self-driving car applications. Mentored junior QA engineers. Designed comprehensive testing infrastructure for client applications serving 100K+ users.
+
+**VMware** (2007-2015) – Quality Assurance Engineer
+Established testing protocols for VMware's VCloud UI management interface. Led cross-functional project delivery for Windows VM performance monitoring. Aligned testing efforts across US and Bulgaria engineering teams.
+
+[See full experience →](https://aslavchev.github.io/aslavchev-portfolio-website/#experience)
+
+## Get in Touch
+
+Quality software doesn't happen by accident. It's engineered, tested, and refined.
+
+If you're looking for someone who doesn't just test software but builds quality into the culture, let's talk.
+
+**Email**: [sandixx@gmail.com](mailto:sandixx@gmail.com)
+**LinkedIn**: [linkedin.com/in/aslavchev](https://www.linkedin.com/in/aslavchev/)
+**GitHub**: [github.com/aslavchev](https://github.com/aslavchev)
+**WhatsApp**: [+359 886 449904](https://wa.me/359886449904?text=Hi%20Alex%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20QA%20opportunity.)
+**Location**: Sofia, Bulgaria (Remote • Hybrid • On-site)
+
+---
+
+## Technical Documentation
+
+### Project Structure
+
+```
+├── app/                      # Next.js App Router
+│   ├── layout.tsx           # Root layout, metadata, SEO
+│   └── page.tsx             # Main page with lazy loading
+├── components/
+│   ├── sections/            # Portfolio sections
+│   │   ├── hero-section.tsx
+│   │   ├── experience-section.tsx
+│   │   ├── education-section.tsx
+│   │   └── contact-section.tsx
+│   ├── ui/                  # shadcn/ui components
+│   ├── sidebar.tsx          # Desktop navigation
+│   └── mobile-nav.tsx       # Mobile navigation
+├── lib/
+│   ├── data/               # Content and configuration
+│   │   ├── personal.ts     # Personal information
+│   │   ├── experience.ts   # Work history
+│   │   ├── education.ts    # Academic background
+│   │   └── projects.ts     # Portfolio projects
+│   └── utils.ts            # Utility functions
+├── public/
+│   ├── og-image.png        # Social sharing image
+│   ├── sitemap.xml         # SEO sitemap
+│   ├── robots.txt          # Crawler instructions
+│   └── company-logos/      # Brand assets
+└── scripts/
+    ├── generate-og.js       # Automated OG image generation
+    ├── update-sitemap.js    # Sitemap date updater
+    └── README.md            # Script documentation
 ```
 
-**Pull from GitHub Container Registry:**
+### Deployment
+
+**GitHub Pages** (Current):
+- Automatic deployment on push to `main`
+- Static export to `./out`
+- Available at: https://aslavchev.github.io/aslavchev-portfolio-website/
+
+**Vercel** (Alternative):
 ```bash
-docker pull ghcr.io/aslavchev/aslavchev-portfolio-website:main
-docker run -p 8080:80 ghcr.io/aslavchev/aslavchev-portfolio-website:main
+npm install -g vercel
+vercel deploy
 ```
 
-### CI/CD Workflows
+### Scripts
 
-**Three automated workflows:**
+```bash
+npm run dev              # Start development server
+npm run build            # Create production build
+npm run generate:og      # Generate social sharing image
+npm run update:sitemap   # Update sitemap dates to today
+```
 
-1. **CI** (`.github/workflows/ci.yml`)
-   - Runs on all PRs and pushes to main
-   - TypeScript checks
-   - Build verification
-   - Artifact upload
+### Performance
 
-2. **Deploy** (`.github/workflows/deploy.yml`)
-   - Deploys to GitHub Pages on main push
-   - Automatic static export
-   - No manual intervention
+- Lighthouse Score: 95+ Performance
+- First Contentful Paint: < 1.2s
+- Time to Interactive: < 1.8s
+- Accessibility: 100/100
+- Best Practices: 100/100
+- SEO: 100/100
 
-3. **Docker** (`.github/workflows/docker.yml`)
-   - Builds Docker image on main push
-   - Pushes to GitHub Container Registry
-   - Tagged with commit SHA and version
+---
 
-### Other Platforms
+Built with precision. Tested with purpose. Deployed with confidence.
 
-The portfolio can be deployed to any platform supporting Next.js:
-- Vercel (zero-config)
-- Netlify
-- AWS Amplify
-- Railway
-- Render
-
-## License
-
-MIT License - feel free to use this as a template for your own portfolio!
-
-## Contact
-
-Alex Rivera - [alex.rivera@example.com](mailto:alex.rivera@example.com)
-
-Portfolio: [https://alexrivera.dev](https://alexrivera.dev)
-LinkedIn: [linkedin.com/in/alexrivera](https://linkedin.com/in/alexrivera)
-GitHub: [github.com/alexrivera](https://github.com/alexrivera)
+© 2025 Alex Slavchev. Available for opportunities worldwide.

@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "next start",
     "preview": "node preview-server.js",
-    "generate:og": "node scripts/generate-og.js"
+    "generate:og": "node scripts/generate-og.js",
+    "update:sitemap": "node scripts/update-sitemap.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
