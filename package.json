@@ -10,7 +10,10 @@
     "preview": "node preview-server.js",
     "generate:og": "node scripts/generate-og.js",
     "update:sitemap": "node scripts/update-sitemap.js",
-    "validate:schema": "node scripts/validate-schema.js"
+    "validate:schema": "node scripts/validate-schema.js",
+    "optimize:images": "node scripts/convert-to-webp.js",
+    "optimize:og": "node scripts/optimize-og-image.js",
+    "optimize:all": "npm run optimize:og && npm run optimize:images"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

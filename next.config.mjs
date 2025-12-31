@@ -6,7 +6,11 @@ const nextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true, // Required for static export
+    formats: ['image/webp', 'image/avif'],
   },
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
   // Add security headers
   async headers() {
     return [
