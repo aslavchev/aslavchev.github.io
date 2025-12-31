@@ -67,3 +67,11 @@ Thumbs.db
 
 # Project files
 project-structure.txt
+
+# Local development files (not for repo)
+local/
+*.local.*
+
+# Image optimization backups (keep originals only)
+*-original.*
+public/*-original.*
