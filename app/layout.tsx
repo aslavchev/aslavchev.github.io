@@ -32,15 +32,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: "https://aslavchev.github.io/aslavchev-portfolio-website/",
     title: "Alex Slavchev – Senior QA Engineer Portfolio",
     description:
       "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 18+ years of experience.",
     siteName: "Alex Slavchev Portfolio",
+    images: [
+      {
+        url: getAssetPath("/og-image.png"),
+        width: 1200,
+        height: 630,
+        alt: "Alex Slavchev - Senior QA Engineer | Building Quality at Scale",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Alex Slavchev – Senior QA Engineer",
     description: "Senior Quality Assurance Engineer specializing in test automation and quality at scale. 18+ years of experience.",
+    images: [getAssetPath("/og-image.png")],
   },
   robots: {
     index: true,
