@@ -10,9 +10,10 @@ import {
   User,
   GraduationCap,
   Wrench,
+  Award,
+  Github,
   MessageSquareQuote,
   Mail,
-  Github,
   Linkedin,
   type LucideIcon,
 } from "lucide-react"
@@ -36,8 +37,10 @@ export const navigationConfig: NavigationItem[] = [
   { icon: User, label: "Experience", href: "#experience" },
   { icon: GraduationCap, label: "Education", href: "#education" },
   { icon: Wrench, label: "Stack", href: "#stack" },
+  { icon: Award, label: "Certifications", href: "#certifications" },
+  { icon: Github, label: "GitHub Activity", href: "#github" },
   { icon: MessageSquareQuote, label: "Testimonials", href: "#testimonials" },
   { icon: Mail, label: "Contact", href: "#contact" },
   { icon: Linkedin, label: "LinkedIn", href: linkedinUrl, external: true },
-  { icon: Github, label: "GitHub", href: githubUrl, external: true },
+  { icon: Github, label: "GitHub Profile", href: githubUrl, external: true },
 ]
