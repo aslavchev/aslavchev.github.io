@@ -5,6 +5,7 @@ import { ErrorBoundary } from "@/components/error-boundary"
 import { SectionLoadingSkeleton, ChartLoadingSkeleton } from "@/components/loading-skeleton"
 import { Sidebar } from "@/components/sidebar"
 import { MobileNav } from "@/components/mobile-nav"
+import { ScrollProgress } from "@/components/scroll-progress"
 import { HeroSection } from "@/components/sections/hero-section"
 import { FeaturedProjects } from "@/components/sections/featured-projects"
 import { features } from "@/lib/features"
@@ -49,6 +50,7 @@ const ContactSection = lazy(() =>
 export default function Home() {
   return (
     <ErrorBoundary>
+      <ScrollProgress />
       <div className="flex min-h-screen bg-background">
         {features.showMobileNav && <MobileNav />}
 
