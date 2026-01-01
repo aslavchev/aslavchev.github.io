@@ -34,6 +34,12 @@ const FeedAndServices = lazy(() =>
 const StackSection = lazy(() =>
   import("@/components/sections/stack-section").then((mod) => ({ default: mod.StackSection })),
 )
+const CertificationsSection = lazy(() =>
+  import("@/components/sections/certifications-section").then((mod) => ({ default: mod.CertificationsSection })),
+)
+const GitHubSection = lazy(() =>
+  import("@/components/sections/github-section").then((mod) => ({ default: mod.GitHubSection })),
+)
 const TestimonialsSection = lazy(() =>
   import("@/components/sections/testimonials-section").then((mod) => ({ default: mod.TestimonialsSection })),
 )
@@ -103,6 +109,22 @@ export default function Home() {
               <ErrorBoundary>
                 <Suspense fallback={<SectionLoadingSkeleton />}>
                   <StackSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
+
+            {features.showCertifications && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <CertificationsSection />
+                </Suspense>
+              </ErrorBoundary>
+            )}
+
+            {features.showGitHub && (
+              <ErrorBoundary>
+                <Suspense fallback={<SectionLoadingSkeleton />}>
+                  <GitHubSection />
                 </Suspense>
               </ErrorBoundary>
             )}
