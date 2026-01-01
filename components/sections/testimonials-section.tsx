@@ -1,12 +1,48 @@
 "use client"
 
+import { useRef, useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { testimonials } from "@/lib/data/testimonials"
-import { Quote, Linkedin } from "lucide-react"
+import { Quote, LinkedinIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function TestimonialsSection() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const getCardWidth = () => {
+    // 340px on mobile (<640px), 380px on desktop
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 640
+    return (isMobile ? 340 : 380) + 24 // card width + gap
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!scrollRef.current) return
+
+      const scrollLeft = scrollRef.current.scrollLeft
+      const cardWidth = getCardWidth()
+      const index = Math.round(scrollLeft / cardWidth)
+      setActiveIndex(index)
+    }
+
+    const scrollContainer = scrollRef.current
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleScroll)
+      return () => scrollContainer.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  const scrollToTestimonial = (index: number) => {
+    if (!scrollRef.current) return
+    const cardWidth = getCardWidth()
+    scrollRef.current.scrollTo({
+      left: cardWidth * index,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <section id="testimonials" className="space-y-8">
       {/* Section Header */}
@@ -22,7 +58,10 @@ export function TestimonialsSection() {
 
       {/* Testimonials Horizontal Scroll */}
       <div className="relative -mx-6 sm:-mx-8 lg:-mx-16">
-        <div className="overflow-x-auto px-6 sm:px-8 lg:px-16 pb-4 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
+        <div
+          ref={scrollRef}
+          className="overflow-x-auto px-6 sm:px-8 lg:px-16 pb-4 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent snap-x snap-mandatory"
+        >
           <div className="flex gap-6 min-w-max">
             {testimonials.map((testimonial) => {
               const initials = testimonial.name
@@ -31,7 +70,7 @@ export function TestimonialsSection() {
                 .join("")
 
               return (
-                <Card key={testimonial.id} className="relative overflow-hidden hover:shadow-lg transition-shadow w-[380px] flex-shrink-0">
+                <Card key={testimonial.id} className="relative overflow-hidden hover:shadow-lg transition-shadow w-[340px] sm:w-[380px] flex-shrink-0 snap-start">
               {/* Quote Icon */}
               <div className="absolute top-4 right-4 opacity-10">
                 <Quote className="h-16 w-16 text-primary" />
@@ -56,7 +95,7 @@ export function TestimonialsSection() {
                           className="text-muted-foreground hover:text-primary transition-colors"
                           aria-label={`${testimonial.name}'s LinkedIn profile`}
                         >
-                          <Linkedin className="h-3.5 w-3.5" />
+                          <LinkedinIcon className="h-3.5 w-3.5" />
                         </a>
                       )}
                     </div>
@@ -85,6 +124,24 @@ export function TestimonialsSection() {
         </div>
       </div>
 
+      {/* Pagination Dots */}
+      {testimonials.length > 1 && (
+        <div className="flex justify-center gap-2 pt-2">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollToTestimonial(index)}
+              className={`h-2 rounded-full transition-all ${
+                activeIndex === index
+                  ? 'w-8 bg-primary'
+                  : 'w-2 bg-primary/20 hover:bg-primary/40'
+              }`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+
       {/* LinkedIn CTA */}
       <div className="text-center pt-4">
         <p className="text-sm text-muted-foreground mb-4">
@@ -97,7 +154,7 @@ export function TestimonialsSection() {
             rel="noopener noreferrer"
             className="gap-2"
           >
-            <Linkedin className="h-4 w-4" />
+            <LinkedinIcon className="h-4 w-4" />
             View LinkedIn Recommendations
           </a>
         </Button>

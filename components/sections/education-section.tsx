@@ -54,7 +54,7 @@ export function EducationSection() {
                       {edu.school}
                     </CardDescription>
                   </div>
-                  <Badge variant="outline" className="w-full sm:w-auto justify-center sm:justify-start text-sm font-medium">
+                  <Badge variant="outline" className="w-fit justify-start text-sm font-medium">
                     {edu.period}
                   </Badge>
                 </CardHeader>
