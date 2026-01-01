@@ -1,160 +1,105 @@
 # Alex Slavchev – Senior QA Engineer
 
-> "Quality is not an act, it is a habit." – Aristotle
+18+ years ensuring software works flawlessly at scale. From sports to finance to autonomous vehicles.
 
-## Why This Matters
+**[View Portfolio →](https://aslavchev.github.io/aslavchev-portfolio-website/)** | **[Download Resume →](https://aslavchev.github.io/aslavchev-portfolio-website/Alex_Slavchev_CV.pdf)**
 
-In an industry where a single bug can cost millions and damage trust built over years, quality assurance isn't just a role—it's a responsibility to users, stakeholders, and the future of software itself.
+## Track Record
 
-This portfolio represents 18+ years of ensuring that software doesn't just work—it works flawlessly, at scale, under pressure.
+- 18+ years quality engineering: sports, finance, health, autonomous vehicles
+- 100,000+ users relying on tested applications
+- Zero critical failures through rigorous testing protocols
+- Built testing infrastructure from zero to production-ready
 
-## What I Do
+## Approach
 
-I build quality into software from the ground up. Not as an afterthought. Not as a checkbox. As a fundamental principle.
-
-**The numbers tell the story:**
-- 18+ years of quality engineering across sports, finance, health, and autonomous vehicles
-- 100,000+ users relying on applications I've tested
-- Zero-critical-failure track record through rigorous testing protocols
-- Led teams from zero to production-ready in enterprise environments
-
-**But numbers don't capture everything:**
-- I've mentored junior engineers who became senior contributors
-- I've designed testing infrastructure that scales with business growth
-- I've caught critical issues hours before release that would have cost millions
-- I've built quality cultures, not just test suites
-
-## The Approach
-
-Quality isn't about finding bugs. It's about preventing them.
-
-1. **Think Like a User** – Every test case starts with "How would this fail in the real world?"
-2. **Automate Relentlessly** – Humans make mistakes. Machines don't get tired.
+1. **Think Like a User** – Test how it fails in the real world
+2. **Automate Relentlessly** – Machines don't get tired
 3. **Measure Everything** – You can't improve what you don't measure
-4. **Fail Fast, Learn Faster** – Find issues early when they're cheap to fix
+4. **Fail Fast** – Find issues early when they're cheap to fix
 
-## The Portfolio
+## This Portfolio
 
-This isn't just a website. It's a demonstration of the same principles I apply to testing:
-
-- **Performance-First**: Built with Next.js 16, optimized for speed
-- **Automated Quality**: Puppeteer-driven OG image generation, automated sitemaps
-- **Accessibility**: WCAG 2.1 AA compliant—quality means accessible to everyone
-- **Resilient Architecture**: Error boundaries, lazy loading, graceful degradation
-- **SEO Optimized**: Because quality work should be discoverable
+Built with the same quality principles I apply to testing:
 
 **Tech Stack:**
 - Next.js 16 (App Router) + React 19
 - TypeScript for type safety
-- Tailwind CSS v4 for maintainable styling
-- shadcn/ui for consistent components
-- Automated tooling with Puppeteer
+- Tailwind CSS v4
+- Automated optimization scripts
 
-## Live Site
+**Quality Metrics:**
+- Lighthouse: 95+ performance, 100 accessibility, 100 SEO
+- WCAG 2.1 AA compliant
+- 1.2MB image savings (WebP conversion + compression)
+- Error boundaries, lazy loading, graceful degradation
 
-**[View Portfolio →](https://aslavchev.github.io/aslavchev-portfolio-website/)**
-
-**[Download Resume (PDF) →](https://aslavchev.github.io/aslavchev-portfolio-website/Alex_Slavchev_CV.pdf)**
+**Automation:**
+- Puppeteer-driven OG image generation
+- Automated sitemap updates
+- Image optimization scripts
+- Schema validation
 
 ## Quick Start
 
 ```bash
-# Clone this repository
 git clone https://github.com/aslavchev/aslavchev-portfolio-website.git
 cd aslavchev-portfolio-website
-
-# Install dependencies
 npm install
+npm run dev              # Local development
+npm run build            # Production build
 
-# Run locally
-npm run dev
-
-# Build for production
-npm run build
-
-# Optimization & SEO Scripts
-npm run generate:og      # Generate social sharing image
-npm run update:sitemap   # Update sitemap dates
-npm run optimize:og      # Optimize OG image (797KB → 87KB)
-npm run optimize:images  # Convert JPG to WebP (35% savings)
-npm run optimize:all     # Run all image optimizations
+# Optimization scripts
+npm run optimize:all     # Image optimization
+npm run generate:og      # Social sharing image
+npm run update:sitemap   # Update sitemap
 ```
 
-## What Sets This Apart
+## Features
 
-### Professional Visual Identity
-- **Automated OG Image Generation**: Professional social sharing cards with Puppeteer
-- **Timeline Visualization**: Experience and education with visual progression
-- **Company Branding**: Integrated company logos with graceful fallbacks
-- **Responsive Design**: Mobile-first approach, works flawlessly on any device
+**Performance:**
+- Resource hints (preconnect, dns-prefetch)
+- Font preloading with system fallbacks
+- Lazy loading, code splitting
+- WebP images (35.8% average reduction)
+- OG image optimized: 797KB → 87KB (89% reduction)
 
-### SEO Excellence
-- Comprehensive sitemap with all sections and resume
-- robots.txt for proper crawler guidance
+**Accessibility:**
+- Keyboard navigation
+- ARIA labels, focus indicators
+- Skip links, screen reader optimized
+- 44px minimum touch targets
+- Respects reduced motion
+
+**SEO:**
+- Sitemap with automated updates
+- Schema.org JSON-LD structured data
 - OpenGraph and Twitter Card metadata
-- Rich structured data (Schema.org JSON-LD):
-  - Person schema with 15+ skills and 3 languages
-  - 4 detailed work experience entries
-  - 8 education credentials
-  - Breadcrumb navigation
-  - ProfilePage metadata
-- Automated lastmod date updates
-- Schema validation tools included
+- robots.txt for crawler guidance
 
-### User Experience First
-- Scroll progress indicator for orientation
-- Smooth section navigation with flat, simple hierarchy
-- Dark/light theme support
-- Testimonials section with horizontal scrolling
-- WhatsApp quick contact integration
-- Download resume with one click
-- Mobile-optimized touch targets (44x44px minimum)
-
-### Accessibility (WCAG 2.1 AA)
-- Complete keyboard navigation support
-- Enhanced focus indicators (3px outline with box shadow)
-- ARIA labels on all interactive elements
-- Skip link to main content
-- Screen reader optimized
-- Respects reduced motion preferences
-- 44x44px minimum touch targets
-- High contrast mode support
-- See [ACCESSIBILITY.md](./ACCESSIBILITY.md) for full statement
-
-## The Philosophy
-
-### On Quality
-Quality isn't expensive. It's priceless. The cost of poor quality—lost users, damaged reputation, emergency fixes—far exceeds the investment in getting it right the first time.
-
-### On Testing
-Every line of code is a promise to users. Testing is how we keep that promise.
-
-### On Automation
-Manual testing doesn't scale. Automated testing frees humans to think about edge cases machines can't imagine.
-
-### On Continuous Improvement
-The best testing strategy is the one that evolves with your product. Static processes create technical debt.
+**UX:**
+- Dark/light theme
+- Scroll progress indicator
+- Mobile-first responsive design
+- WhatsApp quick contact
+- One-click resume download
 
 ## Experience Highlights
 
 **Tumba Solutions** (2016-2025) – Senior QA Engineer
-Led quality assurance for Baseball, Financial Media, Cycling Performance, and Self-driving car applications. Mentored junior QA engineers. Designed comprehensive testing infrastructure for client applications serving 100K+ users.
+Quality assurance for Baseball, Financial Media, Cycling, and Self-driving applications. Mentored junior engineers. Designed testing infrastructure for 100K+ users.
 
 **VMware** (2007-2015) – Quality Assurance Engineer
-Established testing protocols for VMware's VCloud UI management interface. Led cross-functional project delivery for Windows VM performance monitoring. Aligned testing efforts across US and Bulgaria engineering teams.
+Testing protocols for VCloud UI. Cross-functional delivery for Windows VM monitoring. Aligned US/Bulgaria engineering teams.
 
-[See full experience →](https://aslavchev.github.io/aslavchev-portfolio-website/#experience)
+[Full experience →](https://aslavchev.github.io/aslavchev-portfolio-website/#experience)
 
-## Get in Touch
-
-Quality software doesn't happen by accident. It's engineered, tested, and refined.
-
-If you're looking for someone who doesn't just test software but builds quality into the culture, let's talk.
+## Contact
 
 **Email**: [sandixx@gmail.com](mailto:sandixx@gmail.com)
 **LinkedIn**: [linkedin.com/in/aslavchev](https://www.linkedin.com/in/aslavchev/)
 **GitHub**: [github.com/aslavchev](https://github.com/aslavchev)
-**WhatsApp**: [+359 886 449904](https://wa.me/359886449904?text=Hi%20Alex%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20QA%20opportunity.)
+**WhatsApp**: [+359 886 449904](https://wa.me/359886449904?text=Hi%20Alex%2C%20I%20saw%20your%20portfolio)
 **Location**: Sofia, Bulgaria (Remote • Hybrid • On-site)
 
 ---
@@ -164,103 +109,77 @@ If you're looking for someone who doesn't just test software but builds quality 
 ### Project Structure
 
 ```
-├── app/                      # Next.js App Router
-│   ├── layout.tsx           # Root layout, metadata, SEO
+├── app/
+│   ├── layout.tsx           # Metadata, SEO, performance
 │   └── page.tsx             # Main page with lazy loading
 ├── components/
 │   ├── sections/            # Portfolio sections
-│   │   ├── hero-section.tsx
-│   │   ├── featured-projects.tsx
-│   │   ├── experience-section.tsx
-│   │   ├── education-section.tsx
-│   │   ├── testimonials-section.tsx
-│   │   ├── stack-section.tsx
-│   │   └── contact-section.tsx
-│   ├── ui/                  # shadcn/ui components
-│   ├── sidebar.tsx          # Desktop navigation
-│   └── mobile-nav.tsx       # Mobile navigation
+│   └── ui/                  # shadcn/ui components
 ├── lib/
-│   ├── data/                # Content and configuration
-│   │   ├── personal.ts      # Personal information
-│   │   ├── experience.ts    # Work history
-│   │   ├── education.ts     # Academic background
-│   │   ├── projects.ts      # Portfolio projects
-│   │   └── testimonials.ts  # Professional testimonials
+│   ├── data/                # Content configuration
 │   ├── structured-data.ts   # Schema.org JSON-LD
-│   ├── navigation.ts        # Flat navigation config
-│   ├── features.ts          # Feature flags
-│   └── utils.ts             # Utility functions
+│   ├── navigation.ts        # Navigation config
+│   └── features.ts          # Feature flags
 ├── public/
-│   ├── og-image.png         # Optimized social image (87KB)
-│   ├── sitemap.xml          # SEO sitemap
-│   ├── robots.txt           # Crawler instructions
-│   ├── *.webp               # Optimized project images
-│   └── company-logos/       # Brand assets
+│   ├── og-image.png         # 87KB (optimized)
+│   ├── *.webp               # Optimized images
+│   └── sitemap.xml          # SEO
 └── scripts/
-    ├── generate-og.js       # Automated OG image generation
-    ├── optimize-og-image.js # OG image optimization (89% reduction)
-    ├── convert-to-webp.js   # JPG to WebP converter (36% reduction)
-    ├── update-sitemap.js    # Sitemap date updater
-    ├── validate-schema.js   # JSON-LD schema validator
-    └── README.md            # Script documentation
-```
-
-### Deployment
-
-**GitHub Pages** (Current):
-- Automatic deployment on push to `main`
-- Static export to `./out`
-- Available at: https://aslavchev.github.io/aslavchev-portfolio-website/
-
-**Vercel** (Alternative):
-```bash
-npm install -g vercel
-vercel deploy
+    ├── optimize-og-image.js # 89% reduction
+    ├── convert-to-webp.js   # 36% reduction
+    ├── generate-og.js       # Automated OG
+    └── update-sitemap.js    # Automated dates
 ```
 
 ### Scripts
 
 ```bash
-# Development & Build
-npm run dev              # Start development server
-npm run build            # Create production build
-npm run preview          # Preview production build locally
+# Development
+npm run dev              # Development server
+npm run build            # Production build
+npm run preview          # Preview build
 
-# SEO & Metadata
-npm run generate:og      # Generate social sharing image
-npm run update:sitemap   # Update sitemap dates to today
-npm run validate:schema  # Validate structured data (JSON-LD)
+# Optimization
+npm run optimize:og      # OG image (797KB → 87KB)
+npm run optimize:images  # JPG → WebP (35.8% savings)
+npm run optimize:all     # All optimizations
 
-# Performance Optimization
-npm run optimize:og      # Optimize OG image (797KB → 87KB, 89% savings)
-npm run optimize:images  # Convert all JPG to WebP (35.8% average savings)
-npm run optimize:all     # Run all image optimizations
+# SEO
+npm run generate:og      # Generate social image
+npm run update:sitemap   # Update dates
+npm run validate:schema  # Validate JSON-LD
 ```
 
-### Performance
+### Deployment
 
-**Lighthouse Scores:**
-- Performance: 95+
-- Accessibility: 100/100
-- Best Practices: 100/100
-- SEO: 100/100
+**GitHub Pages:**
+```bash
+git push origin main     # Auto-deploys via GitHub Actions
+```
 
-**Image Optimizations:**
-- OG image optimized: 797KB → 87KB (89% reduction)
-- All project images converted to WebP (35.8% average reduction)
-- Total image savings: ~1.2MB
-- Automated optimization scripts included
+**Vercel:**
+```bash
+vercel deploy
+```
 
-**Performance Features:**
-- Resource hints (preconnect, dns-prefetch)
-- Font preloading with fallbacks
-- Lazy loading for all sections
-- Code splitting and tree shaking
-- Compression enabled
-- WebP and AVIF format support
+### Performance Metrics
+
+| Metric | Score |
+|--------|-------|
+| Performance | 95+ |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 100 |
+
+**Optimizations:**
+- OG image: 797KB → 87KB (89%)
+- WebP conversion: 35.8% average
+- Total savings: ~1.2MB
+- First Contentful Paint: <1.5s
+- Largest Contentful Paint: <2.5s
 
 ---
 
-Built with precision. Tested with purpose. Deployed with confidence.
+Built with precision. Tested with purpose.
 
-© 2025 Alex Slavchev. Available for opportunities worldwide.
+© 2025 Alex Slavchev
