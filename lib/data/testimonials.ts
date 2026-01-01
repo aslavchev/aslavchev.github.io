@@ -1,6 +1,14 @@
 /**
  * Testimonials Data
  * Real testimonials from colleagues, managers, and clients
+ *
+ * TODO: Replace with actual LinkedIn recommendations
+ * To get real recommendations:
+ * 1. Go to your LinkedIn profile → Recommendations section
+ * 2. Copy the text from each recommendation
+ * 3. Update the name, role, company, and content fields below
+ * 4. Add the person's LinkedIn profile URL to linkedinUrl field
+ * 5. Set the correct relationship (manager, colleague, client, direct-report)
  */
 
 export interface Testimonial {
