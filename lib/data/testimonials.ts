@@ -1,14 +1,6 @@
 /**
  * Testimonials Data
- * Real testimonials from colleagues, managers, and clients
- *
- * TODO: Replace with actual LinkedIn recommendations
- * To get real recommendations:
- * 1. Go to your LinkedIn profile → Recommendations section
- * 2. Copy the text from each recommendation
- * 3. Update the name, role, company, and content fields below
- * 4. Add the person's LinkedIn profile URL to linkedinUrl field
- * 5. Set the correct relationship (manager, colleague, client, direct-report)
+ * Real testimonials from LinkedIn recommendations
  */
 
 export interface Testimonial {
@@ -27,63 +19,25 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: "1",
-    name: "John Anderson",
+    name: "Flavio Kruger Bittencourt",
     role: "Engineering Manager",
-    company: "Tumba Solutions",
-    relationship: "manager",
+    company: "Super (Ex-Glovo, Dow Jones)",
+    relationship: "colleague",
     content:
-      "Alex is one of the most thorough QA engineers I've worked with. His attention to detail and systematic approach to testing has prevented countless production issues. He doesn't just find bugs—he understands the business impact and prioritizes accordingly.",
-    linkedinUrl: "https://www.linkedin.com/",
+      "I had the opportunity of working with Aleksandar on the Candybar/Tout product feature at Dow Jones - Wall Street Journal. As our QA Analyst, he consistently delivered thorough testing for every PR code change, ensuring our product met all requirements.\n\nI highly appreciate Aleksandar's responsiveness. He maintained open communication with the team and readily handled impromptu QA requests that unblocked our team. His technical QA skills were complemented by his positive attitude, bringing good energy to our collaboration.\n\nI'm thankful for his contributions to our team and the quality he brought to our product. Working with Aleksandar was truly a smooth experience.",
+    linkedinUrl: "https://www.linkedin.com/in/flavio-kruger/",
+    date: "April 2, 2025",
   },
   {
     id: "2",
-    name: "Maria Garcia",
-    role: "Senior Software Engineer",
-    company: "Tumba Solutions",
+    name: "Cane Allesta",
+    role: "Apple Development with AI",
+    company: "Dow Jones - Wall Street Journal",
     relationship: "colleague",
     content:
-      "Working with Alex has made me a better developer. His comprehensive test cases and clear bug reports help us ship with confidence. He's also been instrumental in mentoring our junior QA engineers and building our automation framework from scratch.",
-    linkedinUrl: "https://www.linkedin.com/",
-  },
-  {
-    id: "3",
-    name: "David Chen",
-    role: "Product Manager",
-    company: "Tumba Solutions",
-    relationship: "colleague",
-    content:
-      "Alex brings a unique perspective to product development. He thinks like a user, catches edge cases nobody else considers, and provides actionable feedback that improves the final product. His testing has been crucial to our success with 100K+ users.",
-    linkedinUrl: "https://www.linkedin.com/",
-  },
-  {
-    id: "4",
-    name: "Sarah Williams",
-    role: "QA Engineer",
-    company: "Tumba Solutions",
-    relationship: "direct-report",
-    content:
-      "Alex is an exceptional mentor. He taught me not just how to test, but how to think about quality systematically. His approach to automation and test strategy has shaped my entire career. I'm grateful for the opportunity to learn from him.",
-    linkedinUrl: "https://www.linkedin.com/",
-  },
-  {
-    id: "5",
-    name: "Robert Martinez",
-    role: "VP of Engineering",
-    company: "VMware",
-    relationship: "manager",
-    content:
-      "During his time at VMware, Alex established testing protocols that became the standard across teams. His work on VCloud UI testing infrastructure was critical to our product success. He's the kind of QA engineer every engineering organization needs.",
-    linkedinUrl: "https://www.linkedin.com/",
-  },
-  {
-    id: "6",
-    name: "Emily Thompson",
-    role: "DevOps Engineer",
-    company: "Tumba Solutions",
-    relationship: "colleague",
-    content:
-      "Alex's understanding of CI/CD and test automation integration is impressive. He helped us build a robust pipeline that catches issues early and speeds up our deployment cycle. His collaboration between QA and DevOps has been game-changing for our team.",
-    linkedinUrl: "https://www.linkedin.com/",
+      "I had the pleasure of working with Aleksandar on several projects, and I was always impressed by their attention to detail and strong QA skills. Every release was smoother thanks to their thorough testing and proactive approach.\n\nAleksandar was always quick to respond, open to feedback, and ready to jump in whenever the team needed support. Their positive attitude made collaboration easy and enjoyable.\n\nI truly appreciated having Aleksandar on the team and would gladly work with them again in the future.",
+    linkedinUrl: "https://www.linkedin.com/in/cane-allesta-4a0b54161",
+    date: "April 3, 2025",
   },
 ]
 
