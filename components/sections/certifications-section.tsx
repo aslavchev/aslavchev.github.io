@@ -1,11 +1,23 @@
 "use client"
 
+import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { certifications } from "@/lib/data/certifications"
-import { Award, ExternalLink, Calendar, CheckCircle2 } from "lucide-react"
+import { Award, ExternalLink, Calendar, CheckCircle2, ChevronDown } from "lucide-react"
 
 export function CertificationsSection() {
+  const [showAll, setShowAll] = useState(false)
+
+  // Show top 4: DevOps, Web Services, Automated Testing, Commodities Trading
+  const featuredCertIds = ["1", "2", "3", "4"]
+  const displayedCerts = showAll
+    ? certifications
+    : certifications.filter(cert => featuredCertIds.includes(cert.id))
+
+  const hiddenCount = certifications.length - featuredCertIds.length
+
   return (
     <section id="certifications" className="space-y-8">
       {/* Section Header */}
@@ -15,13 +27,13 @@ export function CertificationsSection() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Certifications</h2>
         </div>
         <p className="text-lg text-muted-foreground max-w-2xl">
-          Professional certifications and credentials demonstrating expertise in quality assurance and software testing
+          Professional certifications in QA/Tech and Domain Expertise (FinTech, Sports Analytics)
         </p>
       </div>
 
       {/* Certifications Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {certifications.map((cert) => {
+        {displayedCerts.map((cert) => {
           const isExpiring = cert.expiryDate && new Date(cert.expiryDate) < new Date(Date.now() + 180 * 24 * 60 * 60 * 1000)
           const isExpired = cert.expiryDate && new Date(cert.expiryDate) < new Date()
 
@@ -58,6 +70,13 @@ export function CertificationsSection() {
                     </div>
                   )}
                 </div>
+
+                {/* Credential ID */}
+                {cert.credentialId && (
+                  <div className="text-xs text-muted-foreground pt-1">
+                    ID: {cert.credentialId}
+                  </div>
+                )}
               </CardHeader>
 
               <CardContent className="space-y-4">
@@ -96,6 +115,21 @@ export function CertificationsSection() {
           )
         })}
       </div>
+
+      {/* Show More Button */}
+      {!showAll && hiddenCount > 0 && (
+        <div className="flex justify-center pt-4">
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => setShowAll(true)}
+            className="gap-2"
+          >
+            <span>Show {hiddenCount} more certification{hiddenCount > 1 ? 's' : ''}</span>
+            <ChevronDown className="h-4 w-4" />
+          </Button>
+        </div>
+      )}
 
       {/* Stats Summary */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">

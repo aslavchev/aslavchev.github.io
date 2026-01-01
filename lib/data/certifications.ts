@@ -1,6 +1,6 @@
 /**
  * Certifications Data
- * Professional certifications, credentials, and badges
+ * Professional certifications organized by QA/Tech skills and Domain Expertise
  */
 
 export interface Certification {
@@ -14,46 +14,85 @@ export interface Certification {
   logo?: string
   skills?: string[]
   description?: string
+  category?: "qa-tech" | "domain"
 }
 
 export const certifications: Certification[] = [
+  // QA/Tech Certifications
   {
     id: "1",
-    name: "ISTQB Certified Tester - Foundation Level",
-    issuer: "International Software Testing Qualifications Board",
-    issueDate: "2015",
-    credentialUrl: "https://www.istqb.org/",
-    description: "Foundation-level certification covering fundamental testing concepts, techniques, and best practices",
-    skills: ["Software Testing", "Test Planning", "Test Design", "Quality Assurance"],
+    name: "DevOps Essentials",
+    issuer: "Pragmatic IT Learning & Outsourcing Center",
+    issueDate: "June 2025",
+    credentialId: "202025228",
+    credentialUrl: "https://www.linkedin.com/in/aslavchev/details/certifications/",
+    category: "qa-tech",
+    description: "Essential DevOps practices including CI/CD, Docker, and automation",
+    skills: ["DevOps", "Docker", "CI/CD", "Automation"],
   },
   {
     id: "2",
-    name: "AWS Certified Developer - Associate",
-    issuer: "Amazon Web Services",
-    issueDate: "2022",
-    expiryDate: "2025",
-    credentialUrl: "https://aws.amazon.com/certification/",
-    description: "Demonstrates expertise in developing and maintaining AWS-based applications",
-    skills: ["AWS", "Cloud Computing", "CI/CD", "DevOps"],
+    name: "Web Services Testing (Foundation Level)",
+    issuer: "Pragmatic IT Learning & Outsourcing Center",
+    issueDate: "December 2021",
+    credentialId: "Ref. N. 92021185",
+    credentialUrl: "https://www.linkedin.com/in/aslavchev/details/certifications/",
+    category: "qa-tech",
+    description: "Foundation-level certification in REST API and web services testing",
+    skills: ["API Testing", "REST", "Web Services", "Postman"],
   },
   {
     id: "3",
-    name: "Certified Selenium Professional",
-    issuer: "Selenium Testing Certification",
-    issueDate: "2018",
-    credentialUrl: "https://www.selenium.dev/",
-    description: "Advanced certification in Selenium WebDriver automation testing",
-    skills: ["Selenium", "Test Automation", "WebDriver", "Java"],
+    name: "Automated Testing (Foundation Level)",
+    issuer: "Pragmatic IT Learning & Outsourcing Center",
+    issueDate: "May 2021",
+    credentialId: "42021833",
+    credentialUrl: "https://www.linkedin.com/in/aslavchev/details/certifications/",
+    category: "qa-tech",
+    description: "Foundation-level certification in test automation with Selenium and Java",
+    skills: ["Test Automation", "Selenium", "Java", "WebDriver"],
   },
+
+  // Domain Expertise Certifications
   {
     id: "4",
-    name: "Certified ScrumMaster (CSM)",
-    issuer: "Scrum Alliance",
-    issueDate: "2016",
-    expiryDate: "2026",
-    credentialUrl: "https://www.scrumalliance.org/",
-    description: "Professional certification in Scrum framework and Agile methodologies",
-    skills: ["Scrum", "Agile", "Team Collaboration", "Project Management"],
+    name: "Commodities Futures Trading",
+    issuer: "Trading Advantage",
+    issueDate: "November 2014",
+    credentialUrl: "https://www.linkedin.com/in/aslavchev/details/certifications/",
+    category: "domain",
+    description: "Professional trading certification in commodities futures markets",
+    skills: ["Trading Platforms", "Financial Systems", "Market Analysis"],
+  },
+  {
+    id: "5",
+    name: "Currencies Futures Trading",
+    issuer: "Trading Advantage",
+    issueDate: "November 2014",
+    credentialUrl: "https://www.linkedin.com/in/aslavchev/details/certifications/",
+    category: "domain",
+    description: "Professional trading certification in currency futures markets",
+    skills: ["Forex Trading", "Financial Systems", "Payment Systems"],
+  },
+  {
+    id: "6",
+    name: "The Global Business of Sports",
+    issuer: "Coursera",
+    issueDate: "October 2013",
+    credentialUrl: "https://www.linkedin.com/in/aslavchev/details/certifications/",
+    category: "domain",
+    description: "Business and management aspects of the sports industry",
+    skills: ["Sports Business", "Performance Analysis", "Management"],
+  },
+  {
+    id: "7",
+    name: "Prozone Performance Analysis - Level 1",
+    issuer: "Prozone Sports Ltd",
+    issueDate: "February 2013",
+    credentialUrl: "https://www.linkedin.com/in/aslavchev/details/certifications/",
+    category: "domain",
+    description: "Professional certification in sports performance analysis and data-driven coaching",
+    skills: ["Sports Analytics", "Performance Metrics", "Data Analysis"],
   },
 ]
 
@@ -67,6 +106,13 @@ export function getActiveCertifications(): Certification[] {
     const expiry = new Date(cert.expiryDate)
     return expiry > now
   })
+}
+
+/**
+ * Get certifications by category
+ */
+export function getCertificationsByCategory(category: "qa-tech" | "domain"): Certification[] {
+  return certifications.filter((cert) => cert.category === category)
 }
 
 /**
