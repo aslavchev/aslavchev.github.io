@@ -31,9 +31,6 @@ const NewsletterSection = lazy(() =>
 const FeedAndServices = lazy(() =>
   import("@/components/sections/feed-and-services").then((mod) => ({ default: mod.FeedAndServices })),
 )
-const StackSection = lazy(() =>
-  import("@/components/sections/stack-section").then((mod) => ({ default: mod.StackSection })),
-)
 const CertificationsSection = lazy(() =>
   import("@/components/sections/certifications-section").then((mod) => ({ default: mod.CertificationsSection })),
 )
@@ -101,14 +98,6 @@ export default function Home() {
               <ErrorBoundary>
                 <Suspense fallback={<SectionLoadingSkeleton />}>
                   <EducationSection />
-                </Suspense>
-              </ErrorBoundary>
-            )}
-
-            {features.showStack && (
-              <ErrorBoundary>
-                <Suspense fallback={<SectionLoadingSkeleton />}>
-                  <StackSection />
                 </Suspense>
               </ErrorBoundary>
             )}

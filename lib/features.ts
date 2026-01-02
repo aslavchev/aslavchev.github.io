@@ -15,7 +15,6 @@ export const features = {
   showProjects: false, // 🔜 Re-enable for deep-dive case studies (template in /local/templates/case-study-template.md)
   showExperience: true, // ✅ Essential - Career progression
   showEducation: true, // ✅ Essential - Academic background
-  showStack: true, // ✅ Essential - Technical skills
   showCertifications: true, // ✅ Essential - Professional credentials
   showGitHub: true, // ✅ Essential - Open source contributions
   showTestimonials: true, // ✅ Essential - Social proof and credibility
