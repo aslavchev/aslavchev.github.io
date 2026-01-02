@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, Linkedin, Github, MessageCircle, Clock } from "lucide-react"
+import { Linkedin, Github, MessageCircle, Clock } from "lucide-react"
 import { useState, useEffect } from "react"
 import { personalInfo, socialLinks } from "@/lib/data"
 
@@ -110,15 +110,6 @@ export function ContactSection() {
               >
                 <MessageCircle className="h-4 w-4 mr-3" aria-hidden="true" />
                 WhatsApp Message
-              </a>
-            </Button>
-            <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-              <a
-                href={`mailto:${personalInfo.email}`}
-                aria-label={`Send email to ${personalInfo.email}`}
-              >
-                <Mail className="h-4 w-4 mr-3" aria-hidden="true" />
-                {personalInfo.email}
               </a>
             </Button>
           </CardContent>
