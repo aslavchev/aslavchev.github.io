@@ -17,8 +17,8 @@ export const featuredProjects: Project[] = [
     metric: "Lighthouse 100/100",
     badge: "Web Development",
     tools: ["Next.js", "React", "TypeScript", "Tailwind"],
-    githubUrl: "https://github.com/aslavchev/aslavchev-portfolio-website",
-    liveUrl: "https://aslavchev.github.io/aslavchev-portfolio-website/",
+    githubUrl: "https://github.com/aslavchev/aslavchev.github.io",
+    liveUrl: "https://aslavchev.github.io/",
   },
   {
     title: "Soma Holistic Studio",
@@ -59,8 +59,8 @@ export const projects: Project[] = [
     tools: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "GitHub Pages"],
     image: "/api-testing-dashboard.webp",
     badge: "Web Development",
-    githubUrl: "https://github.com/aslavchev/aslavchev-portfolio-website",
-    liveUrl: "https://aslavchev.github.io/aslavchev-portfolio-website/",
+    githubUrl: "https://github.com/aslavchev/aslavchev.github.io",
+    liveUrl: "https://aslavchev.github.io/",
   },
   {
     title: "Soma Holistic Studio Website",

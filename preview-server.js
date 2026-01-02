@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Preview server that matches GitHub Pages subdirectory behavior
- * Serves out/ folder at /aslavchev-portfolio-website/ path
+ * Preview server that matches GitHub Pages deployment behavior
+ * Serves out/ folder at root path
  */
 
 const http = require('http');
@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = 3001;
-const BASE_PATH = '/aslavchev-portfolio-website';
+const BASE_PATH = '';
 const OUT_DIR = path.join(__dirname, 'out');
 
 const MIME_TYPES = {

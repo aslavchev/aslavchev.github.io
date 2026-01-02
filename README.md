@@ -2,7 +2,7 @@
 
 18+ years ensuring software works flawlessly at scale. From sports to finance to autonomous vehicles.
 
-**[View Portfolio →](https://aslavchev.github.io/aslavchev-portfolio-website/)** | **[Download Resume →](https://aslavchev.github.io/aslavchev-portfolio-website/Alex_Slavchev_CV.pdf)**
+**[View Portfolio →](https://aslavchev.github.io/)** | **[Download Resume →](https://aslavchev.github.io/Alex_Slavchev_CV.pdf)**
 
 ## Track Record
 
@@ -43,8 +43,8 @@ Built with the same quality principles I apply to testing:
 ## Quick Start
 
 ```bash
-git clone https://github.com/aslavchev/aslavchev-portfolio-website.git
-cd aslavchev-portfolio-website
+git clone https://github.com/aslavchev/aslavchev.github.io.git
+cd aslavchev.github.io
 npm install
 npm run dev              # Local development
 npm run build            # Production build
@@ -92,7 +92,7 @@ Quality assurance for Baseball, Financial Media, Cycling, and Self-driving appli
 **VMware** (2007-2015) – Quality Assurance Engineer
 Testing protocols for VCloud UI. Cross-functional delivery for Windows VM monitoring. Aligned US/Bulgaria engineering teams.
 
-[Full experience →](https://aslavchev.github.io/aslavchev-portfolio-website/#experience)
+[Full experience →](https://aslavchev.github.io/#experience)
 
 ## Contact
 

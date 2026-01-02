@@ -1,9 +1,9 @@
 /**
  * Asset Path Utility
- * Prefixes public assets with basePath for GitHub Pages subdirectory deployment
+ * Prefixes public assets with basePath for GitHub Pages deployment
  */
 
-const BASE_PATH = '/aslavchev-portfolio-website'
+const BASE_PATH = ''
 
 /**
  * Get the correct asset path for images and files in /public
