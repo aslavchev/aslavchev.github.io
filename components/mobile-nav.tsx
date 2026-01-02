@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { getAssetPath } from "@/lib/asset-path"
 import { Menu, MoonIcon, SunIcon } from "lucide-react"
@@ -65,12 +65,12 @@ export function MobileNav() {
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-80 overflow-y-auto p-6" aria-describedby="mobile-menu-description">
+      <SheetContent side="left" className="w-80 overflow-y-auto p-6">
         <SheetHeader className="mb-8">
           <SheetTitle className="text-left">Menu</SheetTitle>
-          <p id="mobile-menu-description" className="sr-only">
+          <SheetDescription className="sr-only">
             Portfolio navigation menu
-          </p>
+          </SheetDescription>
         </SheetHeader>
 
         {/* Profile Section */}
