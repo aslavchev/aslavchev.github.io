@@ -19,7 +19,7 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: "1",
-    name: "Flavio Kruger Bittencourt",
+    name: "Flavio Kruger",
     role: "Engineering Manager",
     company: "Super (Ex-Glovo, Dow Jones)",
     relationship: "colleague",
