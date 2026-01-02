@@ -53,7 +53,7 @@ export const education: Education[] = [
   {
     degree: "BSc in Computer Science",
     school: "Plovdiv University \"Paisii Hilendarski\"",
-    period: "2004",
+    period: "2000 - 2004",
     description: "Bachelor's degree in Computer Science with focus on software engineering",
     type: "degree",
   },

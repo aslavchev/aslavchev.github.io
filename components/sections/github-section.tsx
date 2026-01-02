@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Github, Star, GitFork, Code2, Users, ExternalLink } from "lucide-react"
+import { GithubIcon, Star, GitFork, Code2, Users, ExternalLink, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface GitHubStats {
@@ -28,6 +28,7 @@ export function GitHubSection() {
   const [stats, setStats] = useState<GitHubStats | null>(null)
   const [repos, setRepos] = useState<Repository[]>([])
   const [loading, setLoading] = useState(true)
+  const [showAllRepos, setShowAllRepos] = useState(false)
 
   const username = "aslavchev"
 
@@ -159,7 +160,7 @@ export function GitHubSection() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Featured Repositories</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {repos.map((repo) => (
+          {(showAllRepos ? repos : repos.slice(0, 3)).map((repo) => (
             <Card key={repo.name} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start justify-between gap-2">
@@ -211,6 +212,21 @@ export function GitHubSection() {
             </Card>
           ))}
         </div>
+
+        {/* Show More Button */}
+        {!showAllRepos && repos.length > 3 && (
+          <div className="flex justify-center pt-4">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAllRepos(true)}
+              className="gap-2"
+            >
+              <span>Show {repos.length - 3} more repositor{repos.length - 3 > 1 ? 'ies' : 'y'}</span>
+              <ChevronDown className="h-4 w-4" />
+            </Button>
+          </div>
+        )}
       </div>
 
       {/* GitHub Profile Link */}
@@ -222,7 +238,7 @@ export function GitHubSection() {
             rel="noopener noreferrer"
             className="gap-2"
           >
-            <Github className="h-5 w-5" />
+            <GithubIcon className="h-5 w-5" />
             View Full GitHub Profile
           </a>
         </Button>
