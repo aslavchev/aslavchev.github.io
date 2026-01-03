@@ -85,3 +85,10 @@
     @apply leading-relaxed;
   }
 }
+
+/* Force hide mobile nav on desktop */
+@media (min-width: 1024px) {
+  .mobile-nav-trigger {
+    display: none !important;
+  }
+}

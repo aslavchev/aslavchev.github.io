@@ -59,7 +59,7 @@ export function MobileNav() {
         <Button
           variant="ghost"
           size="icon"
-          className="lg:hidden fixed top-4 left-4 z-50 bg-background/80 backdrop-blur-sm"
+          className="mobile-nav-trigger lg:hidden fixed top-4 left-4 z-50 bg-background/80 backdrop-blur-sm"
         >
           <Menu className="h-6 w-6" />
           <span className="sr-only">Toggle menu</span>
