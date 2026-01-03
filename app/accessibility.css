@@ -142,8 +142,8 @@ nav a:focus-visible {
    ============================================ */
 
 /* Ensure sufficient hover states */
-button:hover:not(:disabled),
-a:hover {
+:where(button:hover:not(:disabled)),
+:where(a:hover) {
   opacity: 0.9;
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -151,8 +151,8 @@ a:hover {
 }
 
 /* Disabled state with clear visual feedback */
-button:disabled,
-a[aria-disabled="true"] {
+:where(button:disabled),
+:where(a[aria-disabled="true"]) {
   opacity: 0.5;
   cursor: not-allowed;
   position: relative;
@@ -163,10 +163,11 @@ a[aria-disabled="true"] {
    ============================================ */
 
 /* Ensure minimum 44x44px touch targets (WCAG 2.5.5) */
-button,
-input,
-select,
-textarea {
+/* Use :where() for low specificity - allows Tailwind utilities to override */
+:where(button),
+:where(input),
+:where(select),
+:where(textarea) {
   min-height: 44px;
   min-width: 44px;
   display: inline-flex;
