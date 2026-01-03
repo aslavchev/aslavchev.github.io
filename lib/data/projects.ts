@@ -23,7 +23,7 @@ export const featuredProjects: Project[] = [
   {
     title: "Soma Holistic Studio",
     description: "Professional wellness studio website built with TypeScript and modern web technologies",
-    image: "/api-testing.webp",
+    image: "/spa-hero.webp",
     metric: "Live on GitHub Pages",
     badge: "Web Development",
     tools: ["TypeScript", "Next.js", "React"],
@@ -72,7 +72,7 @@ export const projects: Project[] = [
       "GitHub Pages deployment",
     ],
     tools: ["TypeScript", "Next.js", "React", "GitHub Pages"],
-    image: "/mobile-app-testing.webp",
+    image: "/spa-hero.webp",
     badge: "Web Development",
     githubUrl: "https://github.com/aslavchev/somaholistic.studio",
     liveUrl: "https://aslavchev.github.io/somaholistic.studio/",
