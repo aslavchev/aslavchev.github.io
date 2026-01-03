@@ -3,7 +3,7 @@ import type { SocialLink } from "./types"
 export const personalInfo = {
   name: "Alex Slavchev",
   title: "Senior QA Engineer",
-  tagline: "Building Quality at Scale",
+  tagline: "When It Matters, No Bug Walks Alone",
   email: "sandixx@gmail.com",
   phone: "+359884123456", // WhatsApp-enabled number (replace with your actual number)
   location: "Sofia, Bulgaria",
