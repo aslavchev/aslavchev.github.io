@@ -87,7 +87,7 @@ export const projects: Project[] = [
       "MIT licensed educational content",
     ],
     tools: ["QA Process", "Testing Fundamentals", "Best Practices"],
-    image: "/cicd-pipeline.webp",
+    image: "/mentoring-junior-qa.webp",
     badge: "Education",
     githubUrl: "https://github.com/aslavchev/qa-fundamentals-11weeks",
   },
