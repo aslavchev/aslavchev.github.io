@@ -75,7 +75,12 @@ export function MobileNav() {
 
         {/* Profile Section */}
         <div className="mb-8">
-          <div className="flex items-center gap-4 mb-4">
+          <Link
+            href="#home"
+            onClick={(e) => handleNavClick(e, "#home")}
+            className="flex items-center gap-4 mb-4 cursor-pointer hover:opacity-80 transition-opacity rounded-lg p-2 -m-2"
+            aria-label="Return to home"
+          >
             <Avatar className="h-16 w-16">
               <AvatarImage
                 src={getAssetPath("/professional-headshot.png")}
@@ -87,7 +92,7 @@ export function MobileNav() {
               <h2 className="font-semibold text-lg">{personalInfo.name}</h2>
               <p className="text-sm text-foreground/70">{personalInfo.title}</p>
             </div>
-          </div>
+          </Link>
 
           {/* Theme Toggle */}
           <Button
