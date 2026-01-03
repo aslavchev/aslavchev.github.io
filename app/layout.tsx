@@ -19,7 +19,7 @@ const baseUrl = "https://aslavchev.github.io"
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Alex Slavchev – Senior QA Engineer | Quality Engineering at Scale",
+  title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
   description:
     "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 18+ years of experience delivering flawless software through comprehensive testing strategies.",
   keywords: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://aslavchev.github.io/",
-    title: "Alex Slavchev – Senior QA Engineer Portfolio",
+    title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
     description:
       "Senior Quality Assurance Engineer specializing in test automation, performance testing, and quality at scale. 18+ years of experience.",
     siteName: "Alex Slavchev Portfolio",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Slavchev – Senior QA Engineer",
+    title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
     description: "Senior Quality Assurance Engineer specializing in test automation and quality at scale. 18+ years of experience.",
     images: [getAssetPath("/og-image.png")],
   },
