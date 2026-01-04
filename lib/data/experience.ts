@@ -30,7 +30,7 @@ export const experience: Experience[] = [
   {
     title: "Quality Assurance Engineer",
     company: "VMware",
-    companyLogo: "/company-logos/vmware-logo.png",
+    companyLogo: "/company-logos/vmware-logo.webp",
     period: "November 2007 - February 2015",
     description: "Cloud Computing and Virtualization Software and Services testing",
     achievements: [
