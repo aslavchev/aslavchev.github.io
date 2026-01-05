@@ -23,7 +23,7 @@ export function FeaturedProjects() {
             key={index}
             className="group hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 overflow-hidden border-border/50 hover:border-border bg-card/50 backdrop-blur-sm"
           >
-            <div className="aspect-video overflow-hidden bg-muted/50 relative">
+            <div className="aspect-video overflow-hidden bg-muted/50 relative border-2 border-primary">
               <Image
                 src={getAssetPath(project.image || "/placeholder.svg?height=400&width=600")}
                 alt={`${project.title} - QA testing project dashboard`}

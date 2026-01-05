@@ -27,7 +27,7 @@ export function ExperienceSection() {
             {/* Timeline Node */}
             <div className="relative flex flex-col items-center">
               <div className="z-10 flex h-10 w-10 md:h-20 md:w-20 items-center justify-center rounded-full border-4 border-background bg-primary/10">
-                <Avatar className="h-8 w-8 md:h-16 md:w-16">
+                <Avatar className="h-8 w-8 md:h-16 md:w-16 border-2 border-primary">
                   {exp.companyLogo && (
                     <AvatarImage src={getAssetPath(exp.companyLogo)} alt={`${exp.company} logo`} />
                   )}

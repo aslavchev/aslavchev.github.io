@@ -87,22 +87,8 @@ export const projects: Project[] = [
       "MIT licensed educational content",
     ],
     tools: ["QA Process", "Testing Fundamentals", "Best Practices"],
-    image: "/mentoring-junior-qa.webp",
+    image: "/qa-mentoring-program.webp",
     badge: "Education",
     githubUrl: "https://github.com/aslavchev/qa-fundamentals-11weeks",
-  },
-  {
-    title: "Git CLI Mastery Challenge",
-    description:
-      "Interactive Git challenges to help developers master Git command line interface and solve the most common version control problems in CI/CD workflows.",
-    metrics: [
-      "Practical hands-on exercises",
-      "Common problem-solving focus",
-      "DevOps and CI/CD integration",
-    ],
-    tools: ["Git", "Python", "CLI", "GitHub Pages", "DevOps"],
-    image: "/cicd-pipeline-dashboard.webp",
-    badge: "DevOps",
-    githubUrl: "https://github.com/aslavchev/git-challenge",
   },
 ]
