@@ -2,11 +2,12 @@ import type { Experience } from "./types"
 
 export const experience: Experience[] = [
   {
-    title: "Sr. Quality Assurance Engineer",
+    title: "Software Engineer in Test",
     company: "Tumba Solutions",
     companyLogo: "/company-logos/tumba-logo.png",
     period: "January 2016 - April 2025",
     description: "Leading quality assurance for Baseball, Financial Media, Cycling Performance, Self-driving cars and Health applications",
+    projects: ["MLB", "MiLB", "WSJ", "WSJ City", "Wattbike", "Louice Parker"],
     achievements: [
       "Mentored junior QA engineers, accelerating team onboarding and skill development",
       "Designed comprehensive testing infrastructure for multiple high-profile client applications",
@@ -33,6 +34,7 @@ export const experience: Experience[] = [
     companyLogo: "/company-logos/vmware-logo.webp",
     period: "November 2007 - February 2015",
     description: "Cloud Computing and Virtualization Software and Services testing",
+    projects: ["vCloud", "VM Stats Provider"],
     achievements: [
       "Established testing protocols for VMware's VCloud UI management interface",
       "Led cross-functional project delivery for Windows VM performance monitoring solution",
@@ -41,11 +43,12 @@ export const experience: Experience[] = [
     ],
   },
   {
-    title: "Jr. Quality Assurance Engineer",
+    title: "Quality Assurance Engineer",
     company: "Sciant",
     companyLogo: "/company-logos/sciant-logo.png",
     period: "May 2007 - October 2007",
     description: "VM Kernel QA for enterprise virtualization platform",
+    projects: ["VM Kernel", "HDD Drivers", "Network Drivers", "Video Drivers"],
     achievements: [
       "Validated core ESX Server functionality for enterprise virtualization",
       "Specialized in hardware driver testing (HDD, Video, Network) ensuring optimal performance",

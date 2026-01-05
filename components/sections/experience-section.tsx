@@ -49,9 +49,16 @@ export function ExperienceSection() {
                     {exp.company}
                   </CardDescription>
                 </div>
-                <Badge variant="outline" className="w-full sm:w-auto justify-center sm:justify-start text-sm font-medium">
-                  {exp.period}
-                </Badge>
+                <div className="flex flex-wrap gap-2 items-center">
+                  <Badge variant="outline" className="text-sm font-medium">
+                    {exp.period}
+                  </Badge>
+                  {exp.projects && exp.projects.map((project, i) => (
+                    <Badge key={i} variant="secondary" className="text-xs font-medium bg-primary/10 text-primary border-primary/20">
+                      {project}
+                    </Badge>
+                  ))}
+                </div>
               </CardHeader>
               <CardContent className="space-y-5">
                 <p className="text-sm sm:text-base leading-relaxed text-foreground/75">{exp.description}</p>

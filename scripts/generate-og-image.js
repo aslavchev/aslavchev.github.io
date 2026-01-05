@@ -66,10 +66,10 @@ async function generateOGImage() {
   ctx.font = 'bold 72px Arial, sans-serif';
   ctx.fillText('Alex Slavchev', startX, 180);
 
-  // Title - TEAL (not purple!)
+  // Title - TEAL (not purple!) - no "Senior", 18+ years speaks for itself
   ctx.fillStyle = tealColor;
   ctx.font = 'bold 48px Arial, sans-serif';
-  ctx.fillText('Senior Software Engineer', startX, 250);
+  ctx.fillText('Software Engineer', startX, 250);
   ctx.fillText('in Test', startX, 310);
 
   // Subtitle - gray

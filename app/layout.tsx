@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
   description:
-    "Senior Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience delivering flawless software through comprehensive testing strategies.",
+    "Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience delivering flawless software through comprehensive testing strategies.",
   keywords: [
     "Software Engineer in Test",
     "SDET",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     "Playwright",
     "Cypress",
     "CI/CD",
-    "Senior SDET",
     "QA Engineer",
+    "Test Infrastructure",
   ],
   authors: [{ name: "Alex Slavchev" }],
   creator: "Alex Slavchev",
@@ -42,22 +42,22 @@ export const metadata: Metadata = {
     url: "https://aslavchev.github.io/",
     title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
     description:
-      "Senior Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience.",
+      "Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience.",
     siteName: "Alex Slavchev Portfolio",
     images: [
       {
-        url: getAssetPath("/og-image.png"),
+        url: getAssetPath("/og-image.png?v=3"),
         width: 1200,
         height: 630,
-        alt: "Alex Slavchev - Senior Software Engineer in Test | Building Quality at Scale",
+        alt: "Alex Slavchev - Software Engineer in Test | Building Quality at Scale",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
-    description: "Senior Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience.",
-    images: [getAssetPath("/og-image.png")],
+    description: "Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience.",
+    images: [getAssetPath("/og-image.png?v=3")],
   },
   robots: {
     index: true,

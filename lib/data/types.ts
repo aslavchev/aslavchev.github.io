@@ -17,6 +17,7 @@ export interface Experience {
   period: string
   description: string
   achievements: string[]
+  projects?: string[]
 }
 
 export interface Skill {
