@@ -68,6 +68,7 @@
     "zod": "3.25.76"
   },
   "devDependencies": {
+    "@napi-rs/canvas": "^0.1.88",
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
     "@types/react": "^19",
