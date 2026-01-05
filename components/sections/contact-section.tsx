@@ -128,34 +128,44 @@ export function ContactSection() {
                     Home
                   </a>
                 </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">PROJECTS</h4>
-              <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#projects" className="hover:text-primary transition-colors">
-                    Projects
-                  </a>
-                </li>
-                <li>
-                  <a href="#projects" className="hover:text-primary transition-colors">
-                    Case Studies
+                  <a href="#featured" className="hover:text-primary transition-colors">
+                    Featured Projects
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">RESOURCES</h4>
+              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">BACKGROUND</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#insights" className="hover:text-primary transition-colors">
-                    Insights
+                  <a href="#experience" className="hover:text-primary transition-colors">
+                    Experience
                   </a>
                 </li>
                 <li>
-                  <a href="#stack" className="hover:text-primary transition-colors">
-                    Stack
+                  <a href="#education" className="hover:text-primary transition-colors">
+                    Education
+                  </a>
+                </li>
+                <li>
+                  <a href="#certifications" className="hover:text-primary transition-colors">
+                    Certifications
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">SHOWCASE</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#github" className="hover:text-primary transition-colors">
+                    GitHub Activity
+                  </a>
+                </li>
+                <li>
+                  <a href="#testimonials" className="hover:text-primary transition-colors">
+                    Testimonials
                   </a>
                 </li>
               </ul>
