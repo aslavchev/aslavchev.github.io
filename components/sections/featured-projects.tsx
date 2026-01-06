@@ -21,7 +21,7 @@ export function FeaturedProjects() {
         {projects.map((project, index) => (
           <Card
             key={index}
-            className="group hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 overflow-hidden border-border/50 hover:border-border bg-card/50 backdrop-blur-sm"
+            className="group hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 overflow-hidden border-border/50 hover:border-border bg-card/50 backdrop-blur-sm flex flex-col h-full"
           >
             <div className="aspect-video overflow-hidden bg-muted/50 relative border-2 border-primary">
               <Image
@@ -51,7 +51,7 @@ export function FeaturedProjects() {
               )}
             </CardHeader>
             {project.metrics && (
-              <CardContent className="pt-0 pb-4">
+              <CardContent className="pt-0 pb-4 flex-grow">
                 <ul className="space-y-2">
                   {project.metrics.map((metric, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-foreground/70">
@@ -69,7 +69,7 @@ export function FeaturedProjects() {
                     size="sm"
                     asChild
                     aria-label={`View code for ${project.title} (opens in new tab)`}
-                    className="font-semibold"
+                    className={`font-semibold ${!project.liveUrl ? 'col-span-2' : ''}`}
                   >
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4 mr-2" />
@@ -84,7 +84,7 @@ export function FeaturedProjects() {
                     variant="secondary"
                     asChild
                     aria-label={`View live demo of ${project.title} (opens in new tab)`}
-                    className="font-semibold"
+                    className={`font-semibold ${!project.githubUrl ? 'col-span-2' : ''}`}
                   >
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4 mr-2" />
