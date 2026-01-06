@@ -63,13 +63,13 @@ export function FeaturedProjects() {
               </CardContent>
             )}
             <CardFooter className="flex flex-col gap-3 pt-0">
-              <div className="flex gap-2 w-full">
+              <div className="grid grid-cols-2 gap-2 w-full">
                 {project.githubUrl && (
                   <Button
                     size="sm"
                     asChild
                     aria-label={`View code for ${project.title} (opens in new tab)`}
-                    className="flex-1 font-semibold"
+                    className="font-semibold"
                   >
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4 mr-2" />
@@ -84,7 +84,7 @@ export function FeaturedProjects() {
                     variant="secondary"
                     asChild
                     aria-label={`View live demo of ${project.title} (opens in new tab)`}
-                    className="flex-1 font-semibold"
+                    className="font-semibold"
                   >
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4 mr-2" />
