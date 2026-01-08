@@ -24,7 +24,7 @@ export function HeroSection() {
         <div className="flex justify-center lg:justify-start">
           <Avatar className="h-48 w-48 lg:h-64 lg:w-64 ring-4 ring-primary/10 ring-offset-4 ring-offset-background">
             <AvatarImage
-              src={getAssetPath("/professional-headshot.png")}
+              src={getAssetPath("/professional-headshot.webp")}
               alt={`${personalInfo.name} - ${personalInfo.title}`}
               className="object-cover"
             />

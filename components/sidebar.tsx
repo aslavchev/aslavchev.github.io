@@ -65,7 +65,7 @@ export function Sidebar() {
         >
           <Avatar className="h-16 w-16">
             <AvatarImage
-              src={getAssetPath("/professional-headshot.png")}
+              src={getAssetPath("/professional-headshot.webp")}
               alt={`${personalInfo.name} - ${personalInfo.title}`}
             />
             <AvatarFallback>AS</AvatarFallback>

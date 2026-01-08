@@ -4,7 +4,7 @@ export const experience: Experience[] = [
   {
     title: "Software Engineer in Test",
     company: "Tumba Solutions",
-    companyLogo: "/company-logos/tumba-logo.png",
+    companyLogo: "/company-logos/tumba-logo.webp",
     period: "January 2016 - April 2025",
     description: "Leading quality assurance for Baseball, Financial Media, Cycling Performance, Self-driving cars and Health applications",
     projects: ["MLB", "MiLB", "WSJ", "WSJ City", "Wattbike", "Louice Parker"],
@@ -18,7 +18,7 @@ export const experience: Experience[] = [
   {
     title: "Co-founder",
     company: "Inozona Ltd.",
-    companyLogo: "/company-logos/inozona-logo.png",
+    companyLogo: "/company-logos/inozona-logo.webp",
     period: "February 2012 - December 2015",
     description: "Sport Performance Analysis start-up from concept to market",
     achievements: [
@@ -45,7 +45,7 @@ export const experience: Experience[] = [
   {
     title: "Quality Assurance Engineer",
     company: "Sciant",
-    companyLogo: "/company-logos/sciant-logo.png",
+    companyLogo: "/company-logos/sciant-logo.webp",
     period: "May 2007 - October 2007",
     description: "VM Kernel QA for enterprise virtualization platform",
     projects: ["VM Kernel", "HDD Drivers", "Network Drivers", "Video Drivers"],

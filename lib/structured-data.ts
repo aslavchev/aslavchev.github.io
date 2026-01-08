@@ -69,7 +69,7 @@ export function getPersonSchema(baseUrl: string) {
 
     // Online Presence
     url: baseUrl,
-    image: `${baseUrl}/professional-headshot.png`,
+    image: `${baseUrl}/professional-headshot.webp`,
     sameAs: [
       linkedinUrl,
       githubUrl,
