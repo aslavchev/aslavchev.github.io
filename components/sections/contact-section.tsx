@@ -121,7 +121,7 @@ export function ContactSection() {
         <CardContent className="p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">EXPLORE</h4>
+              <h3 className="text-sm font-semibold mb-3 text-muted-foreground">EXPLORE</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a href="#home" className="hover:text-primary transition-colors">
@@ -136,7 +136,7 @@ export function ContactSection() {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">BACKGROUND</h4>
+              <h3 className="text-sm font-semibold mb-3 text-muted-foreground">BACKGROUND</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a href="#experience" className="hover:text-primary transition-colors">
@@ -156,7 +156,7 @@ export function ContactSection() {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">SHOWCASE</h4>
+              <h3 className="text-sm font-semibold mb-3 text-muted-foreground">SHOWCASE</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a href="#github" className="hover:text-primary transition-colors">
@@ -171,7 +171,7 @@ export function ContactSection() {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">CONNECT</h4>
+              <h3 className="text-sm font-semibold mb-3 text-muted-foreground">CONNECT</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a href="#contact" className="hover:text-primary transition-colors">

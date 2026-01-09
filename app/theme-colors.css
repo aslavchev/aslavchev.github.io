@@ -31,7 +31,7 @@
 
   /* Muted */
   --muted: oklch(0.97 0.002 240);
-  --muted-foreground: oklch(0.45 0.005 240);
+  --muted-foreground: oklch(0.52 0.005 240);
 
   /* Accent - Darker teal */
   --accent: oklch(0.50 0.10 180);
