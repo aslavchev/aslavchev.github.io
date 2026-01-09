@@ -75,3 +75,6 @@ local/
 # Image optimization backups (keep originals only)
 *-original.*
 public/*-original.*
+
+# Internal notes
+APPLE_UX_FIXES.md

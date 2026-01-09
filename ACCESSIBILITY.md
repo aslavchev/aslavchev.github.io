@@ -78,10 +78,7 @@ Currently, there are no known accessibility issues. If you encounter any barrier
 
 ## Feedback
 
-We welcome your feedback on the accessibility of this portfolio. Please contact us if you encounter accessibility barriers:
-
-**Email:** sandixx@gmail.com
-**Subject:** Accessibility Feedback
+We welcome your feedback on the accessibility of this portfolio. Please contact us through the website if you encounter accessibility barriers.
 
 ## Technical Specifications
 
