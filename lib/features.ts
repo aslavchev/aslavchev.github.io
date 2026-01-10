@@ -31,6 +31,7 @@ export const features = {
   // ============================================
   // OPTIONAL SECTIONS (Not needed for job applications)
   // ============================================
+  showBlog: true, // 🔜 Enable when first article is ready (Charles Proxy guide)
   showThoughts: false, // 🔜 Enable if you have blog/technical writing
   showNewsletter: false, // ❌ Not relevant for jobs
   showFeedAndServices: false, // ❌ Freelance-only (add later if needed)

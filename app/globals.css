@@ -65,23 +65,24 @@
     scroll-behavior: smooth;
   }
   /* Refined typography hierarchy - Dashfolio NEO style */
-  h1, h2, h3, h4, h5, h6 {
+  /* Exclude prose content from these global styles */
+  h1:not(.prose *), h2:not(.prose *), h3:not(.prose *), h4:not(.prose *), h5:not(.prose *), h6:not(.prose *) {
     @apply font-semibold tracking-tight;
     letter-spacing: -0.02em;
   }
-  h1 {
+  h1:not(.prose *) {
     @apply text-5xl lg:text-7xl;
     line-height: 1.1;
   }
-  h2 {
+  h2:not(.prose *) {
     @apply text-3xl lg:text-4xl;
     line-height: 1.2;
   }
-  h3 {
+  h3:not(.prose *) {
     @apply text-2xl lg:text-3xl;
     line-height: 1.3;
   }
-  p {
+  p:not(.prose *) {
     @apply leading-relaxed;
   }
 }
@@ -91,4 +92,11 @@
   .mobile-nav-trigger {
     display: none !important;
   }
+}
+
+/* Hide Next.js dev indicators globally */
+#__next-build-watcher,
+#__next-prerender-indicator,
+nextjs-portal {
+  display: none !important;
 }

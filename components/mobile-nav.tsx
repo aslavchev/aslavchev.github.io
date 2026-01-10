@@ -41,11 +41,14 @@ export function MobileNav() {
   }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal?: boolean) => {
-    if (!isExternal && href.startsWith("#")) {
+    // Handle hash links (both #section and /#section formats)
+    const hash = href.startsWith("/#") ? href.substring(1) : href.startsWith("#") ? href : null
+
+    if (!isExternal && hash && (window.location.pathname === "/" || window.location.pathname === "")) {
       e.preventDefault()
       setOpen(false) // Close drawer
       setTimeout(() => {
-        const element = document.querySelector(href)
+        const element = document.querySelector(hash)
         if (element) {
           element.scrollIntoView({ behavior: "smooth" })
         }
@@ -76,8 +79,8 @@ export function MobileNav() {
         {/* Profile Section */}
         <div className="mb-8">
           <Link
-            href="#home"
-            onClick={(e) => handleNavClick(e, "#home")}
+            href="/#home"
+            onClick={(e) => handleNavClick(e, "/#home")}
             className="flex items-center gap-4 mb-4 cursor-pointer hover:opacity-80 transition-opacity rounded-lg p-2 -m-2"
             aria-label="Return to home"
           >

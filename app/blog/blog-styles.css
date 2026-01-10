@@ -1,0 +1,169 @@
+/**
+ * Blog Article Styles - VSCode Markdown Preview Style
+ * Minimal, clean, readable - like actual markdown
+ */
+
+/* Hide all Next.js dev overlays and indicators */
+#__next-build-watcher,
+#__next-prerender-indicator,
+nextjs-portal {
+  display: none !important;
+}
+
+button[aria-label*="Hide"] {
+  display: none !important;
+}
+
+.prose {
+  color: hsl(var(--foreground)) !important;
+  line-height: 1.6 !important;
+}
+
+/* Headings - VSCode style with visible underlines */
+.prose h1 {
+  font-size: 2em !important;
+  font-weight: 600 !important;
+  margin: 0.67em 0 !important;
+  padding-bottom: 0.3em !important;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.4) !important;
+  display: block !important;
+}
+
+.prose h2 {
+  font-size: 1.5em !important;
+  font-weight: 600 !important;
+  margin: 0.83em 0 0.5em 0 !important;
+  padding-bottom: 0.3em !important;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.4) !important;
+  display: block !important;
+}
+
+.prose h3 {
+  font-size: 1.25em !important;
+  font-weight: 600 !important;
+  margin: 1em 0 0.5em 0 !important;
+}
+
+.prose h4 {
+  font-size: 1em !important;
+  font-weight: 600 !important;
+  margin: 1em 0 0.5em 0 !important;
+}
+
+/* Paragraphs */
+.prose p {
+  margin: 1em 0 !important;
+  line-height: 1.6 !important;
+}
+
+/* Links */
+.prose a {
+  color: hsl(var(--primary)) !important;
+  text-decoration: none !important;
+}
+
+.prose a:hover {
+  text-decoration: underline !important;
+}
+
+/* Lists */
+.prose ul,
+.prose ol {
+  padding-left: 2em !important;
+  margin: 1em 0 !important;
+  display: block !important;
+}
+
+.prose ul {
+  list-style-type: disc !important;
+}
+
+.prose ol {
+  list-style-type: decimal !important;
+}
+
+.prose li {
+  margin: 0.25em 0 !important;
+  display: list-item !important;
+}
+
+.prose ul ul,
+.prose ol ol {
+  margin: 0 !important;
+}
+
+/* Code */
+.prose code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+  font-size: 0.9em !important;
+  padding: 0.2em 0.4em !important;
+  background: hsl(var(--muted)) !important;
+  border-radius: 3px !important;
+}
+
+.prose pre {
+  background: hsl(var(--muted)) !important;
+  padding: 16px !important;
+  overflow: auto !important;
+  line-height: 1.45 !important;
+  border-radius: 6px !important;
+  margin: 1em 0 !important;
+}
+
+.prose pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  font-size: 0.85em !important;
+  line-height: 1.45 !important;
+  white-space: pre !important;
+  display: block !important;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  border-left: 4px solid hsl(var(--border)) !important;
+  padding: 0 1em !important;
+  color: hsl(var(--foreground) / 0.7) !important;
+  margin: 1em 0 !important;
+}
+
+.prose blockquote p {
+  margin: 0.5em 0 !important;
+}
+
+/* Horizontal Rule */
+.prose hr {
+  border: none !important;
+  border-top: 1px solid hsl(var(--border)) !important;
+  margin: 2em 0 !important;
+}
+
+/* Tables */
+.prose table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 1em 0 !important;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid hsl(var(--border)) !important;
+  padding: 6px 13px !important;
+  text-align: left !important;
+}
+
+.prose th {
+  background: hsl(var(--muted)) !important;
+  font-weight: 600 !important;
+}
+
+/* Strong */
+.prose strong {
+  font-weight: 600 !important;
+}
+
+/* Images */
+.prose img {
+  max-width: 100% !important;
+  margin: 1em 0 !important;
+}

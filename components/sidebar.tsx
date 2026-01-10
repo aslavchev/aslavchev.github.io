@@ -44,12 +44,19 @@ export function Sidebar() {
   }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("#")) {
-      e.preventDefault()
-      const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" })
+    // Handle hash links (both #section and /#section formats)
+    const hash = href.startsWith("/#") ? href.substring(1) : href.startsWith("#") ? href : null
+
+    if (hash) {
+      // If we're on the home page, smooth scroll within page
+      if (window.location.pathname === "/" || window.location.pathname === "") {
+        e.preventDefault()
+        const element = document.querySelector(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" })
+        }
       }
+      // Otherwise, let the browser navigate to /#section normally
     }
   }
 
@@ -58,8 +65,8 @@ export function Sidebar() {
       {/* Profile Section */}
       <div className="p-6 border-b border-border">
         <Link
-          href="#home"
-          onClick={(e) => handleNavClick(e, "#home")}
+          href="/#home"
+          onClick={(e) => handleNavClick(e, "/#home")}
           className="flex items-center gap-4 mb-4 cursor-pointer hover:opacity-80 transition-opacity rounded-lg p-2 -m-2"
           aria-label="Return to home"
         >
