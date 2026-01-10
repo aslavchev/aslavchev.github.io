@@ -6,9 +6,12 @@ import path from "path"
 import { marked } from "marked"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { ShareButtons } from "@/components/share-buttons"
+import { ReadingProgress } from "@/components/reading-progress"
 import { features } from "@/lib/features"
-import { getArticleBySlug, getPublishedArticles } from "@/lib/data/blog"
-import { Calendar, Clock, ArrowLeft } from "lucide-react"
+import { getArticleBySlug, getPublishedArticles, getAdjacentArticles, getRelatedArticles } from "@/lib/data/blog"
+import { extractHeadings, addHeadingIds } from "@/lib/markdown-utils"
+import { Calendar, Clock, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -47,6 +50,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: article.date,
       tags: article.tags,
     },
+    other: {
+      'article:published_time': article.date,
+      'article:author': 'Alex Slavchev',
+      'article:tag': article.tags.join(', '),
+    },
   }
 }
 
@@ -60,7 +68,8 @@ async function getArticleContent(slug: string): Promise<string> {
   try {
     const filePath = path.join(process.cwd(), 'content', 'blog', `${slug}.md`)
     const fileContent = await readFile(filePath, 'utf-8')
-    return marked(fileContent)
+    const html = await marked(fileContent)
+    return addHeadingIds(html)
   } catch (error) {
     console.error(`Error reading article ${slug}:`, error)
     return '<p>Article content not found.</p>'
@@ -81,14 +90,45 @@ export default async function ArticlePage({ params }: PageProps) {
   }
 
   const htmlContent = await getArticleContent(slug)
+  const { prev, next } = getAdjacentArticles(slug)
+  const headings = extractHeadings(htmlContent)
+  const showToc = headings.length >= 5
+  const relatedArticles = getRelatedArticles(slug, 3)
+
+  const articleUrl = `https://aslavchev.com/blog/${slug}`
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    "description": article.description,
+    "datePublished": article.date,
+    "author": {
+      "@type": "Person",
+      "name": "Alex Slavchev",
+      "url": "https://aslavchev.com"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Alex Slavchev"
+    },
+    "keywords": article.tags.join(", "),
+    "url": articleUrl
+  }
 
   return (
-    <div className="max-w-3xl space-y-12">
+    <>
+      <ReadingProgress />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="max-w-3xl space-y-12">
       {/* Back button */}
       <Link href="/blog">
         <Button variant="ghost" size="sm" className="group">
           <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-          Back to Articles
+          Back to all articles
         </Button>
       </Link>
 
@@ -104,7 +144,7 @@ export default async function ArticlePage({ params }: PageProps) {
               <Calendar className="h-4 w-4" />
               {new Date(article.date).toLocaleDateString("en-US", {
                 year: "numeric",
-                month: "long",
+                month: "short",
                 day: "numeric",
               })}
             </span>
@@ -116,42 +156,104 @@ export default async function ArticlePage({ params }: PageProps) {
 
           <div className="flex flex-wrap gap-2">
             {article.tags.map(tag => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
+              <Link key={tag} href={`/blog/tag/${encodeURIComponent(tag)}`}>
+                <Badge variant="secondary" className="cursor-pointer hover:bg-primary/20 transition-colors">
+                  {tag}
+                </Badge>
+              </Link>
             ))}
           </div>
         </header>
 
+        {/* Table of Contents */}
+        {showToc && (
+          <nav className="p-3 bg-muted/50 rounded-lg border">
+            <h2 className="text-xs font-semibold mb-1.5 uppercase tracking-wide">Contents</h2>
+            <ul>
+              {headings.map(heading => (
+                <li key={heading.id} className="leading-tight">
+                  <a
+                    href={`#${heading.id}`}
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors py-0.5 block"
+                  >
+                    {heading.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+
         {/* Article content */}
         <div
-          className="prose prose-base dark:prose-invert max-w-none
-            prose-headings:scroll-mt-20
-            prose-h1:text-2xl prose-h1:font-bold prose-h1:mt-10 prose-h1:mb-5 prose-h1:border-b prose-h1:border-border prose-h1:pb-3 prose-h1:text-foreground
-            prose-h2:text-xl prose-h2:font-semibold prose-h2:mt-8 prose-h2:mb-4 prose-h2:text-primary
-            prose-h3:text-lg prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-h3:text-foreground
-            prose-h4:text-base prose-h4:font-semibold prose-h4:mt-5 prose-h4:mb-2 prose-h4:text-foreground/90
-            prose-p:text-foreground/90 prose-p:leading-relaxed prose-p:my-3 prose-p:text-[15px]
-            prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-a:underline-offset-2 prose-a:decoration-2 prose-a:transition-colors
-            prose-code:text-primary prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-[''] prose-code:after:content-['']
-            prose-pre:bg-muted prose-pre:border prose-pre:border-border prose-pre:p-4 prose-pre:rounded-md prose-pre:overflow-x-auto prose-pre:text-[13px] prose-pre:leading-relaxed
-            prose-pre:my-5 prose-pre:shadow-sm
-            prose-strong:text-foreground prose-strong:font-semibold
-            prose-ul:my-4 prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-2
-            prose-ol:my-4 prose-ol:list-decimal prose-ol:pl-6 prose-ol:space-y-2
-            prose-li:text-foreground/90 prose-li:leading-relaxed prose-li:text-[15px]
-            prose-li:marker:text-primary/80 prose-li:marker:font-normal
-            prose-blockquote:border-l-4 prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-blockquote:py-3 prose-blockquote:px-4 prose-blockquote:not-italic prose-blockquote:my-6 prose-blockquote:text-foreground/80
-            prose-hr:border-border prose-hr:my-8
-            prose-table:border-collapse prose-table:w-full prose-table:my-6
-            prose-th:border prose-th:border-border prose-th:bg-muted prose-th:p-3 prose-th:text-left prose-th:font-semibold prose-th:text-sm
-            prose-td:border prose-td:border-border prose-td:p-3 prose-td:text-sm
-            prose-img:rounded-lg prose-img:my-6 prose-img:shadow-md"
+          className="prose dark:prose-invert max-w-none"
           dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
 
-        {/* Back to blog link */}
-        <div className="pt-8 border-t">
+        {/* Share buttons */}
+        <ShareButtons title={article.title} url={articleUrl} />
+
+        {/* Related articles */}
+        {relatedArticles.length > 0 && (
+          <div className="pt-8 border-t space-y-4">
+            <h2 className="text-lg font-semibold">Related Articles</h2>
+            <div className="grid gap-4">
+              {relatedArticles.map(related => (
+                <Link key={related.slug} href={`/blog/${related.slug}`} className="group">
+                  <div className="p-4 border rounded-lg hover:border-primary/50 hover:bg-muted/50 transition-all">
+                    <h3 className="font-medium group-hover:text-primary transition-colors mb-2">
+                      {related.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">
+                      {related.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {related.tags.map(tag => (
+                        <Badge key={tag} variant="outline" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Article navigation */}
+        <div className="pt-8 border-t space-y-6">
+          {(prev || next) && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {prev && (
+                <Link href={`/blog/${prev.slug}`} className="group">
+                  <div className="p-4 border rounded-lg hover:border-primary/50 hover:bg-muted/50 transition-all">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                      <ChevronLeft className="h-4 w-4" />
+                      <span>Previous</span>
+                    </div>
+                    <div className="font-medium group-hover:text-primary transition-colors line-clamp-2">
+                      {prev.title}
+                    </div>
+                  </div>
+                </Link>
+              )}
+              {next && (
+                <Link href={`/blog/${next.slug}`} className="group sm:ml-auto">
+                  <div className="p-4 border rounded-lg hover:border-primary/50 hover:bg-muted/50 transition-all">
+                    <div className="flex items-center justify-end gap-2 text-sm text-muted-foreground mb-2">
+                      <span>Next</span>
+                      <ChevronRight className="h-4 w-4" />
+                    </div>
+                    <div className="font-medium group-hover:text-primary transition-colors line-clamp-2 text-right">
+                      {next.title}
+                    </div>
+                  </div>
+                </Link>
+              )}
+            </div>
+          )}
+
           <Link href="/blog">
             <Button variant="ghost" size="sm" className="group">
               <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -160,6 +262,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </Link>
         </div>
       </article>
-    </div>
+      </div>
+    </>
   )
 }
