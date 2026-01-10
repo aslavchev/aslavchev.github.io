@@ -1,16 +1,15 @@
-import { Metadata } from "next"
+"use client"
+
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { BlogSearch } from "@/components/blog-search"
 import { features } from "@/lib/features"
 import { getPublishedArticles, getAllTags } from "@/lib/data/blog"
 import { Calendar, Clock } from "lucide-react"
-
-export const metadata: Metadata = {
-  title: "Blog – Alex Slavchev",
-  description: "Technical articles on QA testing, automation, and quality engineering best practices.",
-}
+import { useState } from "react"
+import type { BlogArticle } from "@/lib/data/blog"
 
 export default function BlogPage() {
   // Feature flag check - return 404 if blog is disabled
@@ -18,8 +17,9 @@ export default function BlogPage() {
     notFound()
   }
 
-  const articles = getPublishedArticles()
+  const allArticles = getPublishedArticles()
   const tags = getAllTags()
+  const [filteredArticles, setFilteredArticles] = useState<BlogArticle[]>(allArticles)
 
   return (
     <div className="space-y-12 sm:space-y-16">
@@ -33,38 +33,43 @@ export default function BlogPage() {
         </p>
       </div>
 
+      {/* Search */}
+      <BlogSearch articles={allArticles} onFilter={setFilteredArticles} />
+
       {/* Tags */}
       {tags.length > 0 && (
         <div className="flex flex-wrap gap-2">
           {tags.map(tag => (
-            <Badge key={tag} variant="secondary">
-              {tag}
-            </Badge>
+            <Link key={tag} href={`/blog/tag/${encodeURIComponent(tag)}`}>
+              <Badge variant="secondary" className="cursor-pointer hover:bg-primary/20 transition-colors">
+                {tag}
+              </Badge>
+            </Link>
           ))}
         </div>
       )}
 
       {/* Articles List */}
-      {articles.length === 0 ? (
+      {filteredArticles.length === 0 ? (
         <Card>
           <CardContent className="p-12 text-center">
             <p className="text-muted-foreground">
-              No articles published yet. Check back soon!
+              No articles found. Try a different search term.
             </p>
           </CardContent>
         </Card>
       ) : (
         <div className="space-y-6">
-          {articles.map(article => (
-            <Link key={article.slug} href={`/blog/${article.slug}`} className="block group">
-              <Card className="hover:shadow-lg hover:border-primary/50 transition-all duration-300 cursor-pointer h-full">
+          {filteredArticles.map(article => (
+            <Card key={article.slug} className="hover:shadow-lg hover:border-primary hover:bg-primary/5 hover:-translate-y-1 transition-all duration-300 h-full">
+              <Link href={`/blog/${article.slug}`} className="block group">
                 <CardHeader>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
                     <span className="flex items-center gap-1">
                       <Calendar className="h-4 w-4" />
                       {new Date(article.date).toLocaleDateString("en-US", {
                         year: "numeric",
-                        month: "long",
+                        month: "short",
                         day: "numeric",
                       })}
                     </span>
@@ -73,24 +78,24 @@ export default function BlogPage() {
                       {article.readTime}
                     </span>
                   </div>
-                  <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                  <CardTitle className="text-2xl group-hover:text-primary transition-colors cursor-pointer">
                     {article.title}
                   </CardTitle>
                   <CardDescription className="text-base mt-2">
                     {article.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {article.tags.map(tag => (
-                      <Badge key={tag} variant="outline" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+              </Link>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {article.tags.map(tag => (
+                    <Badge key={tag} variant="outline" className="text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       )}
