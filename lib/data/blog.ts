@@ -82,3 +82,51 @@ export function getArticlesByTag(tag: string): BlogArticle[] {
     article.tags.includes(tag)
   )
 }
+
+/**
+ * Get previous and next articles for navigation
+ */
+export function getAdjacentArticles(currentSlug: string): {
+  prev: BlogArticle | null
+  next: BlogArticle | null
+} {
+  const articles = getPublishedArticles()
+  const currentIndex = articles.findIndex(a => a.slug === currentSlug)
+
+  if (currentIndex === -1) {
+    return { prev: null, next: null }
+  }
+
+  return {
+    prev: articles[currentIndex + 1] || null,
+    next: articles[currentIndex - 1] || null,
+  }
+}
+
+/**
+ * Get related articles based on shared tags
+ */
+export function getRelatedArticles(currentSlug: string, limit = 3): BlogArticle[] {
+  const currentArticle = getArticleBySlug(currentSlug)
+  if (!currentArticle) {
+    return []
+  }
+
+  const allArticles = getPublishedArticles().filter(a => a.slug !== currentSlug)
+
+  // Score articles by number of shared tags
+  const scored = allArticles.map(article => {
+    const sharedTags = article.tags.filter(tag => currentArticle.tags.includes(tag))
+    return { article, score: sharedTags.length }
+  })
+
+  // Sort by score (most shared tags first), then by date
+  return scored
+    .filter(item => item.score > 0)
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score
+      return new Date(b.article.date).getTime() - new Date(a.article.date).getTime()
+    })
+    .slice(0, limit)
+    .map(item => item.article)
+}
