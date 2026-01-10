@@ -12,7 +12,7 @@ console.log('🔍 Validating Structured Data (Schema.org JSON-LD)\n');
 
 try {
   // Import the structured data generator
-  const baseUrl = "https://aslavchev.github.io";
+  const baseUrl = "https://aslavchev.com";
 
   // Read the built HTML file
   const htmlPath = path.join(__dirname, '../out/index.html');

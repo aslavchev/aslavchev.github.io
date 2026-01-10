@@ -15,7 +15,7 @@ const inter = Inter({
   fallback: ["system-ui", "arial"],
 })
 
-const baseUrl = "https://aslavchev.github.io"
+const baseUrl = "https://aslavchev.com"
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://aslavchev.github.io/",
+    url: "https://aslavchev.com/",
     title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
     description:
       "Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience.",
@@ -98,7 +98,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const baseUrl = "https://aslavchev.github.io"
+  const baseUrl = "https://aslavchev.com"
   const structuredData = getAllStructuredData(baseUrl)
 
   return (

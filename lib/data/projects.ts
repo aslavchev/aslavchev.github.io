@@ -18,7 +18,7 @@ export const featuredProjects: Project[] = [
     badge: "Web Development",
     tools: ["Next.js", "React", "TypeScript", "Tailwind"],
     githubUrl: "https://github.com/aslavchev/aslavchev.github.io",
-    liveUrl: "https://aslavchev.github.io/",
+    liveUrl: "https://aslavchev.com/",
   },
   {
     title: "Soma Holistic Studio",
@@ -28,7 +28,7 @@ export const featuredProjects: Project[] = [
     badge: "Web Development",
     tools: ["TypeScript", "Next.js", "React"],
     githubUrl: "https://github.com/aslavchev/somaholistic.studio",
-    liveUrl: "https://aslavchev.github.io/somaholistic.studio/",
+    liveUrl: "https://aslavchev.com/somaholistic.studio/",
   },
 ]
 
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     image: "/aslavchev-portfolio.webp",
     badge: "Web Development",
     githubUrl: "https://github.com/aslavchev/aslavchev.github.io",
-    liveUrl: "https://aslavchev.github.io/",
+    liveUrl: "https://aslavchev.com/",
   },
   {
     title: "Soma Holistic Studio Website",
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     image: "/somaholistic-studio.webp",
     badge: "Web Development",
     githubUrl: "https://github.com/aslavchev/somaholistic.studio",
-    liveUrl: "https://aslavchev.github.io/somaholistic.studio/",
+    liveUrl: "https://aslavchev.com/somaholistic.studio/",
   },
   {
     title: "QA Fundamentals 11-Week Program",
