@@ -29,7 +29,7 @@ export function TestimonialsSection() {
 
     const scrollContainer = scrollRef.current
     if (scrollContainer) {
-      scrollContainer.addEventListener('scroll', handleScroll)
+      scrollContainer.addEventListener('scroll', handleScroll, { passive: true })
       return () => scrollContainer.removeEventListener('scroll', handleScroll)
     }
   }, [])
@@ -67,13 +67,13 @@ export function TestimonialsSection() {
       </div>
 
       {/* Testimonials Horizontal Scroll */}
-      <div className="relative -mx-6 sm:-mx-8 lg:-mx-16 group">
-        {/* Navigation Arrows */}
+      <div className="relative -mx-6 sm:-mx-8 lg:-mx-16">
+        {/* Navigation Arrows - Always visible */}
         <Button
           variant="outline"
           size="icon"
           onClick={scrollPrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 sm:opacity-100 transition-opacity shadow-lg"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm shadow-lg"
           aria-label="Previous testimonial"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -82,7 +82,7 @@ export function TestimonialsSection() {
           variant="outline"
           size="icon"
           onClick={scrollNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 sm:opacity-100 transition-opacity shadow-lg"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm shadow-lg"
           aria-label="Next testimonial"
         >
           <ChevronRight className="h-5 w-5" />
