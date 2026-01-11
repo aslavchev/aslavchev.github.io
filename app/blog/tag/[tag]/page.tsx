@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { features } from "@/lib/features"
 import { getArticlesByTag, getAllTags } from "@/lib/data/blog"
+import { slugify } from "@/lib/utils"
 import { Calendar, Clock, ArrowLeft } from "lucide-react"
 
 interface PageProps {
@@ -19,13 +20,16 @@ export function generateStaticParams() {
 
   const tags = getAllTags()
   return tags.map(tag => ({
-    tag: tag,
+    tag: slugify(tag),
   }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { tag: encodedTag } = await params
-  const tag = decodeURIComponent(encodedTag)
+  const { tag: tagSlug } = await params
+
+  // Find original tag from slug
+  const allTags = getAllTags()
+  const tag = allTags.find(t => slugify(t) === tagSlug) || tagSlug
 
   return {
     title: `${tag} Articles – Alex Slavchev`,
@@ -38,8 +42,16 @@ export default async function TagPage({ params }: PageProps) {
     notFound()
   }
 
-  const { tag: encodedTag } = await params
-  const tag = decodeURIComponent(encodedTag)
+  const { tag: tagSlug } = await params
+
+  // Find original tag from slug
+  const allTags = getAllTags()
+  const tag = allTags.find(t => slugify(t) === tagSlug)
+
+  if (!tag) {
+    notFound()
+  }
+
   const articles = getArticlesByTag(tag)
 
   if (articles.length === 0) {

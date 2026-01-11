@@ -11,6 +11,7 @@ import { ReadingProgress } from "@/components/reading-progress"
 import { features } from "@/lib/features"
 import { getArticleBySlug, getPublishedArticles, getAdjacentArticles, getRelatedArticles } from "@/lib/data/blog"
 import { extractHeadings, addHeadingIds } from "@/lib/markdown-utils"
+import { slugify } from "@/lib/utils"
 import { Calendar, Clock, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface PageProps {
@@ -175,7 +176,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
           <div className="flex flex-wrap gap-2">
             {article.tags.map(tag => (
-              <Link key={tag} href={`/blog/tag/${encodeURIComponent(tag)}`}>
+              <Link key={tag} href={`/blog/tag/${slugify(tag)}`}>
                 <Badge variant="secondary" className="cursor-pointer hover:bg-primary/20 transition-colors">
                   {tag}
                 </Badge>

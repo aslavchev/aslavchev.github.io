@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { BlogSearch } from "@/components/blog-search"
 import { features } from "@/lib/features"
 import { getPublishedArticles, getAllTags } from "@/lib/data/blog"
+import { slugify } from "@/lib/utils"
 import { Calendar, Clock } from "lucide-react"
 import { useState } from "react"
 import type { BlogArticle } from "@/lib/data/blog"
@@ -40,7 +41,7 @@ export default function BlogPage() {
       {tags.length > 0 && (
         <div className="flex flex-wrap gap-2">
           {tags.map(tag => (
-            <Link key={tag} href={`/blog/tag/${encodeURIComponent(tag)}`}>
+            <Link key={tag} href={`/blog/tag/${slugify(tag)}`}>
               <Badge variant="secondary" className="cursor-pointer hover:bg-primary/20 transition-colors">
                 {tag}
               </Badge>
