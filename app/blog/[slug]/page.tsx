@@ -40,15 +40,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
+  const articleUrl = `https://aslavchev.com/blog/${slug}`
+
   return {
     title: `${article.title} – Alex Slavchev`,
     description: article.description,
     openGraph: {
       title: article.title,
       description: article.description,
+      url: articleUrl,
+      siteName: "Alex Slavchev - Software Engineer in Test",
       type: "article",
       publishedTime: article.date,
       tags: article.tags,
+      images: [
+        {
+          url: "https://aslavchev.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.description,
+      images: ["https://aslavchev.com/og-image.png"],
+      creator: "@aslavchev",
     },
     other: {
       'article:published_time': article.date,

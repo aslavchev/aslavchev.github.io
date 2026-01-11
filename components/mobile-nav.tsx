@@ -41,18 +41,22 @@ export function MobileNav() {
   }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal?: boolean) => {
-    // Handle hash links (both #section and /#section formats)
     const hash = href.startsWith("/#") ? href.substring(1) : href.startsWith("#") ? href : null
 
-    if (!isExternal && hash && (window.location.pathname === "/" || window.location.pathname === "")) {
-      e.preventDefault()
-      setOpen(false) // Close drawer
-      setTimeout(() => {
-        const element = document.querySelector(hash)
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" })
-        }
-      }, 100)
+    if (!isExternal && hash) {
+      setOpen(false)  // Always close nav immediately
+
+      if (window.location.pathname === "/" || window.location.pathname === "") {
+        // On home page: prevent default and smooth scroll
+        e.preventDefault()
+        setTimeout(() => {
+          const element = document.querySelector(hash)
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" })
+          }
+        }, 100)
+      }
+      // Not on home page: let browser navigate to /#section naturally (don't preventDefault)
     }
   }
 

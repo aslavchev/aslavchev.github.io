@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { testimonials } from "@/lib/data/testimonials"
-import { Quote, LinkedinIcon } from "lucide-react"
+import { Quote, LinkedinIcon, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function TestimonialsSection() {
@@ -43,6 +43,16 @@ export function TestimonialsSection() {
     })
   }
 
+  const scrollNext = () => {
+    const nextIndex = (activeIndex + 1) % testimonials.length
+    scrollToTestimonial(nextIndex)
+  }
+
+  const scrollPrev = () => {
+    const prevIndex = (activeIndex - 1 + testimonials.length) % testimonials.length
+    scrollToTestimonial(prevIndex)
+  }
+
   return (
     <section id="testimonials" className="space-y-8">
       {/* Section Header */}
@@ -57,7 +67,27 @@ export function TestimonialsSection() {
       </div>
 
       {/* Testimonials Horizontal Scroll */}
-      <div className="relative -mx-6 sm:-mx-8 lg:-mx-16">
+      <div className="relative -mx-6 sm:-mx-8 lg:-mx-16 group">
+        {/* Navigation Arrows */}
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={scrollPrev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 sm:opacity-100 transition-opacity shadow-lg"
+          aria-label="Previous testimonial"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </Button>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={scrollNext}
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 sm:opacity-100 transition-opacity shadow-lg"
+          aria-label="Next testimonial"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </Button>
+
         <div
           ref={scrollRef}
           className="overflow-x-auto px-6 sm:px-8 lg:px-16 pb-4 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent snap-x snap-mandatory"

@@ -31,7 +31,7 @@ async function generateOGImage() {
 
   // Load and draw profile image
   try {
-    const profileImage = await loadImage(path.join(__dirname, '../public/professional-headshot.png'));
+    const profileImage = await loadImage(path.join(__dirname, '../public/professional-headshot.webp'));
     const centerX = 270;
     const centerY = 315;
     const radius = 180;

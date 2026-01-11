@@ -19,7 +19,7 @@ export function generateStaticParams() {
 
   const tags = getAllTags()
   return tags.map(tag => ({
-    tag: encodeURIComponent(tag),
+    tag: tag,
   }))
 }
 
