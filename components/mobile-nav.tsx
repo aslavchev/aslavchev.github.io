@@ -9,19 +9,22 @@ import { getAssetPath } from "@/lib/asset-path"
 import { Menu, MoonIcon, SunIcon } from "lucide-react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import { navigationConfig } from "@/lib/navigation"
 import { personalInfo } from "@/lib/data"
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
+  const router = useRouter()
   const { theme, setTheme } = useTheme()
   const [activeSection, setActiveSection] = useState("#home")
 
+  // Handle scroll position tracking
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["#home", "#featured", "#experience", "#education", "#stack", "#contact"]
-      const scrollPosition = window.scrollY + 150 // Offset for better detection
+      const scrollPosition = window.scrollY + 150
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.querySelector(sections[i])
@@ -35,28 +38,34 @@ export function MobileNav() {
       }
     }
 
-    handleScroll() // Initial check
+    handleScroll()
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Handle hash scrolling after route changes
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.querySelector(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" })
+        }
+      }, 100)
+    }
+  }, [router])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal?: boolean) => {
     const hash = href.startsWith("/#") ? href.substring(1) : href.startsWith("#") ? href : null
 
     if (!isExternal && hash) {
-      setOpen(false)  // Always close nav immediately
+      e.preventDefault()
+      setOpen(false)
 
-      if (window.location.pathname === "/" || window.location.pathname === "") {
-        // On home page: prevent default and smooth scroll
-        e.preventDefault()
-        setTimeout(() => {
-          const element = document.querySelector(hash)
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" })
-          }
-        }, 100)
-      }
-      // Not on home page: let browser navigate to /#section naturally (don't preventDefault)
+      // Just navigate - useEffect will handle scrolling
+      router.push(href)
     }
   }
 

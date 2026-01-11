@@ -9,11 +9,13 @@ import { MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { navigationConfig } from "@/lib/navigation"
 import { personalInfo } from "@/lib/data"
 
 export function Sidebar() {
   const { theme, setTheme } = useTheme()
+  const router = useRouter()
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState("#home")
 
@@ -21,10 +23,11 @@ export function Sidebar() {
     setMounted(true)
   }, [])
 
+  // Handle scroll position tracking
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["#home", "#featured", "#experience", "#education", "#stack", "#contact"]
-      const scrollPosition = window.scrollY + 150 // Offset for better detection
+      const scrollPosition = window.scrollY + 150
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.querySelector(sections[i])
@@ -38,25 +41,31 @@ export function Sidebar() {
       }
     }
 
-    handleScroll() // Initial check
+    handleScroll()
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // Handle hash links (both #section and /#section formats)
-    const hash = href.startsWith("/#") ? href.substring(1) : href.startsWith("#") ? href : null
-
+  // Handle hash scrolling after route changes
+  useEffect(() => {
+    const hash = window.location.hash
     if (hash) {
-      // If we're on the home page, smooth scroll within page
-      if (window.location.pathname === "/" || window.location.pathname === "") {
-        e.preventDefault()
+      setTimeout(() => {
         const element = document.querySelector(hash)
         if (element) {
           element.scrollIntoView({ behavior: "smooth" })
         }
-      }
-      // Otherwise, let the browser navigate to /#section normally
+      }, 100)
+    }
+  }, [router])
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const hash = href.startsWith("/#") ? href.substring(1) : href.startsWith("#") ? href : null
+
+    if (hash) {
+      e.preventDefault()
+      // Just navigate - useEffect will handle scrolling
+      router.push(href)
     }
   }
 
