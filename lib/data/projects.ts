@@ -27,7 +27,6 @@ export const featuredProjects: Project[] = [
     metric: "Live on GitHub Pages",
     badge: "Web Development",
     tools: ["TypeScript", "Next.js", "React"],
-    githubUrl: "https://github.com/aslavchev/somaholistic.studio",
     liveUrl: "https://somaholistic.studio/",
   },
 ]
@@ -74,7 +73,6 @@ export const projects: Project[] = [
     tools: ["TypeScript", "Next.js", "React", "GitHub Pages"],
     image: "/somaholistic-studio.webp",
     badge: "Web Development",
-    githubUrl: "https://github.com/aslavchev/somaholistic.studio",
     liveUrl: "https://somaholistic.studio/",
   },
   {
