@@ -45,12 +45,11 @@ export function HeroSection() {
 
           {/* Main heading - refined hierarchy */}
           <div className="space-y-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-balance leading-[1.15] pb-1">
               {content.hero.greeting}{" "}
               <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
                 {personalInfo.name}
               </span>
-              .
             </h1>
 
             <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/80 text-balance font-medium tracking-tight leading-snug">

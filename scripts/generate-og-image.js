@@ -21,12 +21,12 @@ async function generateOGImage() {
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, width, height);
 
-  // Vertical line separator
+  // Vertical line separator - positioned to align with profile photo
   ctx.strokeStyle = tealColor;
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.moveTo(600, 100);
-  ctx.lineTo(600, 530);
+  ctx.moveTo(540, 140);
+  ctx.lineTo(540, 500);
   ctx.stroke();
 
   // Load and draw profile image
@@ -58,30 +58,30 @@ async function generateOGImage() {
     console.error('⚠️ Could not load profile image:', error.message);
   }
 
-  // Text content - right side
-  const startX = 640;
+  // Text content - right side with proper margin from divider
+  const startX = 580;
 
   // Name - white
   ctx.fillStyle = whiteColor;
   ctx.font = 'bold 72px Arial, sans-serif';
-  ctx.fillText('Alex Slavchev', startX, 180);
+  ctx.fillText('Alex Slavchev', startX, 210);
 
   // Title - TEAL (not purple!) - no "Senior", 18+ years speaks for itself
   ctx.fillStyle = tealColor;
   ctx.font = 'bold 48px Arial, sans-serif';
-  ctx.fillText('Software Engineer', startX, 250);
-  ctx.fillText('in Test', startX, 310);
+  ctx.fillText('Software Engineer', startX, 280);
+  ctx.fillText('in Test', startX, 340);
 
   // Subtitle - gray
   ctx.fillStyle = grayColor;
   ctx.font = '32px Arial, sans-serif';
-  ctx.fillText('Building Quality at Scale', startX, 365);
+  ctx.fillText('Building Quality at Scale', startX, 390);
 
   // Stats - TEAL
   ctx.fillStyle = tealColor;
   ctx.font = 'bold 64px Arial, sans-serif';
-  ctx.fillText('18+', startX, 460);
-  ctx.fillText('100K+', startX + 220, 460);
+  ctx.fillText('18+', startX, 465);
+  ctx.fillText('100K+', startX + 220, 465);
 
   // Stats labels - gray
   ctx.fillStyle = grayColor;
