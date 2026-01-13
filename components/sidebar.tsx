@@ -87,7 +87,7 @@ export function Sidebar() {
             <AvatarFallback>AS</AvatarFallback>
           </Avatar>
           <div>
-            <h2 className="font-semibold text-lg">{personalInfo.name}</h2>
+            <p className="font-semibold text-lg">{personalInfo.name}</p>
             <p className="text-sm text-muted-foreground">{personalInfo.title}</p>
           </div>
         </Link>

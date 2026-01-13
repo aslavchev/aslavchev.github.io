@@ -42,6 +42,7 @@ export function NewsletterSection() {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="flex-1"
+              aria-label="Email address for newsletter subscription"
             />
             <Button type="submit">Subscribe</Button>
           </form>

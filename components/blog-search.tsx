@@ -40,6 +40,7 @@ export function BlogSearch({ articles, onFilter }: BlogSearchProps) {
         value={query}
         onChange={e => setQuery(e.target.value)}
         className="pl-10 pr-10"
+        aria-label="Search blog articles"
       />
       {query && (
         <button
