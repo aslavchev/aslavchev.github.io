@@ -28,7 +28,7 @@ export const featuredProjects: Project[] = [
     badge: "Web Development",
     tools: ["TypeScript", "Next.js", "React"],
     githubUrl: "https://github.com/aslavchev/somaholistic.studio",
-    liveUrl: "https://aslavchev.com/somaholistic.studio/",
+    liveUrl: "https://somaholistic.studio/",
   },
 ]
 
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     image: "/somaholistic-studio.webp",
     badge: "Web Development",
     githubUrl: "https://github.com/aslavchev/somaholistic.studio",
-    liveUrl: "https://aslavchev.com/somaholistic.studio/",
+    liveUrl: "https://somaholistic.studio/",
   },
   {
     title: "QA Fundamentals 11-Week Program",
