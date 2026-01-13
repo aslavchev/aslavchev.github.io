@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "Alex Slavchev Portfolio",
     images: [
       {
-        url: getAssetPath("/og-image.png?v=3"),
+        url: getAssetPath("/og-image.png?v=4"),
         width: 1200,
         height: 630,
         alt: "Alex Slavchev - Software Engineer in Test | Building Quality at Scale",
