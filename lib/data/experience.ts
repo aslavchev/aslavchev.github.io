@@ -7,7 +7,7 @@ export const experience: Experience[] = [
     companyLogo: "/company-logos/tumba-logo.webp",
     period: "January 2016 - April 2025",
     description: "Leading quality assurance for Baseball, Financial Media, Cycling Performance, Self-driving cars and Health applications",
-    projects: ["MLB", "MiLB", "WSJ", "WSJ City", "Wattbike", "Louice Parker"],
+    projects: ["MLB", "MiLB", "WSJ", "WSJ City", "Wattbike", "Louise Parker"],
     achievements: [
       "Mentored junior QA engineers, accelerating team onboarding and skill development",
       "Designed comprehensive testing infrastructure for multiple high-profile client applications",
