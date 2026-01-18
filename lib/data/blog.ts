@@ -24,7 +24,15 @@ export interface BlogArticle {
  * 3. Set published: true when ready to ship
  */
 export const blogArticles: BlogArticle[] = [
-  // Example article (content in: content/blog/charles-proxy-setup.md)
+  {
+    slug: "claude-developer-guide",
+    title: "Claude AI Fundamentals: A Developer's Reference Guide",
+    description: "A comprehensive guide covering LLMs, tokens, prompt engineering, tool use, agents, MCP, and Claude Code - everything you need to work effectively with Claude AI.",
+    date: "2026-01-18",
+    readTime: "15 min read",
+    tags: ["Claude", "AI", "LLM", "Prompt Engineering", "MCP", "Agents", "Claude Code", "Anthropic"],
+    published: true,
+  },
   {
     slug: "charles-proxy-setup",
     title: "How to Setup Charles Proxy for Mobile App Testing",
@@ -32,7 +40,7 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-10",
     readTime: "8 min read",
     tags: ["Mobile Testing", "Charles Proxy", "Tools", "Tutorial"],
-    published: true, // Set to true when article is ready to publish
+    published: true,
   },
 
   // Add more articles as you write them:
