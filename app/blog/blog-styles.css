@@ -58,14 +58,17 @@ button[aria-label*="Hide"] {
   line-height: 1.6;
 }
 
-/* Links */
-.blog-article .prose a {
-  color: hsl(var(--primary));
-  text-decoration: none;
+/* Links - blue for universal recognition */
+.blog-article .prose a,
+.blog-article .prose p a,
+.blog-article .prose li a {
+  color: hsl(220 90% 50%);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .blog-article .prose a:hover {
-  text-decoration: underline;
+  color: hsl(220 90% 40%);
 }
 
 /* Lists */
