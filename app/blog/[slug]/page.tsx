@@ -153,7 +153,7 @@ export default async function ArticlePage({ params }: PageProps) {
       </Link>
 
       {/* Article header */}
-      <article className="space-y-12">
+      <article className="blog-article space-y-12">
         <header className="space-y-6">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
             {article.title}

@@ -1,9 +1,10 @@
 /**
- * Blog Article Styles - VSCode Markdown Preview Style
- * Minimal, clean, readable - like actual markdown
+ * Blog Article Styles
+ * Uses .blog-article .prose for specificity over Tailwind prose plugin
+ * No !important needed
  */
 
-/* Hide all Next.js dev overlays and indicators */
+/* Hide Next.js dev overlays - !important required here */
 #__next-build-watcher,
 #__next-prerender-indicator,
 nextjs-portal {
@@ -14,156 +15,196 @@ button[aria-label*="Hide"] {
   display: none !important;
 }
 
-.prose {
-  color: hsl(var(--foreground)) !important;
-  line-height: 1.6 !important;
+/* Base prose overrides */
+.blog-article .prose {
+  color: hsl(var(--foreground));
+  line-height: 1.6;
 }
 
-/* Headings - VSCode style with visible underlines */
-.prose h1 {
-  font-size: 2em !important;
-  font-weight: 600 !important;
-  margin: 0.67em 0 !important;
-  padding-bottom: 0.3em !important;
-  border-bottom: 2px solid rgba(128, 128, 128, 0.4) !important;
-  display: block !important;
+/* Headings */
+.blog-article .prose h1 {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0.67em 0;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.4);
+  display: block;
 }
 
-.prose h2 {
-  font-size: 1.5em !important;
-  font-weight: 600 !important;
-  margin: 0.83em 0 0.5em 0 !important;
-  padding-bottom: 0.3em !important;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.4) !important;
-  display: block !important;
+.blog-article .prose h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0.83em 0 0.5em 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+  display: block;
 }
 
-.prose h3 {
-  font-size: 1.25em !important;
-  font-weight: 600 !important;
-  margin: 1em 0 0.5em 0 !important;
+.blog-article .prose h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 1em 0 0.5em 0;
 }
 
-.prose h4 {
-  font-size: 1em !important;
-  font-weight: 600 !important;
-  margin: 1em 0 0.5em 0 !important;
+.blog-article .prose h4 {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 1em 0 0.5em 0;
 }
 
 /* Paragraphs */
-.prose p {
-  margin: 1em 0 !important;
-  line-height: 1.6 !important;
+.blog-article .prose p {
+  margin: 0.75em 0;
+  line-height: 1.6;
 }
 
 /* Links */
-.prose a {
-  color: hsl(var(--primary)) !important;
-  text-decoration: none !important;
+.blog-article .prose a {
+  color: hsl(var(--primary));
+  text-decoration: none;
 }
 
-.prose a:hover {
-  text-decoration: underline !important;
+.blog-article .prose a:hover {
+  text-decoration: underline;
 }
 
 /* Lists */
-.prose ul,
-.prose ol {
-  padding-left: 2em !important;
-  margin: 1em 0 !important;
-  display: block !important;
+.blog-article .prose ul,
+.blog-article .prose ol {
+  padding-left: 1.5em;
+  margin: 0.5em 0;
+  display: block;
 }
 
-.prose ul {
-  list-style-type: disc !important;
+.blog-article .prose ul {
+  list-style-type: disc;
 }
 
-.prose ol {
-  list-style-type: decimal !important;
+.blog-article .prose ol {
+  list-style-type: decimal;
 }
 
-.prose li {
-  margin: 0.25em 0 !important;
-  display: list-item !important;
+.blog-article .prose li {
+  margin: 0.25em 0;
+  display: list-item;
 }
 
-.prose ul ul,
-.prose ol ol {
-  margin: 0 !important;
+.blog-article .prose ul ul,
+.blog-article .prose ol ol {
+  margin: 0;
 }
 
-/* Code */
-.prose code {
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
-  font-size: 0.9em !important;
-  padding: 0.2em 0.4em !important;
-  background: hsl(var(--muted)) !important;
-  border-radius: 3px !important;
+/* Code - Inline */
+.blog-article .prose code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875em;
+  padding: 0.125em 0.375em;
+  background: hsl(var(--muted));
+  border-radius: 3px;
 }
 
-.prose pre {
-  background: hsl(var(--muted)) !important;
-  padding: 16px !important;
-  overflow: auto !important;
-  line-height: 1.45 !important;
-  border-radius: 6px !important;
-  margin: 1em 0 !important;
+/* Code - Block */
+.blog-article .prose pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  padding: 14px 18px;
+  overflow-x: auto;
+  line-height: 1.5;
+  border-radius: 8px;
+  margin: 0.75em 0;
+  border-left: 3px solid hsl(var(--primary));
 }
 
-.prose pre code {
-  background: transparent !important;
-  padding: 0 !important;
-  font-size: 0.85em !important;
-  line-height: 1.45 !important;
-  white-space: pre !important;
-  display: block !important;
+.blog-article .prose pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 0.8125em;
+  line-height: 1.5;
+  white-space: pre;
+  display: block;
 }
 
 /* Blockquotes */
-.prose blockquote {
-  border-left: 4px solid hsl(var(--border)) !important;
-  padding: 0 1em !important;
-  color: hsl(var(--foreground) / 0.7) !important;
-  margin: 1em 0 !important;
+.blog-article .prose blockquote {
+  border-left: 4px solid hsl(var(--border));
+  padding: 0 1em;
+  color: hsl(var(--foreground) / 0.7);
+  margin: 1em 0;
 }
 
-.prose blockquote p {
-  margin: 0.5em 0 !important;
+.blog-article .prose blockquote p {
+  margin: 0.5em 0;
 }
 
 /* Horizontal Rule */
-.prose hr {
-  border: none !important;
-  border-top: 1px solid hsl(var(--border)) !important;
-  margin: 2em 0 !important;
+.blog-article .prose hr {
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+  margin: 1.5em 0;
 }
 
-/* Tables */
-.prose table {
-  border-collapse: collapse !important;
-  width: 100% !important;
-  margin: 1em 0 !important;
+/* Tables - Desktop */
+.blog-article .prose table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.75em 0;
 }
 
-.prose th,
-.prose td {
-  border: 1px solid hsl(var(--border)) !important;
-  padding: 6px 13px !important;
-  text-align: left !important;
+.blog-article .prose th,
+.blog-article .prose td {
+  border: 1px solid hsl(var(--border));
+  padding: 6px 13px;
+  text-align: left;
 }
 
-.prose th {
-  background: hsl(var(--muted)) !important;
-  font-weight: 600 !important;
+.blog-article .prose th {
+  background: hsl(var(--muted));
+  font-weight: 600;
+}
+
+/* Tables - Mobile */
+@media (max-width: 640px) {
+  .blog-article .prose table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    font-size: 0.8125em;
+    margin: 0.5em 0;
+  }
+
+  .blog-article .prose th,
+  .blog-article .prose td {
+    padding: 0.375em 0.5em;
+    min-width: 60px;
+  }
+
+  /* First column stays compact */
+  .blog-article .prose td:first-child {
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  /* Links in tables - allow wrapping, compact */
+  .blog-article .prose td a {
+    word-break: break-word;
+  }
+
+  .blog-article .prose td pre,
+  .blog-article .prose th pre {
+    max-width: 100%;
+    overflow-x: auto;
+    font-size: 0.8125em;
+  }
 }
 
 /* Strong */
-.prose strong {
-  font-weight: 600 !important;
+.blog-article .prose strong {
+  font-weight: 600;
 }
 
 /* Images */
-.prose img {
-  max-width: 100% !important;
-  margin: 1em 0 !important;
+.blog-article .prose img {
+  max-width: 100%;
+  margin: 1em 0;
 }
