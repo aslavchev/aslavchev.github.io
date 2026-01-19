@@ -26,7 +26,9 @@ export function Sidebar() {
   // Handle scroll position tracking
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["#home", "#featured", "#experience", "#education", "#stack", "#contact"]
+      const sections = navigationConfig
+        .filter(item => !item.external && item.href.startsWith("/#"))
+        .map(item => item.href.substring(1))
       const scrollPosition = window.scrollY + 150
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -62,7 +64,8 @@ export function Sidebar() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     const hash = href.startsWith("/#") ? href.substring(1) : href.startsWith("#") ? href : null
 
-    if (hash) {
+    // Allow ctrl+click, cmd+click, shift+click to work normally (open in new tab)
+    if (hash && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
       e.preventDefault()
       // Just navigate - useEffect will handle scrolling
       router.push(href)
@@ -87,7 +90,7 @@ export function Sidebar() {
             <AvatarFallback>AS</AvatarFallback>
           </Avatar>
           <div>
-            <p className="font-semibold text-lg">{personalInfo.name}</p>
+            <p className="font-semibold text-lg text-primary">{personalInfo.name}</p>
             <p className="text-sm text-muted-foreground">{personalInfo.title}</p>
           </div>
         </Link>
@@ -131,7 +134,7 @@ export function Sidebar() {
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                     isActive
                       ? "bg-primary/10 text-primary font-semibold"
-                      : "text-foreground/80 hover:bg-muted hover:text-foreground"
+                      : "text-foreground/80 hover:bg-muted hover:text-primary"
                   }`}
                 >
                   <item.icon className="h-4 w-4" />
