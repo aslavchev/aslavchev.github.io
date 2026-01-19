@@ -1,13 +1,32 @@
 "use client"
 
+import type React from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Linkedin, Github, MessageCircle, Clock } from "lucide-react"
+import { Linkedin, Github, Clock } from "lucide-react"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
+import Link from "next/link"
 import { personalInfo, socialLinks } from "@/lib/data"
 
 export function ContactSection() {
+  const router = useRouter()
   const [time, setTime] = useState("")
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Allow ctrl+click, cmd+click, shift+click to work normally (open in new tab)
+    if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+      e.preventDefault()
+      const hash = href.startsWith("/#") ? href.substring(1) : href
+      const element = document.querySelector(hash)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+        window.history.pushState(null, "", href)
+      } else {
+        router.push(href)
+      }
+    }
+  }
 
   useEffect(() => {
     const updateTime = () => {
@@ -101,17 +120,6 @@ export function ContactSection() {
                 View GitHub Profile
               </a>
             </Button>
-            <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-              <a
-                href="https://wa.me/359886449904?text=Hi%20Alex%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20QA%20opportunity."
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Send WhatsApp message to Alex Slavchev (opens in new tab)"
-              >
-                <MessageCircle className="h-4 w-4 mr-3" aria-hidden="true" />
-                WhatsApp Message
-              </a>
-            </Button>
           </CardContent>
         </Card>
       </div>
@@ -124,14 +132,14 @@ export function ContactSection() {
               <h3 className="text-sm font-semibold mb-3 text-muted-foreground">EXPLORE</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#home" className="hover:text-primary transition-colors">
+                  <Link href="/#home" onClick={(e) => handleNavClick(e, "/#home")} className="hover:text-primary transition-colors">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#featured" className="hover:text-primary transition-colors">
+                  <Link href="/#featured" onClick={(e) => handleNavClick(e, "/#featured")} className="hover:text-primary transition-colors">
                     Featured Projects
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -139,19 +147,19 @@ export function ContactSection() {
               <h3 className="text-sm font-semibold mb-3 text-muted-foreground">BACKGROUND</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#experience" className="hover:text-primary transition-colors">
+                  <Link href="/#experience" onClick={(e) => handleNavClick(e, "/#experience")} className="hover:text-primary transition-colors">
                     Experience
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#education" className="hover:text-primary transition-colors">
+                  <Link href="/#education" onClick={(e) => handleNavClick(e, "/#education")} className="hover:text-primary transition-colors">
                     Education
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#certifications" className="hover:text-primary transition-colors">
+                  <Link href="/#certifications" onClick={(e) => handleNavClick(e, "/#certifications")} className="hover:text-primary transition-colors">
                     Certifications
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -159,14 +167,14 @@ export function ContactSection() {
               <h3 className="text-sm font-semibold mb-3 text-muted-foreground">SHOWCASE</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#github" className="hover:text-primary transition-colors">
+                  <Link href="/#github" onClick={(e) => handleNavClick(e, "/#github")} className="hover:text-primary transition-colors">
                     GitHub Activity
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#testimonials" className="hover:text-primary transition-colors">
+                  <Link href="/#testimonials" onClick={(e) => handleNavClick(e, "/#testimonials")} className="hover:text-primary transition-colors">
                     Testimonials
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -174,9 +182,9 @@ export function ContactSection() {
               <h3 className="text-sm font-semibold mb-3 text-muted-foreground">CONNECT</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#contact" className="hover:text-primary transition-colors">
+                  <Link href="/#contact" onClick={(e) => handleNavClick(e, "/#contact")} className="hover:text-primary transition-colors">
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
@@ -192,7 +200,7 @@ export function ContactSection() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-            <p>© 2025 {personalInfo.name}. Built with Next.js and shadcn/ui.</p>
+            <p>© 2026 {personalInfo.name}. Built with Next.js and shadcn/ui.</p>
           </div>
         </CardContent>
       </Card>
