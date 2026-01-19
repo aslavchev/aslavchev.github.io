@@ -79,7 +79,7 @@ export default function BlogPage() {
                       {article.readTime}
                     </span>
                   </div>
-                  <CardTitle className="text-2xl group-hover:text-primary transition-colors cursor-pointer">
+                  <CardTitle className="text-2xl text-primary group-hover:text-accent transition-colors cursor-pointer">
                     {article.title}
                   </CardTitle>
                   <CardDescription className="text-base mt-2">
