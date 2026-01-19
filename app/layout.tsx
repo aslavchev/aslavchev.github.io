@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { getAssetPath } from "@/lib/asset-path"
 import { getAllStructuredData } from "@/lib/structured-data"
+import { personalInfo } from "@/lib/data"
 import "./globals.css"
 import "./accessibility.css"
 
@@ -20,8 +21,7 @@ const baseUrl = "https://aslavchev.com"
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
-  description:
-    "Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience delivering flawless software through comprehensive testing strategies.",
+  description: personalInfo.bio,
   keywords: [
     "Software Engineer in Test",
     "SDET",
@@ -41,8 +41,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://aslavchev.com/",
     title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
-    description:
-      "Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience.",
+    description: personalInfo.bio,
     siteName: "Alex Slavchev Portfolio",
     images: [
       {
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
-    description: "Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. 18+ years of experience.",
+    description: personalInfo.bio,
     images: [getAssetPath("/og-image.png?v=3")],
   },
   robots: {
