@@ -8,7 +8,7 @@ export const personalInfo = {
   phone: "+359884123456", // WhatsApp-enabled number (replace with your actual number)
   location: "Sofia, Bulgaria",
   yearsOfExperience: "18+",
-  bio: "Software Engineer in Test specializing in test automation, quality engineering, and quality at scale. Passionate about delivering flawless software through comprehensive testing strategies and continuous improvement.",
+  bio: "Software Engineer in Test who thinks backwards—finding what breaks before users do. Specializing in test automation, quality engineering, and quality at scale.",
 }
 
 export const socialLinks: SocialLink[] = [
