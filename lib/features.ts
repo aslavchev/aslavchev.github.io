@@ -16,7 +16,7 @@ export const features = {
   showExperience: true, // ✅ Essential - Career progression
   showEducation: true, // ✅ Essential - Academic background
   showCertifications: true, // ✅ Essential - Professional credentials
-  showGitHub: true, // ✅ Essential - Open source contributions
+  showGitHub: false, // ❌ Disabled - Redundant with Featured Projects, weak metrics (3 stars, 1 follower)
   showTestimonials: true, // ✅ Essential - Social proof and credibility
   showContact: true, // ✅ Essential - Easy to reach you
 
