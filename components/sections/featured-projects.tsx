@@ -49,6 +49,15 @@ export function FeaturedProjects() {
                   ))}
                 </div>
               )}
+              {project.industries && (
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {project.industries.map((industry) => (
+                    <Badge key={industry} variant="outline" className="text-xs font-medium text-primary border-primary/50">
+                      {industry}
+                    </Badge>
+                  ))}
+                </div>
+              )}
             </CardHeader>
             {project.metrics && (
               <CardContent className="pt-0 pb-4 flex-grow">

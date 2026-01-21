@@ -6,6 +6,7 @@ export interface Project {
   metric?: string
   badge?: string
   tools?: string[]
+  industries?: string[]
   githubUrl?: string
   liveUrl?: string
 }
