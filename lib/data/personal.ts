@@ -2,13 +2,10 @@ import type { SocialLink } from "./types"
 
 export const personalInfo = {
   name: "Alex Slavchev",
-  title: "Software Engineer in Test",
+  title: "Quality Engineer",
   tagline: "When It Matters, No Bug Walks Alone",
-  email: "sandixx@gmail.com",
-  phone: "+359884123456", // WhatsApp-enabled number (replace with your actual number)
   location: "Sofia, Bulgaria",
-  yearsOfExperience: "18+",
-  bio: "Software Engineer in Test who thinks backwards—finding what breaks before users do. Specializing in test automation, quality engineering, and quality at scale.",
+  bio: "Quality Engineer who thinks backwards—finding what breaks before users do.",
 }
 
 export const socialLinks: SocialLink[] = [

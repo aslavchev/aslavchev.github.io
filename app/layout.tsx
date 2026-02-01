@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
   description: personalInfo.bio,
   keywords: [
-    "Software Engineer in Test",
+    "Quality Engineer",
     "SDET",
     "Test Automation",
     "Quality Engineering",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: getAssetPath("/og-image.png?v=4"),
         width: 1200,
         height: 630,
-        alt: "Alex Slavchev - Software Engineer in Test | Building Quality at Scale",
+        alt: "Alex Slavchev - Quality Engineer | Building Quality at Scale",
       },
     ],
   },

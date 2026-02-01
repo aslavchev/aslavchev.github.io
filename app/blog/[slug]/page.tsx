@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: article.title,
       description: article.description,
       url: articleUrl,
-      siteName: "Alex Slavchev - Software Engineer in Test",
+      siteName: "Alex Slavchev - Quality Engineer",
       type: "article",
       publishedTime: article.date,
       tags: article.tags,

@@ -56,10 +56,6 @@ export function getPersonSchema(baseUrl: string) {
       ],
     },
 
-    // Contact Information
-    email: personalInfo.email,
-    telephone: "+359886449904",
-
     // Location
     address: {
       "@type": "PostalAddress",
