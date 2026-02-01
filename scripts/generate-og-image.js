@@ -64,30 +64,18 @@ async function generateOGImage() {
   // Name - white
   ctx.fillStyle = whiteColor;
   ctx.font = 'bold 72px Arial, sans-serif';
-  ctx.fillText('Alex Slavchev', startX, 210);
+  ctx.fillText('Alex Slavchev', startX, 220);
 
-  // Title - TEAL (not purple!) - no "Senior", 18+ years speaks for itself
+  // Title - TEAL
   ctx.fillStyle = tealColor;
-  ctx.font = 'bold 48px Arial, sans-serif';
-  ctx.fillText('Software Engineer', startX, 280);
-  ctx.fillText('in Test', startX, 340);
+  ctx.font = 'bold 56px Arial, sans-serif';
+  ctx.fillText('Quality Engineer', startX, 300);
 
-  // Subtitle - gray
+  // Tagline - gray
   ctx.fillStyle = grayColor;
   ctx.font = '32px Arial, sans-serif';
-  ctx.fillText('Building Quality at Scale', startX, 390);
-
-  // Stats - TEAL
-  ctx.fillStyle = tealColor;
-  ctx.font = 'bold 64px Arial, sans-serif';
-  ctx.fillText('18+', startX, 465);
-  ctx.fillText('100K+', startX + 220, 465);
-
-  // Stats labels - gray
-  ctx.fillStyle = grayColor;
-  ctx.font = '20px Arial, sans-serif';
-  ctx.fillText('YEARS', startX, 490);
-  ctx.fillText('USERS', startX + 220, 490);
+  ctx.fillText('Finding what breaks', startX, 380);
+  ctx.fillText('before users do', startX, 420);
 
   // NO v0 WATERMARK - Jobs would NOT approve branding someone else's tool!
 
