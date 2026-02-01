@@ -2,14 +2,14 @@ import type { Project } from "./types"
 
 export const featuredProjects: Project[] = [
   {
-    title: "E-Commerce Automation Framework",
-    description: "Strategic test automation framework for e-commerce testing with Java 21, Selenium 4, TestNG, and REST Assured",
-    image: "/ecommerce-automation.webp",
-    metric: "18+ years QA expertise",
+    title: "SauceDemo Selenium Framework",
+    description: "Selenium test automation framework with risk-based test selection, Allure reporting, and documented ADRs",
+    image: "/saucedemo-automation.webp",
+    metric: "100% pass rate",
     badge: "Automation",
-    tools: ["Java", "Selenium", "TestNG", "REST Assured", "Docker"],
+    tools: ["Java", "Selenium", "TestNG", "Allure", "GitHub Actions"],
     industries: ["E-Commerce"],
-    githubUrl: "https://github.com/aslavchev/ecommerce-automation-framework",
+    githubUrl: "https://github.com/aslavchev/saucedemo-selenium-framework",
   },
   {
     title: "Senior QA Portfolio",
@@ -26,40 +26,50 @@ export const featuredProjects: Project[] = [
     title: "Soma Holistic Studio",
     description: "Professional wellness studio website built with TypeScript and modern web technologies",
     image: "/somaholistic-studio.webp",
-    metric: "Live on GitHub Pages",
+    metric: "Live on Cloudflare",
     badge: "Web Development",
     tools: ["TypeScript", "Next.js", "React"],
     industries: ["Wellness", "Healthcare"],
     liveUrl: "https://somaholistic.studio/",
   },
+  {
+    title: "QA Fundamentals 11-Week Program",
+    description: "Comprehensive QA training curriculum focused on fundamentals and process mastery for aspiring quality engineers",
+    image: "/qa-mentoring-program.webp",
+    metric: "11-week curriculum",
+    badge: "Education",
+    tools: ["QA Process", "Testing Fundamentals", "Best Practices"],
+    industries: ["Education", "QA/Tech"],
+    githubUrl: "https://github.com/aslavchev/qa-fundamentals-11weeks",
+  },
 ]
 
 export const projects: Project[] = [
   {
-    title: "E-Commerce Automation Framework",
+    title: "SauceDemo Selenium Framework",
     description:
-      "Strategic test automation framework for e-commerce testing built with Java 21, Selenium 4, TestNG, REST Assured, Docker, and CI/CD integration.",
+      "Selenium test automation framework with risk-based test selection, Allure reporting, and documented architectural decisions.",
     metrics: [
-      "18+ years of QA expertise applied",
-      "Modern testing stack with Java 21",
-      "Containerized test execution with Docker",
+      "100% pass rate",
+      "Risk-based test selection",
+      "Allure reporting integration",
     ],
-    tools: ["Java", "Selenium 4", "TestNG", "REST Assured", "Docker"],
+    tools: ["Java", "Selenium", "TestNG", "Allure", "GitHub Actions"],
     industries: ["E-Commerce"],
-    image: "/ecommerce-automation.webp",
+    image: "/saucedemo-automation.webp",
     badge: "Automation",
-    githubUrl: "https://github.com/aslavchev/ecommerce-automation-framework",
+    githubUrl: "https://github.com/aslavchev/saucedemo-selenium-framework",
   },
   {
-    title: "Senior QA Engineer Portfolio",
+    title: "Senior QA Portfolio",
     description:
-      "Professional portfolio website demonstrating QA expertise and full-stack development capabilities. Built with modern Next.js, React, TypeScript, and Tailwind CSS.",
+      "Professional portfolio website showcasing QA expertise, built with modern Next.js, React, TypeScript, and Tailwind CSS.",
     metrics: [
-      "Lighthouse 95+ performance, 100 accessibility",
-      "89% OG image optimization, 36% WebP savings",
+      "Lighthouse 100/100",
       "WCAG 2.1 AA compliant",
+      "Static export on Cloudflare",
     ],
-    tools: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GitHub Pages"],
+    tools: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     industries: ["QA/Tech"],
     image: "/aslavchev-portfolio.webp",
     badge: "Web Development",
@@ -67,15 +77,15 @@ export const projects: Project[] = [
     liveUrl: "https://aslavchev.com/",
   },
   {
-    title: "Soma Holistic Studio Website",
+    title: "Soma Holistic Studio",
     description:
-      "Professional wellness studio website built with TypeScript and modern web technologies, deployed on GitHub Pages.",
+      "Professional wellness studio website built with TypeScript and modern web technologies, deployed on Cloudflare.",
     metrics: [
       "Live production website",
-      "TypeScript for type safety",
-      "GitHub Pages deployment",
+      "Bilingual support",
+      "Booking wizard integration",
     ],
-    tools: ["TypeScript", "Next.js", "React", "GitHub Pages"],
+    tools: ["TypeScript", "React", "Vite", "Tailwind CSS"],
     industries: ["Wellness", "Healthcare"],
     image: "/somaholistic-studio.webp",
     badge: "Web Development",
@@ -84,7 +94,7 @@ export const projects: Project[] = [
   {
     title: "QA Fundamentals 11-Week Program",
     description:
-      "Comprehensive QA training curriculum spanning 11 weeks, focused on fundamentals and process mastery for aspiring quality engineers.",
+      "Comprehensive QA training curriculum focused on fundamentals and process mastery for aspiring quality engineers.",
     metrics: [
       "Structured 11-week curriculum",
       "Process-oriented approach",
@@ -95,5 +105,20 @@ export const projects: Project[] = [
     image: "/qa-mentoring-program.webp",
     badge: "Education",
     githubUrl: "https://github.com/aslavchev/qa-fundamentals-11weeks",
+  },
+  {
+    title: "E-Commerce Automation Framework",
+    description:
+      "Strategic test automation framework for e-commerce testing with Java 21, Selenium 4, TestNG, and REST Assured.",
+    metrics: [
+      "5 documented ADRs",
+      "Docker containerized execution",
+      "CI/CD integration",
+    ],
+    tools: ["Java", "Selenium", "TestNG", "REST Assured", "Docker"],
+    industries: ["E-Commerce"],
+    image: "/ecommerce-automation.webp",
+    badge: "Automation",
+    githubUrl: "https://github.com/aslavchev/ecommerce-automation-framework",
   },
 ]

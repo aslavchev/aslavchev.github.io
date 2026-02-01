@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react"
 import Image from "next/image"
-import { projects } from "@/lib/data"
+import { featuredProjects } from "@/lib/data"
 import { getAssetPath } from "@/lib/asset-path"
 import { content } from "@/lib/content"
 
@@ -18,7 +18,7 @@ export function FeaturedProjects() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
-        {projects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <Card
             key={index}
             className="group hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 overflow-hidden border-border/50 hover:border-border bg-card/50 backdrop-blur-sm flex flex-col h-full"
@@ -70,7 +70,7 @@ export function FeaturedProjects() {
                 </ul>
               </CardContent>
             )}
-            <CardFooter className="flex flex-col gap-3 pt-0">
+            <CardFooter className="flex flex-col gap-3 pt-0 mt-auto">
               <div className="grid grid-cols-2 gap-2 w-full">
                 {project.githubUrl && (
                   <Button
@@ -102,11 +102,6 @@ export function FeaturedProjects() {
                   </Button>
                 )}
               </div>
-              {project.metric && (
-                <span className="text-xs font-medium text-primary text-center">
-                  {project.metric}
-                </span>
-              )}
             </CardFooter>
           </Card>
         ))}
