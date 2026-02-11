@@ -26,7 +26,7 @@ export function EducationSection() {
     <section id="education" className="space-y-8">
       <div>
         <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Education</h2>
-        <p className="text-base lg:text-lg text-muted-foreground/80">Academic background</p>
+        <p className="text-base lg:text-lg text-muted-foreground">Academic background</p>
       </div>
 
       <div className="relative space-y-6 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-primary/20 before:to-transparent md:before:ml-[2.5rem]">

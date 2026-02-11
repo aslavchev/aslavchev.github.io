@@ -29,7 +29,7 @@ export function getPersonSchema(baseUrl: string) {
     jobTitle: personalInfo.title,
     hasOccupation: {
       "@type": "Occupation",
-      name: "Senior Quality Assurance Engineer",
+      name: "Quality Engineer",
       occupationalCategory: "15-1253.00", // SOC code for Software Quality Assurance Engineers
       skills: [
         "Test Automation",
@@ -135,7 +135,7 @@ export function getPersonSchema(baseUrl: string) {
 
     // Awards & Achievements
     award: [
-      "Zero-critical-failure track record across 18+ years",
+      "Zero-critical-failure track record",
       "Led quality assurance for 100K+ user applications",
       "CCNA Certification",
     ],

@@ -62,7 +62,7 @@ export function ContactSection() {
     <section id="contact" className="space-y-8 pb-16" aria-labelledby="contact-heading">
       <div>
         <h2 id="contact-heading" className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Let's Connect</h2>
-        <p className="text-base lg:text-lg text-muted-foreground/80">
+        <p className="text-base lg:text-lg text-muted-foreground">
           Open to QA leadership roles, consulting projects, and strategic testing initiatives
         </p>
       </div>

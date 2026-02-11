@@ -77,7 +77,7 @@ export function HeroSection() {
             size="lg"
             variant="secondary"
             asChild
-            className="font-medium shadow-md hover:shadow-lg transition-all"
+            className="min-h-11 font-medium shadow-md hover:shadow-lg transition-all"
           >
             <a
               href={getAssetPath("/Alex_Slavchev_CV.pdf")}
@@ -93,7 +93,7 @@ export function HeroSection() {
             variant="outline"
             onClick={() => scrollToSection("#contact")}
             aria-label="Scroll to contact section"
-            className="font-medium border-border/50 hover:border-border hover:bg-muted/50 transition-all"
+            className="min-h-11 font-medium border-border/50 hover:border-border hover:bg-muted/50 transition-all"
           >
             <Mail className="h-4 w-4 mr-2" aria-hidden="true" />
             {content.hero.getInTouch}

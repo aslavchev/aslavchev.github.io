@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: getAssetPath("/og-image.png?v=4"),
         width: 1200,
         height: 630,
-        alt: "Alex Slavchev - Quality Engineer | Building Quality at Scale",
+        alt: "Alex Slavchev - Quality Engineer | Finding what breaks before users do",
       },
     ],
   },
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
     description: personalInfo.bio,
-    images: [getAssetPath("/og-image.png?v=3")],
+    images: [getAssetPath("/og-image.png?v=4")],
   },
   robots: {
     index: true,
