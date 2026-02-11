@@ -9,6 +9,7 @@ export interface Project {
   industries?: string[]
   githubUrl?: string
   liveUrl?: string
+  liveLabel?: string
 }
 
 export interface Experience {

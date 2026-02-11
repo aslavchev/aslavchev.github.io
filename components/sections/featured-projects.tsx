@@ -13,15 +13,17 @@ export function FeaturedProjects() {
       <div className="flex items-center justify-between">
         <div className="space-y-2">
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight">{content.featuredProjects.title}</h2>
-          <p className="text-base lg:text-lg text-muted-foreground/80">{content.featuredProjects.subtitle}</p>
+          <p className="text-base lg:text-lg text-muted-foreground">{content.featuredProjects.subtitle}</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
-        {featuredProjects.map((project, index) => (
+        {featuredProjects.map((project, index) => {
+          const isLastOdd = featuredProjects.length % 2 !== 0 && index === featuredProjects.length - 1
+          return (
           <Card
             key={index}
-            className="group hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 overflow-hidden border-border/50 hover:border-border bg-card/50 backdrop-blur-sm flex flex-col h-full"
+            className={`group hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 overflow-hidden border-border/50 hover:border-border bg-card/50 backdrop-blur-sm flex flex-col h-full ${isLastOdd ? 'md:col-span-2' : ''}`}
           >
             <div className="aspect-video overflow-hidden bg-muted/50 relative border-2 border-primary">
               <Image
@@ -63,7 +65,7 @@ export function FeaturedProjects() {
                 <ul className="space-y-2">
                   {project.metrics.map((metric, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-foreground/70">
-                      <span className="text-primary mt-0.5 text-sm font-bold">✓</span>
+                      <span className="text-primary mt-0.5 text-sm font-bold" aria-hidden="true">✓</span>
                       <span>{metric}</span>
                     </li>
                   ))}
@@ -91,12 +93,12 @@ export function FeaturedProjects() {
                     size="sm"
                     variant="secondary"
                     asChild
-                    aria-label={`View live demo of ${project.title} (opens in new tab)`}
+                    aria-label={`View ${project.liveLabel || 'live demo'} of ${project.title} (opens in new tab)`}
                     className={`font-semibold ${!project.githubUrl ? 'col-span-2' : ''}`}
                   >
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
+                      {project.liveLabel || "Live Demo"}
                       <ArrowUpRight className="h-3 w-3 ml-1 opacity-70" />
                     </a>
                   </Button>
@@ -104,7 +106,8 @@ export function FeaturedProjects() {
               </div>
             </CardFooter>
           </Card>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

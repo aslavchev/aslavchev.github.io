@@ -11,7 +11,7 @@ export function ProjectsSection() {
     <section id="projects" className="space-y-8">
       <div>
         <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">Case Studies</h2>
-        <p className="text-base lg:text-lg text-muted-foreground/80">Detailed project breakdowns and achievements</p>
+        <p className="text-base lg:text-lg text-muted-foreground">Detailed project breakdowns and achievements</p>
       </div>
 
       <div className="grid grid-cols-1 gap-8">
@@ -95,12 +95,12 @@ export function ProjectsSection() {
                       size="sm"
                       variant="secondary"
                       asChild
-                      aria-label={`View live demo of ${project.title}`}
+                      aria-label={`View ${project.liveLabel || 'live demo'} of ${project.title}`}
                       className="font-semibold"
                     >
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
+                        {project.liveLabel || "Live Demo"}
                       </a>
                     </Button>
                   )}

@@ -3,7 +3,7 @@ import type { Project } from "./types"
 export const featuredProjects: Project[] = [
   {
     title: "SauceDemo Selenium Framework",
-    description: "Selenium test automation framework with risk-based test selection, Allure reporting, and documented ADRs",
+    description: "E-commerce UI test automation framework with risk-based test selection and documented architectural decisions",
     image: "/saucedemo-automation.webp",
     metric: "100% pass rate",
     badge: "Automation",
@@ -12,7 +12,19 @@ export const featuredProjects: Project[] = [
     githubUrl: "https://github.com/aslavchev/saucedemo-selenium-framework",
   },
   {
-    title: "Senior QA Portfolio",
+    title: "DummyJSON API Test Framework",
+    description: "API test automation framework covering authentication and CRUD endpoints with CI/CD and live reporting",
+    image: "/dummyjson-api-testing.webp",
+    metric: "100% pass rate",
+    badge: "Automation",
+    tools: ["Java", "REST Assured", "TestNG", "Allure"],
+    industries: ["E-Commerce"],
+    githubUrl: "https://github.com/aslavchev/dummyjson-restassured-framework",
+    liveUrl: "https://aslavchev.github.io/dummyjson-restassured-framework/",
+    liveLabel: "Allure Report",
+  },
+  {
+    title: "Quality Engineer Portfolio",
     description: "Professional portfolio website showcasing QA expertise, built with modern Next.js, React, and TypeScript",
     image: "/aslavchev-portfolio.webp",
     metric: "Lighthouse 100/100",
@@ -61,7 +73,24 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/aslavchev/saucedemo-selenium-framework",
   },
   {
-    title: "Senior QA Portfolio",
+    title: "DummyJSON API Test Framework",
+    description:
+      "API test automation framework covering authentication and CRUD endpoints against the DummyJSON API with live Allure reporting.",
+    metrics: [
+      "100% pass rate across 12 API tests",
+      "Live Allure report on GitHub Pages",
+      "CI/CD with GitHub Actions",
+    ],
+    tools: ["Java", "REST Assured", "TestNG", "Allure", "Maven", "GitHub Actions"],
+    industries: ["E-Commerce"],
+    image: "/dummyjson-api-testing.webp",
+    badge: "Automation",
+    githubUrl: "https://github.com/aslavchev/dummyjson-restassured-framework",
+    liveUrl: "https://aslavchev.github.io/dummyjson-restassured-framework/",
+    liveLabel: "Allure Report",
+  },
+  {
+    title: "Quality Engineer Portfolio",
     description:
       "Professional portfolio website showcasing QA expertise, built with modern Next.js, React, TypeScript, and Tailwind CSS.",
     metrics: [
@@ -105,20 +134,5 @@ export const projects: Project[] = [
     image: "/qa-mentoring-program.webp",
     badge: "Education",
     githubUrl: "https://github.com/aslavchev/qa-fundamentals-11weeks",
-  },
-  {
-    title: "E-Commerce Automation Framework",
-    description:
-      "Strategic test automation framework for e-commerce testing with Java 21, Selenium 4, TestNG, and REST Assured.",
-    metrics: [
-      "5 documented ADRs",
-      "Docker containerized execution",
-      "CI/CD integration",
-    ],
-    tools: ["Java", "Selenium", "TestNG", "REST Assured", "Docker"],
-    industries: ["E-Commerce"],
-    image: "/ecommerce-automation.webp",
-    badge: "Automation",
-    githubUrl: "https://github.com/aslavchev/ecommerce-automation-framework",
   },
 ]
