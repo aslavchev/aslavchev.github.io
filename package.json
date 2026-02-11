@@ -13,7 +13,10 @@
     "validate:schema": "node scripts/validate-schema.js",
     "optimize:images": "node scripts/convert-to-webp.js",
     "optimize:og": "node scripts/optimize-og-image.js",
-    "optimize:all": "npm run optimize:og && npm run optimize:images"
+    "optimize:all": "npm run optimize:og && npm run optimize:images",
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:report": "npx playwright show-report"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -69,7 +72,9 @@
     "zod": "3.25.76"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@napi-rs/canvas": "^0.1.88",
+    "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
     "@types/react": "^19",
