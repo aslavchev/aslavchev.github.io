@@ -2,7 +2,7 @@ import type { Experience } from "./types"
 
 export const experience: Experience[] = [
   {
-    title: "Software Engineer in Test",
+    title: "QA Engineer",
     company: "Tumba Solutions",
     companyLogo: "/company-logos/tumba-logo.webp",
     period: "January 2016 - April 2025",
@@ -29,7 +29,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    title: "Quality Assurance Engineer",
+    title: "QA Engineer",
     company: "VMware",
     companyLogo: "/company-logos/vmware-logo.webp",
     period: "November 2007 - February 2015",
@@ -43,7 +43,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    title: "Quality Assurance Engineer",
+    title: "QA Engineer",
     company: "Sciant",
     companyLogo: "/company-logos/sciant-logo.webp",
     period: "May 2007 - October 2007",
