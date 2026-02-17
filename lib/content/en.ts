@@ -33,7 +33,7 @@ export const content = {
   // Featured Projects Section
   featuredProjects: {
     title: "Featured Projects",
-    subtitle: "Recent quality engineering achievements",
+    subtitle: "Recent projects and contributions",
     viewDetails: "View Details",
   },
 

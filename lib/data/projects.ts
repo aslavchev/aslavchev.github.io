@@ -45,14 +45,14 @@ export const featuredProjects: Project[] = [
     liveUrl: "https://somaholistic.studio/",
   },
   {
-    title: "QA Fundamentals 11-Week Program",
+    title: "QA Mentorship Program",
     description: "Comprehensive QA training curriculum focused on fundamentals and process mastery for aspiring quality engineers",
     image: "/qa-mentoring-program.webp",
     metric: "11-week curriculum",
     badge: "Education",
     tools: ["QA Process", "Testing Fundamentals", "Best Practices"],
     industries: ["Education", "QA/Tech"],
-    githubUrl: "https://github.com/aslavchev/qa-fundamentals-11weeks",
+    githubUrl: "https://github.com/aslavchev/qa-mentorship-program",
   },
 ]
 
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     liveUrl: "https://somaholistic.studio/",
   },
   {
-    title: "QA Fundamentals 11-Week Program",
+    title: "QA Mentorship Program",
     description:
       "Comprehensive QA training curriculum focused on fundamentals and process mastery for aspiring quality engineers.",
     metrics: [
@@ -133,6 +133,6 @@ export const projects: Project[] = [
     industries: ["Education", "QA/Tech"],
     image: "/qa-mentoring-program.webp",
     badge: "Education",
-    githubUrl: "https://github.com/aslavchev/qa-fundamentals-11weeks",
+    githubUrl: "https://github.com/aslavchev/qa-mentorship-program",
   },
 ]
