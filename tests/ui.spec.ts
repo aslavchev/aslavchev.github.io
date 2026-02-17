@@ -33,40 +33,61 @@ test.describe("UI & Visual Tests", () => {
     expect(restoredClass).toBe(initialClass)
   })
 
-  test("featured project cards have correct structure", async ({ page }) => {
+  test("all featured project cards have correct structure", async ({ page }) => {
     const section = page.locator("section#featured")
+    const cards = section.locator("[data-slot='card']")
+    const cardCount = await cards.count()
+    expect(cardCount).toBe(5)
 
-    // Card has project title
-    await expect(section.getByText("SauceDemo Selenium Framework")).toBeVisible()
+    for (let i = 0; i < cardCount; i++) {
+      const card = cards.nth(i)
+      const title = await card.locator("h3, [data-slot='card-title']").textContent()
 
-    // Card has description
-    await expect(section.getByText("E-commerce UI test automation framework")).toBeVisible()
+      // Each card has a visible title
+      await expect(card.locator("h3, [data-slot='card-title']")).toBeVisible()
 
-    // Card has image
-    await expect(section.locator("img").first()).toBeVisible()
+      // Each card has an image
+      await expect(card.locator("img"), `Card "${title}" missing image`).toBeVisible()
 
-    // Card has technology badges (known tools)
-    await expect(section.getByText("Java").first()).toBeVisible()
-    await expect(section.getByText("Selenium").first()).toBeVisible()
+      // Each card has at least one technology badge
+      const badges = card.locator("[data-slot='badge']")
+      expect(await badges.count(), `Card "${title}" missing badges`).toBeGreaterThanOrEqual(1)
 
-    // Card has action button
-    await expect(section.getByRole("link", { name: /View code for SauceDemo/i })).toBeVisible()
+      // Each card has at least one action link (GitHub or Live)
+      const links = card.getByRole("link")
+      expect(await links.count(), `Card "${title}" missing action links`).toBeGreaterThanOrEqual(1)
+    }
   })
 
   test("featured projects grid layout is correct on desktop", async ({ page, isMobile }) => {
     if (isMobile) return
 
     const section = page.locator("section#featured")
-    const images = section.locator("img")
-    const count = await images.count()
+    const cards = section.locator("[data-slot='card']")
+    const count = await cards.count()
     expect(count).toBe(5)
 
-    // First two images should be in same row (similar Y position)
-    const box1 = await images.nth(0).boundingBox()
-    const box2 = await images.nth(1).boundingBox()
+    // Row 1: cards 0 and 1 should be side by side (similar Y)
+    const box0 = await cards.nth(0).boundingBox()
+    const box1 = await cards.nth(1).boundingBox()
+    expect(box0).toBeTruthy()
     expect(box1).toBeTruthy()
+    expect(Math.abs(box0!.y - box1!.y)).toBeLessThan(5)
+
+    // Row 2: cards 2 and 3 should be side by side
+    const box2 = await cards.nth(2).boundingBox()
+    const box3 = await cards.nth(3).boundingBox()
     expect(box2).toBeTruthy()
-    expect(Math.abs(box1!.y - box2!.y)).toBeLessThan(5)
+    expect(box3).toBeTruthy()
+    expect(Math.abs(box2!.y - box3!.y)).toBeLessThan(5)
+
+    // Row 2 should be below row 1
+    expect(box2!.y).toBeGreaterThan(box0!.y)
+
+    // Row 3: last card should be below row 2
+    const box4 = await cards.nth(4).boundingBox()
+    expect(box4).toBeTruthy()
+    expect(box4!.y).toBeGreaterThan(box2!.y)
   })
 
   test("last card spans full width when odd count", async ({ page, isMobile }) => {
@@ -109,7 +130,7 @@ test.describe("UI & Visual Tests", () => {
 
   test("buttons with only GitHub show full width", async ({ page }) => {
     const section = page.locator("section#featured")
-    const githubButton = section.getByRole("link", { name: /View code for QA Fundamentals/i })
+    const githubButton = section.getByRole("link", { name: /View code for QA Mentorship/i })
     await expect(githubButton).toBeVisible()
 
     const className = await githubButton.evaluate((el) => el.className)

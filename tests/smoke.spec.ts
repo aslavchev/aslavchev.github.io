@@ -27,7 +27,7 @@ test.describe("Smoke Tests", () => {
     await expect(section.getByText("DummyJSON API Test Framework")).toBeVisible()
     await expect(section.getByText("Quality Engineer Portfolio")).toBeVisible()
     await expect(section.getByText("Soma Holistic Studio")).toBeVisible()
-    await expect(section.getByText("QA Fundamentals 11-Week Program")).toBeVisible()
+    await expect(section.getByText("QA Mentorship Program")).toBeVisible()
   })
 
   test("experience section renders", async ({ page }) => {
