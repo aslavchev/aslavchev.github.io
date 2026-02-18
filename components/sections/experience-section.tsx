@@ -62,16 +62,15 @@ export function ExperienceSection() {
               </CardHeader>
               <CardContent className="space-y-5">
                 <p className="text-sm sm:text-base leading-relaxed text-foreground/75">{exp.description}</p>
-                <ul className="space-y-3.5">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm sm:text-base leading-relaxed">
-                      <span className="text-primary mt-1 text-lg font-bold shrink-0" aria-hidden="true">
-                        •
-                      </span>
-                      <span className="text-foreground/75">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
+                {exp.achievements.length > 0 && (
+                  <ul className="space-y-3.5 list-disc list-outside ml-5 marker:text-primary">
+                    {exp.achievements.map((achievement, i) => (
+                      <li key={i} className="text-sm sm:text-base leading-relaxed text-foreground/75 pl-1">
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </CardContent>
             </Card>
           </div>
