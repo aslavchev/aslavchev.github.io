@@ -2,6 +2,27 @@ import type { Experience } from "./types"
 
 export const experience: Experience[] = [
   {
+    title: "Software Engineer (Contributing)",
+    company: "Bugzy.ai",
+    companyLogo: "/company-logos/bugzy-logo.webp",
+    period: "January 2026 - Present",
+    description: "Contributing to AI-powered QA testing platform",
+    achievements: [],
+  },
+  {
+    title: "Mentor",
+    company: "Mentor the Young - Bulgaria",
+    companyLogo: "/company-logos/mentor-the-young-logo.webp",
+    period: "October 2025 - January 2026",
+    description: "Designed and delivered an 11-week QA mentorship program for a junior engineer",
+    achievements: [
+      "Designed and delivered an 11-week QA mentorship program for a junior engineer, connected through Mentor the Young Bulgaria",
+      "Built two-phase curriculum progressing from foundational research to industry-level execution standards",
+      "Mentee completed all 11 weeks, delivering 50+ test cases, BDD scenarios, and Python automation scripts",
+      "Open-sourced curriculum and templates on GitHub",
+    ],
+  },
+  {
     title: "QA Engineer",
     company: "Tumba Solutions",
     companyLogo: "/company-logos/tumba-logo.webp",
