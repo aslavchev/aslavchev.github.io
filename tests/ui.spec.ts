@@ -1,4 +1,5 @@
-import { test, expect } from "@playwright/test"
+import { test, expect } from "./fixtures"
+import { featuredProjects } from "../lib/data/projects"
 
 test.describe("UI & Visual Tests", () => {
   test.beforeEach(async ({ page }) => {
@@ -33,11 +34,10 @@ test.describe("UI & Visual Tests", () => {
     expect(restoredClass).toBe(initialClass)
   })
 
-  test("all featured project cards have correct structure", async ({ page }) => {
-    const section = page.locator("section#featured")
-    const cards = section.locator("[data-slot='card']")
+  test("all featured project cards have correct structure", async ({ sections }) => {
+    const cards = sections.featured.locator("[data-slot='card']")
     const cardCount = await cards.count()
-    expect(cardCount).toBe(5)
+    expect(cardCount).toBe(featuredProjects.length)
 
     for (let i = 0; i < cardCount; i++) {
       const card = cards.nth(i)
@@ -59,13 +59,12 @@ test.describe("UI & Visual Tests", () => {
     }
   })
 
-  test("featured projects grid layout is correct on desktop", async ({ page, isMobile }) => {
+  test("featured projects grid layout is correct on desktop", async ({ sections, isMobile }) => {
     if (isMobile) return
 
-    const section = page.locator("section#featured")
-    const cards = section.locator("[data-slot='card']")
+    const cards = sections.featured.locator("[data-slot='card']")
     const count = await cards.count()
-    expect(count).toBe(5)
+    expect(count).toBe(featuredProjects.length)
 
     // Row 1: cards 0 and 1 should be side by side (similar Y)
     const box0 = await cards.nth(0).boundingBox()
@@ -85,33 +84,31 @@ test.describe("UI & Visual Tests", () => {
     expect(box2!.y).toBeGreaterThan(box0!.y)
 
     // Row 3: last card should be below row 2
-    const box4 = await cards.nth(4).boundingBox()
+    const box4 = await cards.nth(count - 1).boundingBox()
     expect(box4).toBeTruthy()
     expect(box4!.y).toBeGreaterThan(box2!.y)
   })
 
-  test("last card spans full width when odd count", async ({ page, isMobile }) => {
+  test("last card spans full width when odd count", async ({ sections, isMobile }) => {
     if (isMobile) return
 
-    const section = page.locator("section#featured")
-    const images = section.locator("img")
+    const images = sections.featured.locator("img")
 
     const firstImgBox = await images.nth(0).boundingBox()
-    const lastImgBox = await images.nth(4).boundingBox()
+    const lastImgBox = await images.nth(featuredProjects.length - 1).boundingBox()
     expect(firstImgBox).toBeTruthy()
     expect(lastImgBox).toBeTruthy()
     expect(lastImgBox!.width).toBeGreaterThan(firstImgBox!.width * 1.5)
   })
 
-  test("project images have hover zoom effect", async ({ page, isMobile }) => {
+  test("project images have hover zoom effect", async ({ sections, isMobile }) => {
     if (isMobile) return
 
-    const section = page.locator("section#featured")
-    const firstImg = section.locator("img").first()
+    const firstImg = sections.featured.locator("img").first()
 
     // Tailwind's group-hover:scale-105 only triggers when the ancestor with class "group" is hovered,
     // not the image itself. We need xpath to traverse up from the card title to the Card (group) container.
-    const card = section.getByText("SauceDemo Selenium Framework").locator("xpath=ancestor::div[contains(@class, 'group')]").first()
+    const card = sections.featured.getByText(featuredProjects[0].title).locator("xpath=ancestor::div[contains(@class, 'group')]").first()
 
     // Tailwind v4 uses CSS `scale` property, not `transform`
     const getScale = (el: Element) => {
@@ -128,31 +125,29 @@ test.describe("UI & Visual Tests", () => {
     }).toPass({ timeout: 2000 })
   })
 
-  test("buttons with only GitHub show full width", async ({ page }) => {
-    const section = page.locator("section#featured")
-    const githubButton = section.getByRole("link", { name: /View code for QA Mentorship/i })
+  test("buttons with only GitHub show full width", async ({ sections }) => {
+    const githubOnlyProject = featuredProjects.find(p => p.githubUrl && !p.liveUrl)!
+    const githubButton = sections.featured.getByRole("link", { name: new RegExp(`View code for ${githubOnlyProject.title}`, "i") })
     await expect(githubButton).toBeVisible()
 
     const className = await githubButton.evaluate((el) => el.className)
     expect(className).toContain("col-span-2")
   })
 
-  test("Allure Report button shows correct label", async ({ page }) => {
-    const section = page.locator("section#featured")
-    const allureButton = section.getByRole("link", { name: /Allure Report/i })
-    await expect(allureButton).toBeVisible()
-    await expect(allureButton).toHaveAttribute("href", /aslavchev\.github\.io\/dummyjson/)
+  test("Allure Report button shows correct label", async ({ sections }) => {
+    const projectWithCustomLabel = featuredProjects.find(p => p.liveLabel)!
+    const customButton = sections.featured.getByRole("link", { name: new RegExp(projectWithCustomLabel.liveLabel!, "i") })
+    await expect(customButton).toBeVisible()
+    await expect(customButton).toHaveAttribute("href", new RegExp(projectWithCustomLabel.liveUrl!.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/https?:\/\//, "")))
   })
 
-  test("industry badges render correctly", async ({ page }) => {
-    const section = page.locator("section#featured")
-
+  test("industry badges render correctly", async ({ sections }) => {
     // E-Commerce appears on SauceDemo and DummyJSON cards
-    const ecommerceTexts = section.getByText("E-Commerce")
+    const ecommerceTexts = sections.featured.getByText("E-Commerce")
     expect(await ecommerceTexts.count()).toBeGreaterThanOrEqual(2)
 
-    // QA/Tech appears on portfolio and QA Fundamentals
-    const qaTechTexts = section.getByText("QA/Tech")
+    // QA/Tech appears on portfolio and QA Mentorship cards
+    const qaTechTexts = sections.featured.getByText("QA/Tech")
     expect(await qaTechTexts.count()).toBeGreaterThanOrEqual(1)
   })
 

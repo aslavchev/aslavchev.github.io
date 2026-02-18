@@ -1,4 +1,5 @@
-import { test, expect } from "@playwright/test"
+import { test, expect } from "./fixtures"
+import { featuredProjects } from "../lib/data/projects"
 
 test.describe("Smoke Tests", () => {
   test.beforeEach(async ({ page }) => {
@@ -10,63 +11,40 @@ test.describe("Smoke Tests", () => {
     await expect(page).toHaveTitle(/Alex Slavchev/)
   })
 
-  test("hero section renders", async ({ page }) => {
-    const hero = page.locator("section#home")
-    await expect(hero).toBeVisible()
-    await expect(hero.getByText("Alex Slavchev")).toBeVisible()
-    await expect(hero.getByText("Quality Engineer")).toBeVisible()
+  test("hero section renders", async ({ sections }) => {
+    await expect(sections.home).toBeVisible()
+    await expect(sections.home.getByText("Alex Slavchev")).toBeVisible()
+    await expect(sections.home.getByText("Quality Engineer")).toBeVisible()
   })
 
-  test("featured projects section renders with all cards", async ({ page }) => {
-    const section = page.locator("section#featured")
-    await expect(section).toBeVisible()
-    await expect(section.getByText("Featured Projects")).toBeVisible()
+  test("featured projects section renders with all cards", async ({ sections }) => {
+    await expect(sections.featured).toBeVisible()
+    await expect(sections.featured.getByText("Featured Projects")).toBeVisible()
 
-    // Verify all 5 project cards render (CardTitle renders as div, not heading)
-    await expect(section.getByText("SauceDemo Selenium Framework")).toBeVisible()
-    await expect(section.getByText("DummyJSON API Test Framework")).toBeVisible()
-    await expect(section.getByText("Quality Engineer Portfolio")).toBeVisible()
-    await expect(section.getByText("Soma Holistic Studio")).toBeVisible()
-    await expect(section.getByText("QA Mentorship Program")).toBeVisible()
+    for (const project of featuredProjects) {
+      await expect(sections.featured.getByText(project.title)).toBeVisible()
+    }
   })
 
-  test("experience section renders", async ({ page }) => {
-    const section = page.locator("section#experience")
-    await expect(section).toBeVisible()
-    await expect(section.getByRole("heading", { name: "Experience" })).toBeVisible()
+  test("experience section renders", async ({ sections }) => {
+    await expect(sections.experience).toBeVisible()
+    await expect(sections.experience.getByRole("heading", { name: "Experience" })).toBeVisible()
   })
 
-  test("education section renders", async ({ page }) => {
-    const section = page.locator("section#education")
-    await expect(section).toBeVisible()
+  test("education section renders", async ({ sections }) => {
+    await expect(sections.education).toBeVisible()
   })
 
-  test("certifications section renders", async ({ page }) => {
-    const section = page.locator("section#certifications")
-    await expect(section).toBeVisible()
+  test("certifications section renders", async ({ sections }) => {
+    await expect(sections.certifications).toBeVisible()
   })
 
-  test("testimonials section renders", async ({ page }) => {
-    const section = page.locator("section#testimonials")
-    await expect(section).toBeVisible()
+  test("testimonials section renders", async ({ sections }) => {
+    await expect(sections.testimonials).toBeVisible()
   })
 
-  test("contact section renders", async ({ page }) => {
-    const section = page.locator("section#contact")
-    await expect(section).toBeVisible()
-  })
-
-  test("no console errors on page load", async ({ page }) => {
-    const errors: string[] = []
-    page.on("console", (msg) => {
-      if (msg.type() === "error" && !msg.text().includes("favicon")) {
-        errors.push(msg.text())
-      }
-    })
-
-    await page.goto("/")
-    await page.waitForLoadState("networkidle")
-    expect(errors).toHaveLength(0)
+  test("contact section renders", async ({ sections }) => {
+    await expect(sections.contact).toBeVisible()
   })
 
   test("no broken images", async ({ page }) => {
@@ -81,5 +59,20 @@ test.describe("Smoke Tests", () => {
         expect(naturalWidth, `Image ${src} failed to load`).toBeGreaterThan(0)
       }
     }
+  })
+})
+
+test.describe("Console Errors", () => {
+  test("no console errors on page load", async ({ page }) => {
+    const errors: string[] = []
+    page.on("console", (msg) => {
+      if (msg.type() === "error" && !msg.text().includes("favicon")) {
+        errors.push(msg.text())
+      }
+    })
+
+    await page.goto("/")
+    await page.waitForLoadState("networkidle")
+    expect(errors).toHaveLength(0)
   })
 })

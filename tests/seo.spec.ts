@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test"
 
 test.describe("SEO & Meta Tags", () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== "desktop-chrome", "SEO tags are viewport-independent")
     await page.goto("/")
     await page.waitForLoadState("networkidle")
   })

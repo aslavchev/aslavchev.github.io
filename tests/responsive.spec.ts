@@ -32,7 +32,7 @@ test.describe("Responsive Layout", () => {
     if (!isMobile) return
 
     const section = page.locator("section#featured")
-    const cards = section.locator("[class*='card']").filter({ has: page.locator("img") })
+    const cards = section.locator("[data-slot='card']")
     const count = await cards.count()
 
     for (let i = 0; i < count; i++) {
@@ -64,10 +64,11 @@ test.describe("Responsive Layout", () => {
   test("touch targets are at least 44x44px on mobile", async ({ page, isMobile }) => {
     if (!isMobile) return
 
-    const buttons = page.locator("a[href], button").filter({ hasText: /.+/ })
+    // Only check button-styled elements — inline text links are exempt per WCAG 2.2 SC 2.5.8
+    const buttons = page.locator("[data-slot='button'], button:not([data-slot])")
     const count = await buttons.count()
 
-    for (let i = 0; i < Math.min(count, 15); i++) {
+    for (let i = 0; i < count; i++) {
       const el = buttons.nth(i)
       if (await el.isVisible()) {
         const box = await el.boundingBox()

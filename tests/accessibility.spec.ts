@@ -61,7 +61,7 @@ test.describe("Accessibility", () => {
     const count = await buttons.count()
     expect(count).toBeGreaterThan(0)
 
-    for (let i = 0; i < Math.min(count, 10); i++) {
+    for (let i = 0; i < count; i++) {
       const el = buttons.nth(i)
       if (await el.isVisible()) {
         const tabIndex = await el.evaluate((el) => el.tabIndex)

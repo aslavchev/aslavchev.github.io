@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test"
 
 test.describe("Link Validation", () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== "desktop-chrome", "Link validation is viewport-independent")
     await page.goto("/")
     await page.waitForLoadState("networkidle")
   })
