@@ -18,10 +18,12 @@ export default defineConfig({
     {
       name: "desktop-chrome",
       use: { ...devices["Desktop Chrome"] },
+      testIgnore: "**/mobile-nav.spec.ts",
     },
     {
       name: "mobile-chrome",
       use: { ...devices["Pixel 7"] },
+      testMatch: ["**/mobile-nav.spec.ts", "**/responsive.spec.ts"],
     },
     {
       name: "tablet",
@@ -29,6 +31,7 @@ export default defineConfig({
         viewport: { width: 768, height: 1024 },
         userAgent: devices["iPad (gen 7)"].userAgent,
       },
+      testMatch: "**/responsive.spec.ts",
     },
   ],
 

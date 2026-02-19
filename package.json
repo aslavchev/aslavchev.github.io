@@ -74,6 +74,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",
     "@napi-rs/canvas": "^0.1.88",
+    "@playwright/cli": "^0.1.1",
     "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
