@@ -2,6 +2,18 @@ import type { Project } from "./types"
 
 export const featuredProjects: Project[] = [
   {
+    title: "Playwright TypeScript Framework",
+    description: "UI and API test framework covering SauceDemo and DummyJSON with Page Object Model, fixture injection, and live Playwright HTML report",
+    image: "/playwright-typescript-framework.webp",
+    metric: "100% pass rate",
+    badge: "Automation",
+    tools: ["TypeScript", "Playwright", "GitHub Actions"],
+    industries: ["E-Commerce"],
+    githubUrl: "https://github.com/aslavchev/playwright-typescript-framework",
+    liveUrl: "https://aslavchev.github.io/playwright-typescript-framework/",
+    liveLabel: "Playwright Report",
+  },
+  {
     title: "SauceDemo Selenium Framework",
     description: "E-commerce UI test automation framework with risk-based test selection and documented architectural decisions",
     image: "/saucedemo-automation.webp",
@@ -25,11 +37,11 @@ export const featuredProjects: Project[] = [
   },
   {
     title: "Quality Engineer Portfolio",
-    description: "Professional portfolio website showcasing QA expertise, built with modern Next.js, React, and TypeScript",
+    description: "Professional portfolio website showcasing QA expertise, built with modern Next.js, React, and TypeScript, tested with Playwright",
     image: "/aslavchev-portfolio.webp",
     metric: "Lighthouse 100/100",
     badge: "Web Development",
-    tools: ["Next.js", "React", "TypeScript", "Tailwind"],
+    tools: ["Next.js", "React", "TypeScript", "Tailwind", "Playwright"],
     industries: ["QA/Tech"],
     githubUrl: "https://github.com/aslavchev/aslavchev.github.io",
     liveUrl: "https://aslavchev.com/",
@@ -57,6 +69,23 @@ export const featuredProjects: Project[] = [
 ]
 
 export const projects: Project[] = [
+  {
+    title: "Playwright TypeScript Framework",
+    description:
+      "UI and API test framework covering SauceDemo and DummyJSON with Page Object Model, fixture injection, and live Playwright HTML report.",
+    metrics: [
+      "100% pass rate",
+      "UI + API dual coverage",
+      "Live Playwright HTML report",
+    ],
+    tools: ["TypeScript", "Playwright", "GitHub Actions"],
+    industries: ["E-Commerce"],
+    image: "/playwright-typescript-framework.webp",
+    badge: "Automation",
+    githubUrl: "https://github.com/aslavchev/playwright-typescript-framework",
+    liveUrl: "https://aslavchev.github.io/playwright-typescript-framework/",
+    liveLabel: "Playwright Report",
+  },
   {
     title: "SauceDemo Selenium Framework",
     description:
@@ -92,13 +121,13 @@ export const projects: Project[] = [
   {
     title: "Quality Engineer Portfolio",
     description:
-      "Professional portfolio website showcasing QA expertise, built with modern Next.js, React, TypeScript, and Tailwind CSS.",
+      "Professional portfolio website showcasing QA expertise, built with modern Next.js, React, TypeScript, and Tailwind CSS, tested with Playwright.",
     metrics: [
       "Lighthouse 100/100",
       "WCAG 2.1 AA compliant",
       "Static export on Cloudflare",
     ],
-    tools: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    tools: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Playwright"],
     industries: ["QA/Tech"],
     image: "/aslavchev-portfolio.webp",
     badge: "Web Development",
