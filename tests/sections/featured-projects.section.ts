@@ -16,7 +16,7 @@ export class FeaturedProjectsSection {
   }
 
   getLiveLinks(): Locator {
-    return this.section.getByRole("link", { name: /Allure Report|Live Demo|live/i })
+    return this.section.getByRole("link", { name: /Allure Report|Playwright Report|Live Demo|live/i })
   }
 
   getProjectLink(projectTitle: string): Locator {

@@ -1,4 +1,4 @@
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Card, CardDescription, CardFooter, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react"
@@ -23,8 +23,9 @@ export function FeaturedProjects() {
           return (
           <Card
             key={index}
-            className={`group hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 overflow-hidden border-border/50 hover:border-border bg-card/50 backdrop-blur-sm flex flex-col h-full ${isLastOdd ? 'md:col-span-2' : ''}`}
+            className={`group hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 overflow-hidden border-border/50 hover:border-border bg-card/50 backdrop-blur-sm md:grid md:grid-rows-subgrid md:row-span-6 ${isLastOdd ? 'md:col-span-2' : ''}`}
           >
+            {/* Row 1: Image */}
             <div className="aspect-video overflow-hidden bg-muted/50 relative border-2 border-primary">
               <Image
                 src={getAssetPath(project.image || "/placeholder.svg?height=400&width=600")}
@@ -34,15 +35,22 @@ export function FeaturedProjects() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
-            <CardHeader className="space-y-5">
+            {/* Row 2: Title */}
+            <div className="px-6 pt-6">
               <CardTitle className="group-hover:text-primary transition-colors text-xl sm:text-2xl font-bold break-words leading-tight">
                 {project.title}
               </CardTitle>
+            </div>
+            {/* Row 3: Description */}
+            <div className="px-6">
               <CardDescription className="text-sm sm:text-base text-foreground/75 leading-relaxed">
                 {project.description}
               </CardDescription>
+            </div>
+            {/* Row 3: Tool badges */}
+            <div className="px-6">
               {project.tools && (
-                <div className="flex flex-wrap gap-2 pt-1">
+                <div className="flex flex-wrap gap-2">
                   {project.tools.slice(0, 4).map((tool) => (
                     <Badge key={tool} variant="secondary" className="text-xs font-medium">
                       {tool}
@@ -50,8 +58,11 @@ export function FeaturedProjects() {
                   ))}
                 </div>
               )}
+            </div>
+            {/* Row 4: Industry badges */}
+            <div className="px-6">
               {project.industries && (
-                <div className="flex flex-wrap gap-2 pt-2">
+                <div className="flex flex-wrap gap-2">
                   {project.industries.map((industry) => (
                     <Badge key={industry} variant="outline" className="text-xs font-medium text-primary border-primary/50">
                       {industry}
@@ -59,20 +70,9 @@ export function FeaturedProjects() {
                   ))}
                 </div>
               )}
-            </CardHeader>
-            {project.metrics && (
-              <CardContent className="pt-0 pb-4 flex-grow">
-                <ul className="space-y-2">
-                  {project.metrics.map((metric, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/70">
-                      <span className="text-primary mt-0.5 text-sm font-bold" aria-hidden="true">✓</span>
-                      <span>{metric}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            )}
-            <CardFooter className="flex flex-col gap-3 pt-0 mt-auto">
+            </div>
+            {/* Row 5: Action buttons */}
+            <CardFooter className="flex flex-col gap-3 pt-0">
               <div className="grid grid-cols-2 gap-2 w-full">
                 {project.githubUrl && (
                   <Button
