@@ -23,7 +23,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    title: "QA Engineer",
+    title: "Mobile QA Engineer",
     company: "Tumba Solutions",
     companyLogo: "/company-logos/tumba-logo.webp",
     period: "January 2016 - April 2025",
