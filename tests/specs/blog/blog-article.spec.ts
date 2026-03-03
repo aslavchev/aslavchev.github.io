@@ -2,11 +2,12 @@ import { test, expect } from "@tests/fixtures/test"
 import { getPublishedArticles, getAdjacentArticles } from "@/lib/data/blog"
 
 const articles = getPublishedArticles()
-const firstArticle = articles[0] // claude-developer-guide (newest)
-// Article with navigation neighbors — not the first (which has no prev)
-const articleWithNav = articles.length > 1 ? articles[1] : articles[0]
+const firstArticle = articles[0]
+const articleWithNav = articles.length > 1 ? articles[1]! : firstArticle
 
 test.describe("Blog Article Page", () => {
+  test.skip(!firstArticle, "No published articles to test")
+
   test("article renders with title, date, and read time", { tag: ["@smoke"] }, async ({ blogArticlePage }) => {
     await blogArticlePage.goto(firstArticle.slug)
     await expect(blogArticlePage.title).toContainText(firstArticle.title)

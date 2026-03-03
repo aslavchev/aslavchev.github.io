@@ -14,16 +14,16 @@ export class ContactSection {
   constructor(page: Page) {
     this.page = page
     this.section = page.locator("section#contact")
-    this.heading = page.locator("#contact-heading")
-    this.clock = this.section.locator("[role='timer']")
+    this.heading = page.getByRole("heading", { name: "Let's Connect", level: 2 })
+    this.clock = this.section.getByRole("timer")
     this.availabilityStatus = this.section.getByText("Available for new opportunities")
     this.workPreferences = this.section.getByText("Remote • Hybrid • On-site")
     this.linkedinButton = this.section.getByRole("link", { name: /Connect.*LinkedIn/ })
     this.githubButton = this.section.getByRole("link", { name: /GitHub/ })
-    this.footerNav = this.section.locator(".grid.grid-cols-2")
+    this.footerNav = this.section.getByRole("navigation", { name: "Footer navigation" })
   }
 
   getFooterColumn(heading: string): Locator {
-    return this.section.locator("div").filter({ hasText: heading }).locator("ul")
+    return this.footerNav.getByRole("list", { name: heading })
   }
 }

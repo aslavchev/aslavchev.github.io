@@ -3,7 +3,7 @@ import { test, expect } from "@tests/fixtures/test"
 test.describe("Accessibility", { tag: ["@a11y"] }, () => {
   test("skip-to-main-content link works", async ({ page }) => {
     await page.goto("/")
-    const skipLink = page.locator("a[href='#main-content']")
+    const skipLink = page.getByRole("link", { name: "Skip to main content" })
     await expect(skipLink).toBeAttached()
 
     await skipLink.focus()

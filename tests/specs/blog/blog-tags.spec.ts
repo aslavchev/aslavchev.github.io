@@ -22,7 +22,7 @@ test.describe("Blog Tag Page", () => {
     const tag = "Tutorial"
     const expectedArticles = getArticlesByTag(tag)
     await blogTagPage.goto(tag)
-    await expect(blogTagPage.articleCards).toHaveCount(expectedArticles.length)
+    await expect(blogTagPage.articleLinks).toHaveCount(expectedArticles.length)
     for (const article of expectedArticles) {
       await expect(blogTagPage.page.getByText(article.title)).toBeVisible()
     }

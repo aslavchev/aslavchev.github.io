@@ -127,10 +127,10 @@ export function ContactSection() {
       {/* Footer Index */}
       <Card className="mt-12">
         <CardContent className="p-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <nav aria-label="Footer navigation" className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-sm font-semibold mb-3 text-muted-foreground">EXPLORE</h3>
-              <ul className="space-y-2 text-sm">
+              <ul aria-label="Explore" className="space-y-2 text-sm">
                 <li>
                   <Link href="/#home" onClick={(e) => handleNavClick(e, "/#home")} className="hover:text-primary transition-colors">
                     Home
@@ -145,7 +145,7 @@ export function ContactSection() {
             </div>
             <div>
               <h3 className="text-sm font-semibold mb-3 text-muted-foreground">BACKGROUND</h3>
-              <ul className="space-y-2 text-sm">
+              <ul aria-label="Background" className="space-y-2 text-sm">
                 <li>
                   <Link href="/#experience" onClick={(e) => handleNavClick(e, "/#experience")} className="hover:text-primary transition-colors">
                     Experience
@@ -165,7 +165,7 @@ export function ContactSection() {
             </div>
             <div>
               <h3 className="text-sm font-semibold mb-3 text-muted-foreground">SHOWCASE</h3>
-              <ul className="space-y-2 text-sm">
+              <ul aria-label="Showcase" className="space-y-2 text-sm">
                 <li>
                   <Link href="/#github" onClick={(e) => handleNavClick(e, "/#github")} className="hover:text-primary transition-colors">
                     GitHub Activity
@@ -180,7 +180,7 @@ export function ContactSection() {
             </div>
             <div>
               <h3 className="text-sm font-semibold mb-3 text-muted-foreground">CONNECT</h3>
-              <ul className="space-y-2 text-sm">
+              <ul aria-label="Connect" className="space-y-2 text-sm">
                 <li>
                   <Link href="/#contact" onClick={(e) => handleNavClick(e, "/#contact")} className="hover:text-primary transition-colors">
                     Contact
@@ -198,7 +198,7 @@ export function ContactSection() {
                 </li>
               </ul>
             </div>
-          </div>
+          </nav>
           <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
             <p>© 2026 {personalInfo.name}. Built with Next.js and shadcn/ui.</p>
           </div>

@@ -63,7 +63,7 @@ export default function BlogPage() {
         <div className="space-y-6">
           {filteredArticles.map(article => (
             <Card key={article.slug} className="hover:shadow-lg hover:border-primary hover:bg-primary/5 hover:-translate-y-1 transition-all duration-300 h-full">
-              <Link href={`/blog/${article.slug}`} className="block group">
+              <Link href={`/blog/${article.slug}`} className="block group" aria-label={`Read article: ${article.title}`}>
                 <CardHeader>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
                     <span className="flex items-center gap-1">

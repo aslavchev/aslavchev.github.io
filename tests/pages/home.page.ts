@@ -28,7 +28,7 @@ export class HomePage {
     this.sidebar = new SidebarSection(page)
     this.mainContent = page.locator("main#main-content")
     this.scrollProgress = page.locator("[data-testid='scroll-progress']")
-    this.skipLink = page.locator("a.skip-link")
+    this.skipLink = page.getByRole("link", { name: "Skip to main content" })
   }
 
   async goto() {

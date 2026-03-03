@@ -20,7 +20,7 @@ test.describe("Cross-Page User Journeys", () => {
     await blogListingPage.goto()
 
     const firstArticle = articles[0]
-    await blogListingPage.page.getByText(firstArticle.title).click()
+    await blogListingPage.getArticleLinkByTitle(firstArticle.title).click()
 
     await expect(blogListingPage.page).toHaveURL(new RegExp(`/blog/${firstArticle.slug}`))
     await expect(blogListingPage.page.getByRole("article").getByRole("heading", { level: 1 })).toContainText(firstArticle.title)
@@ -38,7 +38,7 @@ test.describe("Cross-Page User Journeys", () => {
   test("Article → tag click → tag page → article click → correct article", async ({ blogArticlePage }) => {
     await blogArticlePage.goto(articles[0].slug)
 
-    // Click first tag link on the article
+    // Click first tag link on the article (CSS selector — no ARIA alternative without template changes)
     const firstTag = articles[0].tags[0]
     const tagLink = blogArticlePage.page.getByRole("article").locator(`a[href^='/blog/tag/']`).filter({ hasText: firstTag }).first()
     await tagLink.click()
@@ -48,8 +48,7 @@ test.describe("Cross-Page User Journeys", () => {
     await expect(blogArticlePage.page).toHaveURL(new RegExp(`/blog/tag/${tagSlug}`))
 
     // Click the first article on tag page
-    const articleLink = blogArticlePage.page.locator("main a[href^='/blog/']:not([href*='/tag/']):not([href='/blog/'])")
-    await articleLink.first().click()
+    await blogArticlePage.page.getByRole("link", { name: /^Read article:/ }).first().click()
 
     // Should land on an article page
     await expect(blogArticlePage.page.getByRole("article")).toBeVisible()

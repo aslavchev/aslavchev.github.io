@@ -8,14 +8,15 @@ export class BlogListingPage {
   readonly page: Page
   readonly heading: Locator
   readonly searchInput: Locator
-  readonly articleCards: Locator
+  readonly articleLinks: Locator
   readonly tagLinks: Locator
 
   constructor(page: Page) {
     this.page = page
     this.heading = page.getByRole("heading", { level: 1, name: "Technical Articles" })
     this.searchInput = page.getByRole("textbox", { name: "Search blog articles" })
-    this.articleCards = page.locator("main").getByRole("link").filter({ has: page.locator("[class*='card']") })
+    this.articleLinks = page.getByRole("link", { name: /^Read article:/ })
+    // CSS selector — no ARIA alternative for tag filter links without template changes
     this.tagLinks = page.locator("main a[href^='/blog/tag/']")
   }
 
@@ -33,24 +34,19 @@ export class BlogListingPage {
   }
 
   async clickArticle(index: number) {
-    const articles = this.page.locator("main a[href^='/blog/'][href$='/']").filter({
-      hasNot: this.page.locator("a[href^='/blog/tag/']"),
-    })
-    // Filter to only article links (not tag links, not "Back" links)
-    const articleLinks = this.page.locator("main a[href^='/blog/']:not([href*='/tag/']):not([href='/blog/'])")
-    await articleLinks.nth(index).click()
+    await this.articleLinks.nth(index).click()
   }
 
   async clickTagFilter(tagName: string) {
     await this.page.locator(`main a[href^='/blog/tag/']`).filter({ hasText: tagName }).first().click()
   }
 
-  getArticleCardByTitle(title: string): Locator {
-    return this.page.locator("main a").filter({ hasText: title })
+  getArticleLinkByTitle(title: string): Locator {
+    const escaped = title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+    return this.page.getByRole("link", { name: new RegExp(`Read article: ${escaped}`, "i") })
   }
 
-  getVisibleArticles(): Locator {
-    // Article cards are links that go to /blog/{slug}/ (not /blog/tag/)
-    return this.page.locator("main a[href^='/blog/']:not([href*='/tag/']):not([href='/blog/'])")
+  getVisibleArticleLinks(): Locator {
+    return this.page.getByRole("link", { name: /^Read article:/ })
   }
 }

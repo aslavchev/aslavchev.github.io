@@ -83,7 +83,7 @@ export default async function TagPage({ params }: PageProps) {
       {/* Articles List */}
       <div className="space-y-6">
         {articles.map(article => (
-          <Link key={article.slug} href={`/blog/${article.slug}`} className="block group">
+          <Link key={article.slug} href={`/blog/${article.slug}`} className="block group" aria-label={`Read article: ${article.title}`}>
             <Card className="hover:shadow-lg hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 cursor-pointer h-full">
               <CardHeader>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">

@@ -8,13 +8,13 @@ export class BlogTagPage {
   readonly page: Page
   readonly heading: Locator
   readonly backToAllLink: Locator
-  readonly articleCards: Locator
+  readonly articleLinks: Locator
 
   constructor(page: Page) {
     this.page = page
     this.heading = page.getByRole("heading", { level: 1 })
     this.backToAllLink = page.getByRole("link", { name: "All articles" })
-    this.articleCards = page.locator("main a[href^='/blog/']:not([href*='/tag/']):not([href='/blog/'])")
+    this.articleLinks = page.getByRole("link", { name: /^Read article:/ })
   }
 
   async goto(tag: string) {
@@ -28,6 +28,6 @@ export class BlogTagPage {
   }
 
   async clickArticle(index: number) {
-    await this.articleCards.nth(index).click()
+    await this.articleLinks.nth(index).click()
   }
 }

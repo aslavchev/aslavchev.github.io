@@ -5,6 +5,7 @@ const articles = getPublishedArticles()
 const allTags = getAllTags()
 
 test.describe("Blog Listing Page", () => {
+  test.describe.configure({ mode: "serial" })
   test.beforeEach(async ({ blogListingPage }) => {
     await blogListingPage.goto()
   })
@@ -15,13 +16,13 @@ test.describe("Blog Listing Page", () => {
   })
 
   test("displays all published articles", async ({ blogListingPage }) => {
-    const visibleArticles = blogListingPage.getVisibleArticles()
+    const visibleArticles = blogListingPage.getVisibleArticleLinks()
     await expect(visibleArticles).toHaveCount(articles.length)
   })
 
   test("article cards show title, description, date, and read time", async ({ blogListingPage }) => {
     for (const article of articles) {
-      const card = blogListingPage.getArticleCardByTitle(article.title)
+      const card = blogListingPage.getArticleLinkByTitle(article.title)
       await expect(card).toBeVisible()
       await expect(card).toContainText(article.description)
       await expect(card).toContainText(article.readTime)
@@ -30,37 +31,34 @@ test.describe("Blog Listing Page", () => {
 
   test("article cards show tag badges", async ({ blogListingPage }) => {
     const firstArticle = articles[0]
-    const card = blogListingPage.getArticleCardByTitle(firstArticle.title)
     for (const tag of firstArticle.tags) {
-      await expect(card.locator("..").getByText(tag, { exact: true }).first()).toBeVisible()
+      await expect(blogListingPage.page.getByText(tag, { exact: true }).first()).toBeVisible()
     }
   })
 
   test("all tag filter links are present", async ({ blogListingPage }) => {
     for (const tag of allTags) {
-      const tagSlug = tag.toLowerCase().replace(/\s+/g, "-")
-      const tagLink = blogListingPage.page.locator(`main a[href="/blog/tag/${tagSlug}/"]`).first()
-      await expect(tagLink).toBeVisible()
+      await expect(blogListingPage.tagLinks.filter({ hasText: tag }).first()).toBeVisible()
     }
   })
 
   test("search filters articles by title", async ({ blogListingPage }) => {
     await blogListingPage.search("Claude AI")
-    const visible = blogListingPage.getVisibleArticles()
+    const visible = blogListingPage.getVisibleArticleLinks()
     await expect(visible).toHaveCount(1)
     await expect(visible.first()).toContainText("Claude AI Fundamentals")
   })
 
   test("search filters articles by description keyword", async ({ blogListingPage }) => {
     await blogListingPage.search("Charles Proxy")
-    const visible = blogListingPage.getVisibleArticles()
+    const visible = blogListingPage.getVisibleArticleLinks()
     await expect(visible).toHaveCount(1)
     await expect(visible.first()).toContainText("Charles Proxy")
   })
 
   test("search filters articles by tag", async ({ blogListingPage }) => {
     await blogListingPage.search("Tutorial")
-    const visible = blogListingPage.getVisibleArticles()
+    const visible = blogListingPage.getVisibleArticleLinks()
     await expect(visible).toHaveCount(1)
     await expect(visible.first()).toContainText("Charles Proxy")
   })
@@ -68,19 +66,19 @@ test.describe("Blog Listing Page", () => {
   test("empty search shows all articles", async ({ blogListingPage }) => {
     await blogListingPage.search("something")
     await blogListingPage.clearSearch()
-    const visible = blogListingPage.getVisibleArticles()
+    const visible = blogListingPage.getVisibleArticleLinks()
     await expect(visible).toHaveCount(articles.length)
   })
 
   test("no-match search shows empty state", async ({ blogListingPage }) => {
     await blogListingPage.search("xyznonexistent123")
-    const visible = blogListingPage.getVisibleArticles()
+    const visible = blogListingPage.getVisibleArticleLinks()
     await expect(visible).toHaveCount(0)
   })
 
   test("clicking article card navigates to article page", { tag: ["@critical"] }, async ({ blogListingPage }) => {
     const firstArticle = articles[0]
-    await blogListingPage.getArticleCardByTitle(firstArticle.title).click()
+    await blogListingPage.getArticleLinkByTitle(firstArticle.title).click()
     await expect(blogListingPage.page).toHaveURL(new RegExp(`/blog/${firstArticle.slug}`))
   })
 

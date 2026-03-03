@@ -2,6 +2,7 @@ import { test, expect } from "@tests/fixtures/test"
 import { certifications } from "@/lib/data/certifications"
 
 test.describe("Certifications Section", () => {
+  test.describe.configure({ mode: "serial" })
   test.beforeEach(async ({ homePage }) => {
     await homePage.goto()
     await homePage.scrollToSection("certifications")
@@ -12,7 +13,7 @@ test.describe("Certifications Section", () => {
   })
 
   test("initially shows limited certifications", async ({ homePage }) => {
-    const count = await homePage.certifications.certCards.count()
+    const count = await homePage.certifications.certHeadings.count()
     expect(count).toBeLessThan(certifications.length)
   })
 
@@ -47,6 +48,6 @@ test.describe("Certifications Section", () => {
     // and the toggle button unmounts. There is no way to collapse back.
     await homePage.certifications.expandAll()
     await expect(homePage.certifications.expandButton).not.toBeVisible()
-    await expect(homePage.certifications.certCards).toHaveCount(certifications.length)
+    await expect(homePage.certifications.certHeadings).toHaveCount(certifications.length)
   })
 })
