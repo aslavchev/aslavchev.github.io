@@ -1,4 +1,4 @@
-import { type Page, type Locator } from "@playwright/test"
+import { type Page, type Locator, expect } from "@playwright/test"
 
 export class CertificationsSection {
   readonly page: Page
@@ -18,9 +18,10 @@ export class CertificationsSection {
   }
 
   async expandAll() {
+    await expect(this.expandButton).toBeVisible()
     await this.expandButton.scrollIntoViewIfNeeded()
     await this.expandButton.click()
-    // Wait for the button to unmount — confirms expansion is complete
-    await this.expandButton.waitFor({ state: "hidden" })
+    // Wait for the expand button to unmount — confirms all certs are rendered
+    await expect(this.expandButton).not.toBeVisible()
   }
 }
