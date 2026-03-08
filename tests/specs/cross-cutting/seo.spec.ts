@@ -11,7 +11,7 @@ test.describe("SEO & Meta Tags", () => {
     test("meta description is present", async ({ page }) => {
       await page.goto("/")
       const description = page.locator("meta[name='description']")
-      await expect(description).toHaveAttribute("content", personalInfo.bio)
+      await expect(description).toHaveAttribute("content", personalInfo.ogDescription)
     })
 
     test("meta keywords are present", async ({ page }) => {

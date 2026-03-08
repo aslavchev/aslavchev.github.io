@@ -21,7 +21,7 @@ const baseUrl = "https://aslavchev.com"
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
-  description: personalInfo.bio,
+  description: personalInfo.ogDescription,
   keywords: [
     "Quality Engineer",
     "SDET",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://aslavchev.com/",
     title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
-    description: personalInfo.bio,
+    description: personalInfo.ogDescription,
     siteName: "Alex Slavchev Portfolio",
     images: [
       {
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Alex Slavchev – When It Matters, No Bug Walks Alone",
-    description: personalInfo.bio,
+    description: personalInfo.ogDescription,
     images: [getAssetPath("/og-image.png?v=4")],
   },
   robots: {
