@@ -2,14 +2,13 @@ import type { Experience } from "./types"
 
 export const experience: Experience[] = [
   {
-    title: "Software Engineer (Contributing)",
+    title: "Software Engineer",
     company: "Bugzy.ai",
     companyLogo: "/company-logos/bugzy-logo.webp",
-    period: "January 2026 - Present",
-    description: "Building AI-powered QA tooling using TypeScript, Playwright, and the Anthropic SDK",
+    period: "January 2026 - March 2026",
+    description: "Contributed to an AI-powered QA tool — added Zephyr Scale integration that was missing from the product",
     achievements: [
       "Researched, built, and shipped a Zephyr Scale integration enabling AI-generated tests to be pushed and edited directly in Jira",
-      "Built using Claude Code and the Anthropic SDK on a TypeScript + Playwright stack",
     ],
   },
   {
@@ -32,7 +31,7 @@ export const experience: Experience[] = [
     description: "Professional development — frameworks, client delivery, and portfolio building",
     achievements: [
       "Delivered somaholistic.studio for a client using AI-assisted development with Claude Code and the BMAD Method",
-      "Built 3 test automation frameworks (Playwright + TypeScript, Selenium + Java, REST Assured + Java) and personal portfolio site",
+      "Built 3 test automation frameworks — Playwright + TypeScript (GitHub REST API + SauceDemo UI), Selenium + Java, REST Assured + Java — and a personal portfolio site",
     ],
   },
   {
