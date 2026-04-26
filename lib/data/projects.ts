@@ -31,6 +31,8 @@ export const featuredProjects: Project[] = [
     tools: ["Java", "Selenium", "TestNG", "Allure", "GitHub Actions"],
     industries: ["E-Commerce"],
     githubUrl: "https://github.com/aslavchev/saucedemo-selenium-framework",
+    liveUrl: "https://aslavchev.github.io/saucedemo-selenium-framework/",
+    liveLabel: "Allure Report",
   },
   {
     title: "DummyJSON REST Assured Framework",
@@ -113,6 +115,8 @@ export const projects: Project[] = [
     image: "/saucedemo-automation.webp",
     badge: "Automation",
     githubUrl: "https://github.com/aslavchev/saucedemo-selenium-framework",
+    liveUrl: "https://aslavchev.github.io/saucedemo-selenium-framework/",
+    liveLabel: "Allure Report",
   },
   {
     title: "DummyJSON REST Assured Framework",
