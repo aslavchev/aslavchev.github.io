@@ -24,7 +24,7 @@ export const content = {
 
   // Hero Section
   hero: {
-    availability: "Available for Opportunities",
+    availability: "Open to QA Engineering Roles",
     greeting: "Hey, I'm",
     viewProjects: "View Projects",
     getInTouch: "Get in Touch",
